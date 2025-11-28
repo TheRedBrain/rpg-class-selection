@@ -98,7 +98,8 @@ dependencies {
 	modImplementation("maven.modrinth:tiny-config:${project.tiny_config_version}")
 
 	// RPG Inventory
-	modImplementation("maven.modrinth:rpg-inventory:${project.rpg_inventory_version}")
+//	modImplementation("maven.modrinth:rpg-inventory:${project.rpg_inventory_version}")
+	modImplementation(files("libs/rpg-inventory-${project.rpg_inventory_version}.jar"))
 
 	// Slot Customization API
 	modImplementation "maven.modrinth:slot-customization-api:${project.slot_customization_api_version}"
