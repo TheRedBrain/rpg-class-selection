@@ -1,0 +1,10 @@
+{
+    "class_identifier": "rpgclassselection:frost_wizard",
+    "unlock_advancement_identifier": "minecraft:story/smelt_iron",
+    "classItemIdentifierString": "wizards:frost_spell_book",
+    "visibleWhenLocked": false,
+    "description": "class_selection_screen.rpgclassselection.frost_wizard.description",
+    "locked_description": "class_selection_screen.rpgclassselection.frost_wizard.locked_description",
+    "upgradeEntryGroupList": [
+    ]
+}

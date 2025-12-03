@@ -1,0 +1,20 @@
+{
+    "class_identifier": "rpgclassselection:arcane_wizard",
+    "unlock_advancement_identifier": "minecraft:story/mine_diamond",
+    "classItemIdentifierString": "wizards:arcane_spell_book",
+    "visibleWhenLocked": true,
+    "description": "class_selection_screen.rpgclassselection.arcane_wizard.description",
+    "locked_description": "class_selection_screen.rpgclassselection.arcane_wizard.locked_description",
+    "upgradeEntryGroupList": [
+        {
+            "upgradeEntryList": [
+                {
+                    "upgradeIdentifier": "rpgclassselection:arcane_beam",
+                    "unlock_advancement_identifier": "minecraft:story/smelt_iron",
+                    "entryType": "spell",
+                    "spellIdentifierString": "wizards:arcane_beam"
+                }
+            ]
+        }
+    ]
+}
