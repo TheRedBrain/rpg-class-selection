@@ -10,24 +10,27 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClassSelectionScreenHandler extends ScreenHandler {
 
-	private final String initialClassIdentifierString;
+	private final int initialClassIndex;
 	private final ClassStateComponent.ActiveClassState activeClassState;
 	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>(List.of());
 	private final List<RPGClass> rpgClassList = new ArrayList<>();
+	private final World world;
 
 	public ClassSelectionScreenHandler(int syncId, PlayerInventory playerInventory, ClassSelectionScreenData data) {
-		this(syncId, playerInventory, data.initialClassIdentifierString, data.activeClassState, data.classUnlockStateDataList, data.rpgClassList);
+		this(syncId, playerInventory, data.initialClassIndex, data.activeClassState, data.classUnlockStateDataList, data.rpgClassList);
 	}
 
-	public ClassSelectionScreenHandler(int syncId, PlayerInventory playerInventory, String initialClassIdentifierString, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
+	public ClassSelectionScreenHandler(int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
 		super(ScreenHandlerTypesRegistry.CLASS_SELECTION_SCREEN_HANDLER, syncId);
-		this.initialClassIdentifierString = initialClassIdentifierString;
+		this.world = playerInventory.player.getEntityWorld();
+		this.initialClassIndex = initialClassIndex;
 		this.activeClassState = activeClassState;
 		this.classUnlockStateDataList.addAll(classUnlockStateDataList);
 		this.rpgClassList.addAll(rpgClassList);
@@ -43,14 +46,12 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 		return true;
 	}
 
-	@Override
-	public boolean onButtonClick(PlayerEntity player, int id) {
-//		this.selectedClass.set(id);
-		return true;
+	public World getWorld() {
+		return this.world;
 	}
 
-	public String getInitialClassIdentifierString() {
-		return this.initialClassIdentifierString;
+	public int getInitialClassIndex() {
+		return this.initialClassIndex;
 	}
 
 	public ClassStateComponent.ActiveClassState getActiveClassState() {
@@ -66,7 +67,7 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 	}
 
 	public record ClassSelectionScreenData(
-			String initialClassIdentifierString,
+			int initialClassIndex,
 			// potential customization for the screen
 			ClassStateComponent.ActiveClassState activeClassState,
 			List<ClassUnlockStateData> classUnlockStateDataList,
@@ -75,7 +76,7 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 
 		public static final PacketCodec<ByteBuf, ClassSelectionScreenData> PACKET_CODEC = new PacketCodec<>() {
 			public ClassSelectionScreenData decode(ByteBuf byteBuf) {
-				String initialClassIdentifierString = PacketCodecs.STRING.decode(byteBuf);
+				int initialClassIndex = PacketCodecs.INTEGER.decode(byteBuf);
 				ClassStateComponent.ActiveClassState activeClassState = ClassStateComponent.ActiveClassState.PACKET_CODEC.decode(byteBuf);
 				int listSize = PacketCodecs.INTEGER.decode(byteBuf);
 				List<ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>();
@@ -87,11 +88,11 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 				for (int i = 0; i < listSize; i++) {
 					rpgClassList.add(RPGClass.PACKET_CODEC.decode(byteBuf));
 				}
-				return new ClassSelectionScreenData(initialClassIdentifierString, activeClassState, classUnlockStateDataList, rpgClassList);
+				return new ClassSelectionScreenData(initialClassIndex, activeClassState, classUnlockStateDataList, rpgClassList);
 			}
 
 			public void encode(ByteBuf byteBuf, ClassSelectionScreenData classSelectionScreenData) {
-				PacketCodecs.STRING.encode(byteBuf, classSelectionScreenData.initialClassIdentifierString());
+				PacketCodecs.INTEGER.encode(byteBuf, classSelectionScreenData.initialClassIndex());
 				ClassStateComponent.ActiveClassState.PACKET_CODEC.encode(byteBuf, classSelectionScreenData.activeClassState());
 				int listSize = classSelectionScreenData.classUnlockStateDataList().size();
 				PacketCodecs.INTEGER.encode(byteBuf, listSize);
@@ -133,23 +134,20 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 			};
 
 			public record UpgradeUnlockStateData(
-					boolean classUnlockState,
 					List<Boolean> upgradeUnlockStatesList
 			) {
 
 				public static final PacketCodec<ByteBuf, UpgradeUnlockStateData> PACKET_CODEC = new PacketCodec<>() {
 					public UpgradeUnlockStateData decode(ByteBuf byteBuf) {
-						boolean classUnlockState = PacketCodecs.BOOL.decode(byteBuf);
 						int listSize = PacketCodecs.INTEGER.decode(byteBuf);
 						List<Boolean> upgradeUnlockStatesList = new ArrayList<>();
 						for (int i = 0; i < listSize; i++) {
 							upgradeUnlockStatesList.add(PacketCodecs.BOOL.decode(byteBuf));
 						}
-						return new UpgradeUnlockStateData(classUnlockState, upgradeUnlockStatesList);
+						return new UpgradeUnlockStateData(upgradeUnlockStatesList);
 					}
 
 					public void encode(ByteBuf byteBuf, UpgradeUnlockStateData classUnlockStateData) {
-						PacketCodecs.BOOL.encode(byteBuf, classUnlockStateData.classUnlockState());
 						int listSize = classUnlockStateData.upgradeUnlockStatesList().size();
 						PacketCodecs.INTEGER.encode(byteBuf, listSize);
 						for (int i = 0; i < listSize; i++) {

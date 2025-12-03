@@ -14,68 +14,57 @@ import java.util.List;
 import java.util.Optional;
 
 public record RPGClass(
-		String unlockAdvancementIdentifierString,
+		String class_identifier,
+		String unlock_advancement_identifier,
 		String classItemIdentifierString,
 		boolean visibleWhenLocked,
-		List<String> descriptionList,
-		List<String> lockedDescriptionList,
+		String description,
+		String locked_description,
 		List<UpgradeEntryGroup> upgradeEntryGroupList
 ) {
 
-	public static final RPGClass DEFAULT = new RPGClass("", "", true, List.of("empty_class.descriptionList"), List.of(), List.of());
+	public static final RPGClass DEFAULT = new RPGClass("rpgclassselection:empty_class", "", "", true, "class_selection_screen.rpgclassselection.empty_class.description", "", List.of());
 	public static final Codec<RPGClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-			Codec.STRING.optionalFieldOf("unlockAdvancementIdentifierString", "").forGetter(x -> x.unlockAdvancementIdentifierString),
+			Codec.STRING.optionalFieldOf("class_identifier", "").forGetter(x -> x.class_identifier),
+			Codec.STRING.optionalFieldOf("unlock_advancement_identifier", "").forGetter(x -> x.unlock_advancement_identifier),
 			Codec.STRING.optionalFieldOf("classItemIdentifierString", "").forGetter(x -> x.classItemIdentifierString),
 			Codec.BOOL.optionalFieldOf("visibleWhenLocked", true).forGetter(x -> x.visibleWhenLocked),
-			Codec.STRING.listOf().optionalFieldOf("descriptionList", null).forGetter(x -> x.descriptionList),
-			Codec.STRING.listOf().optionalFieldOf("lockedDescriptionList", null).forGetter(x -> x.lockedDescriptionList),
+			Codec.STRING.optionalFieldOf("description", "").forGetter(x -> x.description),
+			Codec.STRING.optionalFieldOf("locked_description", "").forGetter(x -> x.locked_description),
 			UpgradeEntryGroup.CODEC.listOf().optionalFieldOf("upgradeEntryGroupList", List.of()).forGetter(x -> x.upgradeEntryGroupList)
 	).apply(instance, RPGClass::new));
 
 	public static final PacketCodec<ByteBuf, RPGClass> PACKET_CODEC = new PacketCodec<>() {
 		public RPGClass decode(ByteBuf byteBuf) {
+			String class_identifier = PacketCodecs.STRING.decode(byteBuf);
 			String unlockAdvancementIdentifierString = PacketCodecs.STRING.decode(byteBuf);
 			String classItemIdentifierString = PacketCodecs.STRING.decode(byteBuf);
 			boolean visibleWhenLocked = PacketCodecs.BOOL.decode(byteBuf);
-			int descriptionListSize = PacketCodecs.INTEGER.decode(byteBuf);
-			List<String> descriptionList = new ArrayList<>();
-			for (int i = 0; i < descriptionListSize; i++) {
-				descriptionList.add(PacketCodecs.STRING.decode(byteBuf));
-			}
-			int lockedDescriptionListSize = PacketCodecs.INTEGER.decode(byteBuf);
-			List<String> lockedDescriptionList = new ArrayList<>();
-			for (int i = 0; i < lockedDescriptionListSize; i++) {
-				lockedDescriptionList.add(PacketCodecs.STRING.decode(byteBuf));
-			}
+			String description = PacketCodecs.STRING.decode(byteBuf);
+			String locked_description = PacketCodecs.STRING.decode(byteBuf);
 			int upgradeUnlockStatesListSize = PacketCodecs.INTEGER.decode(byteBuf);
 			List<UpgradeEntryGroup> upgradeUnlockStatesList = new ArrayList<>();
 			for (int i = 0; i < upgradeUnlockStatesListSize; i++) {
 				upgradeUnlockStatesList.add(UpgradeEntryGroup.PACKET_CODEC.decode(byteBuf));
 			}
 			return new RPGClass(
+					class_identifier,
 					unlockAdvancementIdentifierString,
 					classItemIdentifierString,
 					visibleWhenLocked,
-					descriptionList,
-					lockedDescriptionList,
+					description,
+					locked_description,
 					upgradeUnlockStatesList
 			);
 		}
 
 		public void encode(ByteBuf byteBuf, RPGClass classUnlockStateData) {
-			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.unlockAdvancementIdentifierString());
+			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.class_identifier());
+			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.unlock_advancement_identifier());
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.classItemIdentifierString());
 			PacketCodecs.BOOL.encode(byteBuf, classUnlockStateData.visibleWhenLocked());
-			int descriptionListSize = classUnlockStateData.upgradeEntryGroupList().size();
-			PacketCodecs.INTEGER.encode(byteBuf, descriptionListSize);
-			for (int i = 0; i < descriptionListSize; i++) {
-				PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.descriptionList().get(i));
-			}
-			int lockedDescriptionList = classUnlockStateData.upgradeEntryGroupList().size();
-			PacketCodecs.INTEGER.encode(byteBuf, lockedDescriptionList);
-			for (int i = 0; i < lockedDescriptionList; i++) {
-				PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.lockedDescriptionList().get(i));
-			}
+			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.description());
+			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.locked_description());
 			int upgradeEntryGroupListSize = classUnlockStateData.upgradeEntryGroupList().size();
 			PacketCodecs.INTEGER.encode(byteBuf, upgradeEntryGroupListSize);
 			for (int i = 0; i < upgradeEntryGroupListSize; i++) {
@@ -85,18 +74,20 @@ public record RPGClass(
 	};
 
 	public RPGClass(
-			String unlockAdvancementIdentifierString,
+			String class_identifier,
+			String unlock_advancement_identifier,
 			String classItemIdentifierString,
 			boolean visibleWhenLocked,
-			List<String> descriptionList,
-			List<String> lockedDescriptionList,
+			String description,
+			String locked_description,
 			List<UpgradeEntryGroup> upgradeEntryGroupList
 	) {
-		this.unlockAdvancementIdentifierString = unlockAdvancementIdentifierString != null ? unlockAdvancementIdentifierString : "";
+		this.class_identifier = class_identifier != null ? class_identifier : "";
+		this.unlock_advancement_identifier = unlock_advancement_identifier != null ? unlock_advancement_identifier : "";
 		this.classItemIdentifierString = classItemIdentifierString != null ? classItemIdentifierString : "";
 		this.visibleWhenLocked = visibleWhenLocked;
-		this.descriptionList = descriptionList != null ? descriptionList : List.of();
-		this.lockedDescriptionList = lockedDescriptionList != null ? lockedDescriptionList : List.of();
+		this.description = description != null ? description : "";
+		this.locked_description = locked_description != null ? locked_description : "";
 		this.upgradeEntryGroupList = upgradeEntryGroupList != null ? upgradeEntryGroupList : List.of();
 	}
 
@@ -137,18 +128,21 @@ public record RPGClass(
 		public record UpgradeEntry(
 				String upgradeIdentifier,
 				String entryType,
-				String unlockAdvancement,
+				String unlock_advancement_identifier,
+				boolean visibleWhenLocked,
 				String spellIdentifierString,
 				String attributeIdentifier,
 				String attributeModifierIdentifier,
 				double attributeModifierAmount,
 				String attributeModifierOperation
 		) {
+			public static final UpgradeEntry DEFAULT = new UpgradeEntry("rpgclassselection:empty", Type.EMPTY.asString(), "", true, "", "", "", 0.0, EntityAttributeModifier.Operation.ADD_VALUE.asString());
 
 			public static final Codec<UpgradeEntry> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 					Codec.STRING.optionalFieldOf("upgradeIdentifier", "").forGetter(x -> x.upgradeIdentifier),
-					Codec.STRING.optionalFieldOf("entryType", Type.SPELL.asString()).forGetter(x -> x.entryType),
-					Codec.STRING.optionalFieldOf("unlockAdvancement", "").forGetter(x -> x.unlockAdvancement),
+					Codec.STRING.optionalFieldOf("entryType", Type.EMPTY.asString()).forGetter(x -> x.entryType),
+					Codec.STRING.optionalFieldOf("unlock_advancement_identifier", "").forGetter(x -> x.unlock_advancement_identifier),
+					Codec.BOOL.optionalFieldOf("visibleWhenLocked", true).forGetter(x -> x.visibleWhenLocked),
 					Codec.STRING.optionalFieldOf("spellIdentifierString", "").forGetter(x -> x.spellIdentifierString),
 					Codec.STRING.optionalFieldOf("attributeIdentifier", "").forGetter(x -> x.attributeIdentifier),
 					Codec.STRING.optionalFieldOf("attributeModifierIdentifier", "").forGetter(x -> x.attributeModifierIdentifier),
@@ -162,6 +156,7 @@ public record RPGClass(
 							PacketCodecs.STRING.decode(byteBuf),
 							PacketCodecs.STRING.decode(byteBuf),
 							PacketCodecs.STRING.decode(byteBuf),
+							PacketCodecs.BOOL.decode(byteBuf),
 							PacketCodecs.STRING.decode(byteBuf),
 							PacketCodecs.STRING.decode(byteBuf),
 							PacketCodecs.STRING.decode(byteBuf),
@@ -173,7 +168,8 @@ public record RPGClass(
 				public void encode(ByteBuf byteBuf, UpgradeEntry upgradeEntry) {
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.upgradeIdentifier());
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.entryType());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.unlockAdvancement());
+					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.unlock_advancement_identifier());
+					PacketCodecs.BOOL.encode(byteBuf, upgradeEntry.visibleWhenLocked());
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.spellIdentifierString());
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeIdentifier());
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeModifierIdentifier());
@@ -185,7 +181,8 @@ public record RPGClass(
 			public UpgradeEntry(
 					String upgradeIdentifier,
 					String entryType,
-					String unlockAdvancement,
+					String unlock_advancement_identifier,
+					boolean visibleWhenLocked,
 					String spellIdentifierString,
 					String attributeIdentifier,
 					String attributeModifierIdentifier,
@@ -194,7 +191,8 @@ public record RPGClass(
 			) {
 				this.upgradeIdentifier = upgradeIdentifier != null ? upgradeIdentifier : "";
 				this.entryType = entryType != null ? entryType : "";
-				this.unlockAdvancement = unlockAdvancement != null ? unlockAdvancement : "";
+				this.unlock_advancement_identifier = unlock_advancement_identifier != null ? unlock_advancement_identifier : "";
+				this.visibleWhenLocked = visibleWhenLocked;
 				this.spellIdentifierString = spellIdentifierString != null ? spellIdentifierString : "";
 				this.attributeIdentifier = attributeIdentifier != null ? attributeIdentifier : "";
 				this.attributeModifierIdentifier = attributeModifierIdentifier != null ? attributeModifierIdentifier : "";
@@ -203,6 +201,7 @@ public record RPGClass(
 			}
 
 			public enum Type implements StringIdentifiable {
+				EMPTY("empty"),
 				SPELL("spell"),
 				ATTRIBUTE_MODIFIER("attribute_modifier");
 

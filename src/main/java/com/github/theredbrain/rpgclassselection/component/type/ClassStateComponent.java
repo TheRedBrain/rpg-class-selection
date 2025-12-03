@@ -13,7 +13,7 @@ import java.util.List;
 public record ClassStateComponent(
 		ActiveClassState activeClassState
 ) {
-	public static final ClassStateComponent DEFAULT = new ClassStateComponent(new ActiveClassState("", List.of()));
+	public static final ClassStateComponent DEFAULT = new ClassStateComponent(new ActiveClassState("rpgclassslection:empty_class", List.of()));
 	public static final Codec<ClassStateComponent> CODEC = RecordCodecBuilder.create(
 			instance -> instance.group(
 							ActiveClassState.CODEC.fieldOf("activeClassState").forGetter(component -> component.activeClassState)
