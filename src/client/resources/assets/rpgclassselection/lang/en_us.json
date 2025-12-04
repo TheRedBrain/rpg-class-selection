@@ -8,5 +8,12 @@
   "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
   "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
   "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.",
-  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": ""
+  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": "",
+
+
+  "rpgclassselection.server": "Server Side Settings",
+
+  "rpgclassselection.server.enable_class_selection_hotkey": "Enable Class Selection Hotkey",
+  "rpgclassselection.server.class_selection_screen_type": "Class Selection Screen Layout",
+  "rpgclassselection.server.class_selection_screen_type.desc": "Different layouts can show different amounts of upgrades and can also have different UI elements."
 }

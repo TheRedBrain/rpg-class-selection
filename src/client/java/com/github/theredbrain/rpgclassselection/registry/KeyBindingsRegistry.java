@@ -40,7 +40,7 @@ public class KeyBindingsRegistry {
 
 	public static void openClassSelectionScreen(MinecraftClient client) {
 		if (client.player != null) {
-			if (RPGClassSelection.SERVER_CONFIG.enable_hotkey) {
+			if (RPGClassSelection.SERVER_CONFIG.enable_class_selection_hotkey) {
 				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket(""));
 			} else {
 				client.player.sendMessage(Text.translatable("hud.message.class_selection_hot_key_was_disabled"), true);

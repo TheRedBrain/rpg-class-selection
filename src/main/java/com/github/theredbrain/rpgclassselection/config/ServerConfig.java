@@ -11,7 +11,7 @@ public class ServerConfig extends Config {
 		super(RPGClassSelection.identifier("server"));
 	}
 
-	public boolean enable_hotkey = true;
+	public boolean enable_class_selection_hotkey = true;
 
 	public ValidatedEnum<ClassSelectionScreenHandler.ClassSelectionScreenType> class_selection_screen_type = new ValidatedEnum<>(ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES);
 }
