@@ -43,7 +43,7 @@ public class KeyBindingsRegistry {
 			if (RPGClassSelection.SERVER_CONFIG.enable_hotkey) {
 				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket(""));
 			} else {
-				client.player.sendMessage(Text.translatable("Hotkey disabled by server"), true);// TODO localization
+				client.player.sendMessage(Text.translatable("hud.message.class_selection_hot_key_was_disabled"), true);
 			}
 		}
 	}
