@@ -5,6 +5,8 @@ import com.github.theredbrain.rpgclassselection.component.type.ClassStateCompone
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
+import com.github.theredbrain.rpgclassselection.screen.RPGSeriesClassSelectionScreenHandler;
+import com.github.theredbrain.rpgclassselection.screen.ThreeUpgradesClassSelectionScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.advancement.AdvancementEntry;
@@ -157,14 +159,25 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 					@Nullable
 					@Override
 					public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-						return new ClassSelectionScreenHandler(
-								syncId,
-								playerInventory,
-								finalInitialClassIndex,
-								activeClassState,
-								classUnlockStateDataList,
-								rpgClassList
-						);
+						if (RPGClassSelection.SERVER_CONFIG.class_selection_screen_type.get() == ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES) {
+							return new RPGSeriesClassSelectionScreenHandler(
+									syncId,
+									playerInventory,
+									finalInitialClassIndex,
+									activeClassState,
+									classUnlockStateDataList,
+									rpgClassList
+							);
+						} else {
+							return new ThreeUpgradesClassSelectionScreenHandler(
+									syncId,
+									playerInventory,
+									finalInitialClassIndex,
+									activeClassState,
+									classUnlockStateDataList,
+									rpgClassList
+							);
+						}
 					}
 				});
 			}

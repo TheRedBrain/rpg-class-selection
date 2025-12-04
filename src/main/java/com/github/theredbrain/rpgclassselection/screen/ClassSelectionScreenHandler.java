@@ -2,7 +2,6 @@ package com.github.theredbrain.rpgclassselection.screen;
 
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
-import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,26 +9,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.world.World;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.util.StringIdentifiable;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassSelectionScreenHandler extends ScreenHandler {
+public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 
 	private final int initialClassIndex;
 	private final ClassStateComponent.ActiveClassState activeClassState;
 	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>(List.of());
 	private final List<RPGClass> rpgClassList = new ArrayList<>();
-	private final World world;
 
-	public ClassSelectionScreenHandler(int syncId, PlayerInventory playerInventory, ClassSelectionScreenData data) {
-		this(syncId, playerInventory, data.initialClassIndex, data.activeClassState, data.classUnlockStateDataList, data.rpgClassList);
-	}
-
-	public ClassSelectionScreenHandler(int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
-		super(ScreenHandlerTypesRegistry.CLASS_SELECTION_SCREEN_HANDLER, syncId);
-		this.world = playerInventory.player.getEntityWorld();
+	public ClassSelectionScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
+		super(type, syncId);
 		this.initialClassIndex = initialClassIndex;
 		this.activeClassState = activeClassState;
 		this.classUnlockStateDataList.addAll(classUnlockStateDataList);
@@ -46,10 +41,6 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 		return true;
 	}
 
-	public World getWorld() {
-		return this.world;
-	}
-
 	public int getInitialClassIndex() {
 		return this.initialClassIndex;
 	}
@@ -64,6 +55,23 @@ public class ClassSelectionScreenHandler extends ScreenHandler {
 
 	public List<RPGClass> getRpgClassList() {
 		return this.rpgClassList;
+	}
+
+	public enum ClassSelectionScreenType implements StringIdentifiable {
+		RPG_SERIES("rpg_series"),
+		THREE_UPGRADES("three_upgrades");
+
+		private final String name;
+
+		ClassSelectionScreenType(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String asString() {
+			return this.name;
+		}
+
 	}
 
 	public record ClassSelectionScreenData(

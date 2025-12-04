@@ -1,6 +1,7 @@
 package com.github.theredbrain.rpgclassselection;
 
-import com.github.theredbrain.rpgclassselection.gui.screen.ingame.ClassSelectionScreen;
+import com.github.theredbrain.rpgclassselection.gui.screen.ingame.RPGSeriesClassSelectionScreen;
+import com.github.theredbrain.rpgclassselection.gui.screen.ingame.ThreeUpgradesClassSelectionScreen;
 import com.github.theredbrain.rpgclassselection.registry.KeyBindingsRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
 import net.fabricmc.api.ClientModInitializer;
@@ -19,6 +20,7 @@ public class RPGClassSelectionClient implements ClientModInitializer {
 
 
 	private void registerScreens() {
-		HandledScreens.register(ScreenHandlerTypesRegistry.CLASS_SELECTION_SCREEN_HANDLER, ClassSelectionScreen::new);
+		HandledScreens.register(ScreenHandlerTypesRegistry.RPG_SERIES_CLASS_SELECTION_SCREEN_HANDLER, RPGSeriesClassSelectionScreen::new);
+		HandledScreens.register(ScreenHandlerTypesRegistry.THREE_UPGRADES_CLASS_SELECTION_SCREEN_HANDLER, ThreeUpgradesClassSelectionScreen::new);
 	}
 }

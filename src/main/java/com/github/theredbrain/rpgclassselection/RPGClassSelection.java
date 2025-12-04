@@ -7,7 +7,6 @@ import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries
 import com.github.theredbrain.rpgclassselection.registry.DataComponentRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ServerPacketRegistry;
-import com.github.theredbrain.rpginventory.entity.player.DuckPlayerInventoryMixin;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.component.ComponentType;

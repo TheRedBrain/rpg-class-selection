@@ -1,8 +1,9 @@
 package com.github.theredbrain.rpgclassselection.config;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
-import me.fzzyhmstrs.fzzy_config.annotations.ConvertFrom;
+import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import me.fzzyhmstrs.fzzy_config.config.Config;
+import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedEnum;
 
 public class ServerConfig extends Config {
 
@@ -11,4 +12,6 @@ public class ServerConfig extends Config {
 	}
 
 	public boolean enable_hotkey = true;
+
+	public ValidatedEnum<ClassSelectionScreenHandler.ClassSelectionScreenType> class_selection_screen_type = new ValidatedEnum<>(ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES);
 }
