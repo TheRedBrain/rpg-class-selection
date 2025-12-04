@@ -1,17 +1,23 @@
 {
     "class_identifier": "rpgclassselection:fire_wizard",
     "unlock_advancement_identifier": "",
-    "classItemIdentifierString": "wizards:fire_spell_book",
-    "visibleWhenLocked": false,
+    "class_item_identifier": "wizards:fire_spell_book",
+    "visible_when_locked": false,
     "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
-    "upgradeEntryGroupList": [
+    "upgrade_entry_group_list": [
         {
             "upgradeEntryList": [
                 {
-                    "upgradeIdentifier": "rpgclassselection:fire_wall",
-                    "entryType": "spell",
-                    "spellIdentifierString": "wizards:fire_wall"
+                    "upgrade_identifier": "rpgclassselection:fire_wall",
+                    "title": "spell.wizards.fire_wall.name",
+                    "icon_path": "wizards:textures/spell/fire_wall.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_wall"
+                        }
+                    ]
                 }
             ]
         }
