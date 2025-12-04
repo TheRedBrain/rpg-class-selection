@@ -12,13 +12,10 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
-import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
@@ -331,25 +328,28 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgradeEntryList().get(index);
 
 					Text text = Text.empty();
+					int x = 0;
 					if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.ATTRIBUTE_MODIFIER.asString())) {
 
 					} else if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.SPELL.asString())) {
 
-						Optional<RegistryEntry.Reference<Spell>> optionalSpellReference = this.handler.getWorld().getRegistryManager().get(SpellRegistry.KEY).getEntry(Identifier.of(upgradeEntry.spellIdentifierString()));
-
-						if (optionalSpellReference.isPresent()) {
-							Optional<RegistryKey<Spell>> optionalSpellRegistryKey = optionalSpellReference.get().getKey();
-
-							if (optionalSpellRegistryKey.isPresent()) {
-								text = Text.translatable("spell." + optionalSpellRegistryKey.get().getValue().toTranslationKey() + ".name");
-							}
+						String[] strings = upgradeEntry.spellIdentifierString().split(":");
+						if (strings.length < 2) {
+							String path = strings[0];
+							strings = new String[]{"minecraft", path};
 						}
+
+						text = Text.translatable("spell." + strings[0] + "." + strings[1] + ".name");
+						x = (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2 + 20;
+						context.drawTexture(Identifier.of(strings[0], "textures/spell/" + strings[1] + ".png"), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
 					} else {
 						text = Text.translatable("class_selection_screen.empty_upgrade.description");
-						context.drawText(this.textRenderer, text, (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2, 122 + i * 24, 0/*4210752*/, false);
+						x = (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2;
 					}
 
-					context.drawText(this.textRenderer, text, (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2, 122 + i * 24, 0/*4210752*/, false);
+					if (!text.equals(Text.empty())) {
+						context.drawText(this.textRenderer, text, x, 122 + i * 24, 0/*4210752*/, false);
+					}
 				}
 			}
 		}
