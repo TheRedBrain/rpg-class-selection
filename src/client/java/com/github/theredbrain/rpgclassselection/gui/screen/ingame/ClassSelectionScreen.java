@@ -87,14 +87,10 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 	public void cycleUpgradeIndexBackwards(int upgradeIndex) {
 		if (upgradeIndex < this.currentUpgradeIndexList.size()) {
 			int index = this.currentUpgradeIndexList.get(upgradeIndex);
-			List<RPGClass> dataList = this.handler.getRpgClassList();
 			List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> unlockStateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
 			if (upgradeIndex < unlockStateList.size()) {
 				List<Boolean> stateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList().get(upgradeIndex).upgradeUnlockStatesList();
 				int stateListSize = stateList.size();
-				int dataListSize = dataList.size();
-				RPGClassSelection.info("stateListSize: " + stateListSize);
-				RPGClassSelection.info("dataListSize: " + dataListSize);
 				while (true) {
 					index = index - 1;
 					if (index < 0) {
@@ -112,14 +108,10 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 	public void cycleUpgradeIndexForwards(int upgradeIndex) {
 		if (upgradeIndex < this.currentUpgradeIndexList.size()) {
 			int index = this.currentUpgradeIndexList.get(upgradeIndex);
-			List<RPGClass> dataList = this.handler.getRpgClassList();
 			List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> unlockStateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
 			if (upgradeIndex < unlockStateList.size()) {
 				List<Boolean> stateList = unlockStateList.get(upgradeIndex).upgradeUnlockStatesList();
 				int stateListSize = stateList.size();
-				int dataListSize = dataList.size();
-				RPGClassSelection.info("stateListSize: " + stateListSize);
-				RPGClassSelection.info("dataListSize: " + dataListSize);
 				while (true) {
 					index = index + 1;
 					if (index >= stateListSize) {
@@ -240,13 +232,14 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 		ClassStateComponent.ActiveClassState var = this.newActiveClassState;
 		int integer = this.currentClassIndex;
 		String string = this.activeClassDescription;
-		List<Integer> list = this.currentUpgradeIndexList;
+		List<Integer> list = new ArrayList<>(this.currentUpgradeIndexList);
 		this.init(client, width, height);
 		this.newActiveClassState = var;
 		this.currentClassIndex = integer;
 		this.activeClassDescription = string;
 		this.currentUpgradeIndexList.clear();
 		this.currentUpgradeIndexList.addAll(list);
+		this.updateWidgets();
 	}
 
 	private void updateWidgets() {
@@ -322,34 +315,19 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
 		for (int i = 0; i < Math.min(3, rpgClass.upgradeEntryGroupList().size()); i++) {
 			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgradeEntryGroupList().get(i);
+
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
+
 				if (index < upgradeEntryGroup.upgradeEntryList().size()) {
 					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgradeEntryList().get(index);
+					int x_offset = 0;
 
-					Text text = Text.empty();
-					int x = 0;
-					if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.ATTRIBUTE_MODIFIER.asString())) {
-
-					} else if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.SPELL.asString())) {
-
-						String[] strings = upgradeEntry.spellIdentifierString().split(":");
-						if (strings.length < 2) {
-							String path = strings[0];
-							strings = new String[]{"minecraft", path};
-						}
-
-						text = Text.translatable("spell." + strings[0] + "." + strings[1] + ".name");
-						x = (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2 + 20;
-						context.drawTexture(Identifier.of(strings[0], "textures/spell/" + strings[1] + ".png"), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
-					} else {
-						text = Text.translatable("class_selection_screen.empty_upgrade.description");
-						x = (this.backgroundWidth - this.textRenderer.getWidth(text)) / 2;
+					if (!upgradeEntry.icon_path().isEmpty()) {
+						x_offset = 20;
+						context.drawTexture(Identifier.of(upgradeEntry.icon_path()), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
 					}
-
-					if (!text.equals(Text.empty())) {
-						context.drawText(this.textRenderer, text, x, 122 + i * 24, 0/*4210752*/, false);
-					}
+					context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 31 + x_offset, 122 + i * 24, 0/*4210752*/, false);
 				}
 			}
 		}

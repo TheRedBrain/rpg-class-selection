@@ -24,6 +24,7 @@ public record RPGClass(
 ) {
 
 	public static final RPGClass DEFAULT = new RPGClass("rpgclassselection:empty_class", "", "", true, "class_selection_screen.rpgclassselection.empty_class.description", "", List.of());
+
 	public static final Codec<RPGClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			Codec.STRING.optionalFieldOf("class_identifier", "").forGetter(x -> x.class_identifier),
 			Codec.STRING.optionalFieldOf("unlock_advancement_identifier", "").forGetter(x -> x.unlock_advancement_identifier),
@@ -127,97 +128,142 @@ public record RPGClass(
 
 		public record UpgradeEntry(
 				String upgradeIdentifier,
-				String entryType,
 				String unlock_advancement_identifier,
 				boolean visibleWhenLocked,
-				String spellIdentifierString,
-				String attributeIdentifier,
-				String attributeModifierIdentifier,
-				double attributeModifierAmount,
-				String attributeModifierOperation
+				String title,
+				String icon_path,
+				List<UpgradeEntryComponent> componentList
 		) {
-			public static final UpgradeEntry DEFAULT = new UpgradeEntry("rpgclassselection:empty", Type.EMPTY.asString(), "", true, "", "", "", 0.0, EntityAttributeModifier.Operation.ADD_VALUE.asString());
+			public static final UpgradeEntry DEFAULT = new UpgradeEntry("rpgclassselection:empty", "", true, "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
 
 			public static final Codec<UpgradeEntry> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 					Codec.STRING.optionalFieldOf("upgradeIdentifier", "").forGetter(x -> x.upgradeIdentifier),
-					Codec.STRING.optionalFieldOf("entryType", Type.EMPTY.asString()).forGetter(x -> x.entryType),
 					Codec.STRING.optionalFieldOf("unlock_advancement_identifier", "").forGetter(x -> x.unlock_advancement_identifier),
 					Codec.BOOL.optionalFieldOf("visibleWhenLocked", true).forGetter(x -> x.visibleWhenLocked),
-					Codec.STRING.optionalFieldOf("spellIdentifierString", "").forGetter(x -> x.spellIdentifierString),
-					Codec.STRING.optionalFieldOf("attributeIdentifier", "").forGetter(x -> x.attributeIdentifier),
-					Codec.STRING.optionalFieldOf("attributeModifierIdentifier", "").forGetter(x -> x.attributeModifierIdentifier),
-					Codec.DOUBLE.optionalFieldOf("attributeModifierAmount", 0.0).forGetter(x -> x.attributeModifierAmount),
-					Codec.STRING.optionalFieldOf("attributeModifierOperation", EntityAttributeModifier.Operation.ADD_VALUE.asString()).forGetter(x -> x.attributeModifierOperation)
+					Codec.STRING.optionalFieldOf("title", "").forGetter(x -> x.title),
+					Codec.STRING.optionalFieldOf("icon_path", "").forGetter(x -> x.icon_path),
+					UpgradeEntryComponent.CODEC.listOf().optionalFieldOf("componentList", List.of()).forGetter(x -> x.componentList)
 			).apply(instance, UpgradeEntry::new));
 
 			public static final PacketCodec<ByteBuf, UpgradeEntry> PACKET_CODEC = new PacketCodec<>() {
 				public UpgradeEntry decode(ByteBuf byteBuf) {
+					String upgradeIdentifier = PacketCodecs.STRING.decode(byteBuf);
+					String unlock_advancement_identifier = PacketCodecs.STRING.decode(byteBuf);
+					boolean visibleWhenLocked = PacketCodecs.BOOL.decode(byteBuf);
+					String title = PacketCodecs.STRING.decode(byteBuf);
+					String icon_path = PacketCodecs.STRING.decode(byteBuf);
+					int listSize = PacketCodecs.INTEGER.decode(byteBuf);
+					List<UpgradeEntryComponent> componentList = new ArrayList<>();
+					for (int i = 0; i < listSize; i++) {
+						componentList.add(UpgradeEntryComponent.PACKET_CODEC.decode(byteBuf));
+					}
 					return new UpgradeEntry(
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.BOOL.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf),
-							PacketCodecs.DOUBLE.decode(byteBuf),
-							PacketCodecs.STRING.decode(byteBuf)
+							upgradeIdentifier,
+							unlock_advancement_identifier,
+							visibleWhenLocked,
+							title,
+							icon_path,
+							componentList
 					);
 				}
 
 				public void encode(ByteBuf byteBuf, UpgradeEntry upgradeEntry) {
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.upgradeIdentifier());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.entryType());
 					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.unlock_advancement_identifier());
 					PacketCodecs.BOOL.encode(byteBuf, upgradeEntry.visibleWhenLocked());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.spellIdentifierString());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeIdentifier());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeModifierIdentifier());
-					PacketCodecs.DOUBLE.encode(byteBuf, upgradeEntry.attributeModifierAmount());
-					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeModifierOperation());
+					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.title());
+					PacketCodecs.STRING.encode(byteBuf, upgradeEntry.icon_path());
+					int componentListSize = upgradeEntry.componentList().size();
+					PacketCodecs.INTEGER.encode(byteBuf, componentListSize);
+					for (int i = 0; i < componentListSize; i++) {
+						UpgradeEntryComponent.PACKET_CODEC.encode(byteBuf, upgradeEntry.componentList().get(i));
+					}
 				}
 			};
 
 			public UpgradeEntry(
 					String upgradeIdentifier,
-					String entryType,
 					String unlock_advancement_identifier,
 					boolean visibleWhenLocked,
+					String title,
+					String icon_path,
+					List<UpgradeEntryComponent> componentList
+			) {
+				this.upgradeIdentifier = upgradeIdentifier != null ? upgradeIdentifier : "";
+				this.unlock_advancement_identifier = unlock_advancement_identifier != null ? unlock_advancement_identifier : "";
+				this.visibleWhenLocked = visibleWhenLocked;
+				this.title = title != null ? title : "";
+				this.icon_path = icon_path != null ? icon_path : "";
+				this.componentList = componentList != null ? componentList : List.of();
+			}
+
+			public record UpgradeEntryComponent(
+					String entryType,
 					String spellIdentifierString,
 					String attributeIdentifier,
-					String attributeModifierIdentifier,
 					double attributeModifierAmount,
 					String attributeModifierOperation
 			) {
-				this.upgradeIdentifier = upgradeIdentifier != null ? upgradeIdentifier : "";
-				this.entryType = entryType != null ? entryType : "";
-				this.unlock_advancement_identifier = unlock_advancement_identifier != null ? unlock_advancement_identifier : "";
-				this.visibleWhenLocked = visibleWhenLocked;
-				this.spellIdentifierString = spellIdentifierString != null ? spellIdentifierString : "";
-				this.attributeIdentifier = attributeIdentifier != null ? attributeIdentifier : "";
-				this.attributeModifierIdentifier = attributeModifierIdentifier != null ? attributeModifierIdentifier : "";
-				this.attributeModifierAmount = attributeModifierAmount;
-				this.attributeModifierOperation = attributeModifierOperation != null ? attributeModifierOperation : EntityAttributeModifier.Operation.ADD_VALUE.asString();
-			}
+				public static final Codec<UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+						Codec.STRING.optionalFieldOf("entryType", Type.SPELL.asString()).forGetter(x -> x.entryType),
+						Codec.STRING.optionalFieldOf("spellIdentifierString", "").forGetter(x -> x.spellIdentifierString),
+						Codec.STRING.optionalFieldOf("attributeIdentifier", "").forGetter(x -> x.attributeIdentifier),
+						Codec.DOUBLE.optionalFieldOf("attributeModifierAmount", 0.0).forGetter(x -> x.attributeModifierAmount),
+						Codec.STRING.optionalFieldOf("attributeModifierOperation", EntityAttributeModifier.Operation.ADD_VALUE.asString()).forGetter(x -> x.attributeModifierOperation)
+				).apply(instance, UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent::new));
 
-			public enum Type implements StringIdentifiable {
-				EMPTY("empty"),
-				SPELL("spell"),
-				ATTRIBUTE_MODIFIER("attribute_modifier");
+				public static final PacketCodec<ByteBuf, UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent> PACKET_CODEC = new PacketCodec<>() {
+					public UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent decode(ByteBuf byteBuf) {
+						return new UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent(
+								PacketCodecs.STRING.decode(byteBuf),
+								PacketCodecs.STRING.decode(byteBuf),
+								PacketCodecs.STRING.decode(byteBuf),
+								PacketCodecs.DOUBLE.decode(byteBuf),
+								PacketCodecs.STRING.decode(byteBuf)
+						);
+					}
 
-				private final String name;
+					public void encode(ByteBuf byteBuf, UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent upgradeEntry) {
+						PacketCodecs.STRING.encode(byteBuf, upgradeEntry.entryType());
+						PacketCodecs.STRING.encode(byteBuf, upgradeEntry.spellIdentifierString());
+						PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeIdentifier());
+						PacketCodecs.DOUBLE.encode(byteBuf, upgradeEntry.attributeModifierAmount());
+						PacketCodecs.STRING.encode(byteBuf, upgradeEntry.attributeModifierOperation());
+					}
+				};
 
-				Type(String name) {
-					this.name = name;
+				public UpgradeEntryComponent(
+						String entryType,
+						String spellIdentifierString,
+						String attributeIdentifier,
+						double attributeModifierAmount,
+						String attributeModifierOperation
+				) {
+					this.entryType = entryType != null ? entryType : "";
+					this.spellIdentifierString = spellIdentifierString != null ? spellIdentifierString : "";
+					this.attributeIdentifier = attributeIdentifier != null ? attributeIdentifier : "";
+					this.attributeModifierAmount = attributeModifierAmount;
+					this.attributeModifierOperation = attributeModifierOperation != null ? attributeModifierOperation : EntityAttributeModifier.Operation.ADD_VALUE.asString();
 				}
 
-				@Override
-				public String asString() {
-					return this.name;
-				}
+				public enum Type implements StringIdentifiable {
+					SPELL("spell"),
+					ATTRIBUTE_MODIFIER("attribute_modifier");
 
-				public static Optional<Type> byName(String name) {
-					return Arrays.stream(Type.values()).filter(type -> type.asString().equals(name)).findFirst();
+					private final String name;
+
+					Type(String name) {
+						this.name = name;
+					}
+
+					@Override
+					public String asString() {
+						return this.name;
+					}
+
+					public static Optional<UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type> byName(String name) {
+						return Arrays.stream(UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.values()).filter(type -> type.asString().equals(name)).findFirst();
+					}
 				}
 			}
 		}

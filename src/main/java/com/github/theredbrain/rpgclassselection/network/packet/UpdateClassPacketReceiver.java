@@ -44,8 +44,6 @@ public class UpdateClassPacketReceiver implements ServerPlayNetworking.PlayPaylo
 			String rpgClassIdentifierString = activeClassState.activeClassIdentifier();
 			if (!rpgClassIdentifierString.isEmpty()) {
 
-				RPGClassSelection.info("!rpgClassIdentifierString.isEmpty()");
-
 				Optional<RegistryEntry.Reference<RPGClass>> optionalRPGClassReference = world.getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntry(Identifier.of(rpgClassIdentifierString));
 				if (optionalRPGClassReference.isPresent()) {
 					RPGClass rpgClass = optionalRPGClassReference.get().value();
@@ -61,38 +59,41 @@ public class UpdateClassPacketReceiver implements ServerPlayNetworking.PlayPaylo
 
 							for (int j = 0; j < upgradeEntryGroup.upgradeEntryList().size(); j++) {
 								RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgradeEntryList().get(j);
+
 								if (Objects.equals(upgradeEntry.upgradeIdentifier(), activeClassState.activeUpgradeIdentifierList().get(i))) {
 
-									if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.SPELL.asString())) {
-										String spellIdentifierString = upgradeEntry.spellIdentifierString();
-										// TODO check if spellIdentifier is valid?
-										if (!spellIdentifierString.isEmpty()) {
-											spellIdentifiers.add(spellIdentifierString);
-										}
-									} else if (Objects.equals(upgradeEntry.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.Type.ATTRIBUTE_MODIFIER.asString())) {
+									for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent component : upgradeEntry.componentList()) {
 
-										Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = world.getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(upgradeEntry.attributeIdentifier()));
-
-										if (optionalEntityAttributeReference.isPresent()) {
-											EntityAttributeModifier entityAttributeModifier = null;
-											try {
-												entityAttributeModifier = new EntityAttributeModifier(
-														Identifier.of(upgradeEntry.attributeModifierIdentifier()),
-														upgradeEntry.attributeModifierAmount(),
-														EntityAttributeModifier.Operation.valueOf(upgradeEntry.attributeModifierOperation())
-												);
-											} catch (IllegalArgumentException e) {
-												RPGClassSelection.warn(e.getMessage());
+										if (Objects.equals(component.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
+											String spellIdentifierString = component.spellIdentifierString();
+											// TODO check if spellIdentifier is valid?
+											if (!spellIdentifierString.isEmpty()) {
+												spellIdentifiers.add(spellIdentifierString);
 											}
-											if (entityAttributeModifier != null) {
-												attributeModifiers.add(new AttributeModifiersComponent.Entry(
-														optionalEntityAttributeReference.get(),
-														entityAttributeModifier,
-														RPGClassSelection.getClassItemAttributeModifierSlot()
-												));
+										} else if (Objects.equals(component.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+
+											Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = world.getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(component.attributeIdentifier()));
+
+											if (optionalEntityAttributeReference.isPresent()) {
+												EntityAttributeModifier entityAttributeModifier = null;
+												try {
+													entityAttributeModifier = new EntityAttributeModifier(
+															RPGClassSelection.identifier("upgrade_" + i),
+															component.attributeModifierAmount(),
+															EntityAttributeModifier.Operation.valueOf(component.attributeModifierOperation())
+													);
+												} catch (IllegalArgumentException e) {
+													RPGClassSelection.warn(e.getMessage());
+												}
+												if (entityAttributeModifier != null) {
+													attributeModifiers.add(new AttributeModifiersComponent.Entry(
+															optionalEntityAttributeReference.get(),
+															entityAttributeModifier,
+															RPGClassSelection.getClassItemAttributeModifierSlot()
+													));
+												}
 											}
 										}
-
 									}
 								}
 							}
@@ -113,7 +114,7 @@ public class UpdateClassPacketReceiver implements ServerPlayNetworking.PlayPaylo
 				}
 			}
 
-			RPGClassSelection.info("classItemStack: " + classItemStack.toString());
+//			RPGClassSelection.info("classItemStack: " + classItemStack.toString());
 
 			RPGClassSelection.setClassItemStack(player, classItemStack);
 			player.closeHandledScreen();
