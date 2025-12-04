@@ -74,6 +74,25 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 
 	}
 
+	public enum EmptyUpgradeMode implements StringIdentifiable {
+		ALWAYS("always"),
+		EMPTY_GROUPS("empty_groups"),
+		NON_EMPTY_GROUPS("non_empty_groups"),
+		NEVER("never");
+
+		private final String name;
+
+		EmptyUpgradeMode(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String asString() {
+			return this.name;
+		}
+
+	}
+
 	public record ClassSelectionScreenData(
 			int initialClassIndex,
 			// potential customization for the screen

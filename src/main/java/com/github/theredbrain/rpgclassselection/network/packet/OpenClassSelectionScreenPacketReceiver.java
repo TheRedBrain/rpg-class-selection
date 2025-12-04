@@ -2,6 +2,7 @@ package com.github.theredbrain.rpgclassselection.network.packet;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
+import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
@@ -64,6 +65,7 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 
 				int initialClassIndex = 0;
 				int index = 0;
+				ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelection.SERVER_CONFIG.empty_upgrade_mode.get();
 
 				for (Map.Entry<RegistryKey<RPGClass>, RPGClass> entry : context.player().getWorld().getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntrySet()) {
 					RPGClass rpgClass = entry.getValue();
@@ -88,8 +90,14 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 							List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = new ArrayList<>();
 							List<Boolean> upgradeUnlockStatesList = new ArrayList<>();
 
-							upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
-							upgradeUnlockStatesList.add(true);
+							if (
+									(!upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
+									(upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
+									emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS
+							) {
+								upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
+								upgradeUnlockStatesList.add(true);
+							}
 
 							for (RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry : upgradeEntryGroup.upgrade_entry_list()) {
 

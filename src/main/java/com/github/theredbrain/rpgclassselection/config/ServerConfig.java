@@ -14,4 +14,5 @@ public class ServerConfig extends Config {
 	public boolean enable_class_selection_hotkey = true;
 
 	public ValidatedEnum<ClassSelectionScreenHandler.ClassSelectionScreenType> class_selection_screen_type = new ValidatedEnum<>(ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES);
+	public ValidatedEnum<ClassSelectionScreenHandler.EmptyUpgradeMode> empty_upgrade_mode = new ValidatedEnum<>(ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS);
 }
