@@ -13,17 +13,12 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.spell_engine.api.spell.Spell;
-import net.spell_engine.api.spell.registry.SpellRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHandler> {
@@ -60,7 +55,7 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 			if (index < 0) {
 				index = listSize - 1;
 			}
-			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visibleWhenLocked()) {
+			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visible_when_locked()) {
 				this.currentClassIndex = index;
 				break;
 			}
@@ -77,7 +72,7 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 			if (index >= listSize) {
 				index = 0;
 			}
-			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visibleWhenLocked()) {
+			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visible_when_locked()) {
 				this.currentClassIndex = index;
 				break;
 			}
@@ -157,11 +152,11 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 			for (int i = 0; i < list.size(); i++) {
 				String upgradeIdentifier = list.get(i);
 				if (!upgradeIdentifier.isEmpty()) {
-					List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = rpgClass.upgradeEntryGroupList().get(i).upgradeEntryList();
+					List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list();
 					for (int j = 0; j < upgradeEntryList.size(); j++) {
 
 						RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryList.get(j);
-						if (upgradeIdentifier.equals(upgradeEntry.upgradeIdentifier())) {
+						if (upgradeIdentifier.equals(upgradeEntry.upgrade_identifier())) {
 							this.currentUpgradeIndexList.add(j);
 							break;
 						}
@@ -171,7 +166,7 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 				this.currentUpgradeIndexList.add(0);
 			}
 		} else {
-			for (int i = 0; i < rpgClass.upgradeEntryGroupList().size(); i++) {
+			for (int i = 0; i < rpgClass.upgrade_entry_group_list().size(); i++) {
 				this.currentUpgradeIndexList.add(0);
 			}
 		}
@@ -181,8 +176,8 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
 		List<String> activeUpgradeIdentifierList = new ArrayList<>();
 		for (int i = 0; i < this.currentUpgradeIndexList.size(); i++) {
-			if (i < rpgClass.upgradeEntryGroupList().size()) {
-				activeUpgradeIdentifierList.add(rpgClass.upgradeEntryGroupList().get(i).upgradeEntryList().get(this.currentUpgradeIndexList.get(i)).upgradeIdentifier());
+			if (i < rpgClass.upgrade_entry_group_list().size()) {
+				activeUpgradeIdentifierList.add(rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list().get(this.currentUpgradeIndexList.get(i)).upgrade_identifier());
 			}
 		}
 		this.newActiveClassState = new ClassStateComponent.ActiveClassState(
@@ -267,11 +262,11 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 
 		}
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = rpgClass.upgradeEntryGroupList();
+		List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = rpgClass.upgrade_entry_group_list();
 		if (upgradeEntryGroupList.size() >= 1) {
 			this.cycleUpgrade1BackwardsButton.visible = true;
 			this.cycleUpgrade1ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(0).upgradeEntryList().size() > 1) {
+			if (upgradeEntryGroupList.get(0).upgrade_entry_list().size() > 1) {
 				this.cycleUpgrade1BackwardsButton.active = true;
 				this.cycleUpgrade1ForwardsButton.active = true;
 			}
@@ -279,7 +274,7 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 		if (upgradeEntryGroupList.size() >= 2) {
 			this.cycleUpgrade2BackwardsButton.visible = true;
 			this.cycleUpgrade2ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(1).upgradeEntryList().size() > 1) {
+			if (upgradeEntryGroupList.get(1).upgrade_entry_list().size() > 1) {
 				this.cycleUpgrade2BackwardsButton.active = true;
 				this.cycleUpgrade2ForwardsButton.active = true;
 			}
@@ -287,7 +282,7 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 		if (upgradeEntryGroupList.size() >= 3) {
 			this.cycleUpgrade3BackwardsButton.visible = true;
 			this.cycleUpgrade3ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(2).upgradeEntryList().size() > 1) {
+			if (upgradeEntryGroupList.get(2).upgrade_entry_list().size() > 1) {
 				this.cycleUpgrade3BackwardsButton.active = true;
 				this.cycleUpgrade3ForwardsButton.active = true;
 			}
@@ -313,14 +308,14 @@ public class ClassSelectionScreen extends HandledScreen<ClassSelectionScreenHand
 			context.drawTextWrapped(this.textRenderer, Text.translatable(this.activeClassDescription), 11, 35, 196, 0/*Colors.BLACK*/);
 		}
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		for (int i = 0; i < Math.min(3, rpgClass.upgradeEntryGroupList().size()); i++) {
-			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgradeEntryGroupList().get(i);
+		for (int i = 0; i < Math.min(3, rpgClass.upgrade_entry_group_list().size()); i++) {
+			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
 
-				if (index < upgradeEntryGroup.upgradeEntryList().size()) {
-					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgradeEntryList().get(index);
+				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
+					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
 					int x_offset = 0;
 
 					if (!upgradeEntry.icon_path().isEmpty()) {

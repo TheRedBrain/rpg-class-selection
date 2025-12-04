@@ -47,40 +47,40 @@ public class UpdateClassPacketReceiver implements ServerPlayNetworking.PlayPaylo
 				Optional<RegistryEntry.Reference<RPGClass>> optionalRPGClassReference = world.getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntry(Identifier.of(rpgClassIdentifierString));
 				if (optionalRPGClassReference.isPresent()) {
 					RPGClass rpgClass = optionalRPGClassReference.get().value();
-					Optional<RegistryEntry.Reference<Item>> optionalItemReference = world.getRegistryManager().get(RegistryKeys.ITEM).getEntry(Identifier.of(rpgClass.classItemIdentifierString()));
+					Optional<RegistryEntry.Reference<Item>> optionalItemReference = world.getRegistryManager().get(RegistryKeys.ITEM).getEntry(Identifier.of(rpgClass.class_item_identifier()));
 					if (optionalItemReference.isPresent()) {
 						classItemStack = optionalItemReference.get().value().getDefaultStack();
 
 						List<String> spellIdentifiers = new ArrayList<>();
 						List<AttributeModifiersComponent.Entry> attributeModifiers = new ArrayList<>();
 
-						for (int i = 0; i < rpgClass.upgradeEntryGroupList().size(); i++) {
-							RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgradeEntryGroupList().get(i);
+						for (int i = 0; i < rpgClass.upgrade_entry_group_list().size(); i++) {
+							RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
 
-							for (int j = 0; j < upgradeEntryGroup.upgradeEntryList().size(); j++) {
-								RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgradeEntryList().get(j);
+							for (int j = 0; j < upgradeEntryGroup.upgrade_entry_list().size(); j++) {
+								RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(j);
 
-								if (Objects.equals(upgradeEntry.upgradeIdentifier(), activeClassState.activeUpgradeIdentifierList().get(i))) {
+								if (Objects.equals(upgradeEntry.upgrade_identifier(), activeClassState.activeUpgradeIdentifierList().get(i))) {
 
-									for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent component : upgradeEntry.componentList()) {
+									for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent component : upgradeEntry.component_list()) {
 
-										if (Objects.equals(component.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
-											String spellIdentifierString = component.spellIdentifierString();
+										if (Objects.equals(component.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
+											String spellIdentifierString = component.spell_identifier();
 											// TODO check if spellIdentifier is valid?
 											if (!spellIdentifierString.isEmpty()) {
 												spellIdentifiers.add(spellIdentifierString);
 											}
-										} else if (Objects.equals(component.entryType(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+										} else if (Objects.equals(component.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
 
-											Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = world.getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(component.attributeIdentifier()));
+											Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = world.getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(component.attribute_identifier()));
 
 											if (optionalEntityAttributeReference.isPresent()) {
 												EntityAttributeModifier entityAttributeModifier = null;
 												try {
 													entityAttributeModifier = new EntityAttributeModifier(
 															RPGClassSelection.identifier("upgrade_" + i),
-															component.attributeModifierAmount(),
-															EntityAttributeModifier.Operation.valueOf(component.attributeModifierOperation())
+															component.attribute_modifier_amount(),
+															EntityAttributeModifier.Operation.valueOf(component.attribute_modifier_operation())
 													);
 												} catch (IllegalArgumentException e) {
 													RPGClassSelection.warn(e.getMessage());

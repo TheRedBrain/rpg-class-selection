@@ -82,14 +82,14 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 					List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = new ArrayList<>();
 					if (isClassUnlocked) {
 
-						for (RPGClass.UpgradeEntryGroup upgradeEntryGroup : rpgClass.upgradeEntryGroupList()) {
+						for (RPGClass.UpgradeEntryGroup upgradeEntryGroup : rpgClass.upgrade_entry_group_list()) {
 							List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = new ArrayList<>();
 							List<Boolean> upgradeUnlockStatesList = new ArrayList<>();
 
 							upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
 							upgradeUnlockStatesList.add(true);
 
-							for (RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry : upgradeEntryGroup.upgradeEntryList()) {
+							for (RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry : upgradeEntryGroup.upgrade_entry_list()) {
 
 								boolean isUpgradeUnlocked = true;
 								unlockAdvancementIdentifierString = upgradeEntry.unlock_advancement_identifier();
@@ -126,8 +126,8 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 					rpgClassList.add(new RPGClass(
 							rpgClass.class_identifier(),
 							rpgClass.unlock_advancement_identifier(),
-							rpgClass.classItemIdentifierString(),
-							rpgClass.visibleWhenLocked(),
+							rpgClass.class_item_identifier(),
+							rpgClass.visible_when_locked(),
 							rpgClass.description(),
 							rpgClass.locked_description(),
 							upgradeEntryGroupList
