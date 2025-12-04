@@ -7,7 +7,7 @@
     "locked_description": "class_selection_screen.rpgclassselection.arcane_wizard.locked_description",
     "upgrade_entry_group_list": [
         {
-            "upgradeEntryList": [
+            "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:arcane_beam",
                     "unlock_advancement_identifier": "minecraft:story/smelt_iron",

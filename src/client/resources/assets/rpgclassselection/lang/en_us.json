@@ -1,19 +1,19 @@
 {
   "class_selection_screen.empty_upgrade.description": "Empty",
   "class_selection_screen.rpgclassselection.empty_class.title": "No Class",
+  "class_selection_screen.choose_class_button_label": "Choose Class",
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
-
-  "class_selection_screen.rpgclassselection.arcane_wizard.title": "Arcane Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
-  "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.",
-  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": "",
-
 
   "rpgclassselection.server": "Server Side Settings",
 
   "rpgclassselection.server.enable_class_selection_hotkey": "Enable Class Selection Hotkey",
   "rpgclassselection.server.class_selection_screen_type": "Class Selection Screen Layout",
-  "rpgclassselection.server.class_selection_screen_type.desc": "Different layouts can show different amounts of upgrades and can also have different UI elements."
+  "rpgclassselection.server.class_selection_screen_type.desc": "Different layouts can show different amounts of upgrades and can also have different UI elements.",
+
+  "class_selection_screen.rpgclassselection.arcane_wizard.title": "Arcane Wizard",
+  "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
+  "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
+  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.",
+  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": ""
 }

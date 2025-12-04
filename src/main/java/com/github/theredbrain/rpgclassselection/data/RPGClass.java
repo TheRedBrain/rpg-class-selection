@@ -134,7 +134,7 @@ public record RPGClass(
 				String icon_path,
 				List<UpgradeEntryComponent> component_list
 		) {
-			public static final UpgradeEntry DEFAULT = new UpgradeEntry("rpgclassselection:empty", "", true, "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
+			public static final UpgradeEntry DEFAULT = new UpgradeEntry("", "", true, "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
 
 			public static final Codec<UpgradeEntry> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 					Codec.STRING.optionalFieldOf("upgrade_identifier", "").forGetter(x -> x.upgrade_identifier),

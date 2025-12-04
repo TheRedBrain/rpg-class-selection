@@ -7,9 +7,11 @@ import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandl
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
 public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSelectionScreenHandler> {
+	public static Identifier BACKGROUND_TEXTURE;
+	protected static final Text CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.choose_class_button_label");
 
 	protected ClassStateComponent.ActiveClassState newActiveClassState;
 
@@ -30,36 +34,20 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 	protected void cycleClassIndexBackwards() {
 		int index = this.currentClassIndex;
-		List<RPGClass> dataList = this.handler.getRpgClassList();
-		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> stateList = this.handler.getClassUnlockStateDataList();
-		int listSize = dataList.size();
-		while (true) {
-			index = index - 1;
-			if (index < 0) {
-				index = listSize - 1;
-			}
-			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visible_when_locked()) {
-				this.currentClassIndex = index;
-				break;
-			}
+		index = index - 1;
+		if (index < 0) {
+			index = this.handler.getRpgClassList().size() - 1;
 		}
+		this.currentClassIndex = index;
 	}
 
 	protected void cycleClassIndexForwards() {
 		int index = this.currentClassIndex;
-		List<RPGClass> dataList = this.handler.getRpgClassList();
-		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> stateList = this.handler.getClassUnlockStateDataList();
-		int listSize = dataList.size();
-		while (true) {
-			index = index + 1;
-			if (index >= listSize) {
-				index = 0;
-			}
-			if (index == 0 || stateList.get(index).classUnlockState() || dataList.get(index).visible_when_locked()) {
-				this.currentClassIndex = index;
-				break;
-			}
+		index = index + 1;
+		if (index >= this.handler.getRpgClassList().size()) {
+			index = 0;
 		}
+		this.currentClassIndex = index;
 	}
 
 	protected void cycleUpgradeIndexBackwards(int upgradeIndex) {
@@ -67,18 +55,12 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 			int index = this.currentUpgradeIndexList.get(upgradeIndex);
 			List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> unlockStateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
 			if (upgradeIndex < unlockStateList.size()) {
-				List<Boolean> stateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList().get(upgradeIndex).upgradeUnlockStatesList();
-				int stateListSize = stateList.size();
-				while (true) {
-					index = index - 1;
-					if (index < 0) {
-						index = stateListSize - 1;
-					}
-					if (index == 0 || stateList.get(index)) {
-						this.currentUpgradeIndexList.set(upgradeIndex, index);
-						break;
-					}
+				int stateListSize = unlockStateList.get(upgradeIndex).upgradeUnlockStatesList().size();
+				index = index - 1;
+				if (index < 0) {
+					index = stateListSize - 1;
 				}
+				this.currentUpgradeIndexList.set(upgradeIndex, index);
 			}
 		}
 	}
@@ -88,31 +70,25 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 			int index = this.currentUpgradeIndexList.get(upgradeIndex);
 			List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> unlockStateList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
 			if (upgradeIndex < unlockStateList.size()) {
-				List<Boolean> stateList = unlockStateList.get(upgradeIndex).upgradeUnlockStatesList();
-				int stateListSize = stateList.size();
-				while (true) {
-					index = index + 1;
-					if (index >= stateListSize) {
-						index = 0;
-					}
-					if (index == 0 || stateList.get(index)) {
-						this.currentUpgradeIndexList.set(upgradeIndex, index);
-						break;
-					}
+				int stateListSize = unlockStateList.get(upgradeIndex).upgradeUnlockStatesList().size();
+				index = index + 1;
+				if (index >= stateListSize) {
+					index = 0;
 				}
+				this.currentUpgradeIndexList.set(upgradeIndex, index);
 			}
 		}
 	}
 
 	protected void cycleClassBackwards() {
 		this.cycleClassIndexBackwards();
-		this.updateCurrentUpgradeIndexes();
+		this.resetCurrentUpgradeIndexes();
 		this.updateActiveClassState();
 	}
 
 	protected void cycleClassForwards() {
 		this.cycleClassIndexForwards();
-		this.updateCurrentUpgradeIndexes();
+		this.resetCurrentUpgradeIndexes();
 		this.updateActiveClassState();
 	}
 
@@ -126,7 +102,7 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		this.updateActiveClassState();
 	}
 
-	protected void updateCurrentUpgradeIndexes() {
+	protected void resetCurrentUpgradeIndexes() {
 
 		this.currentUpgradeIndexList.clear();
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
@@ -135,16 +111,18 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 			for (int i = 0; i < list.size(); i++) {
 				String upgradeIdentifier = list.get(i);
 				if (!upgradeIdentifier.isEmpty()) {
-					List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list();
-					for (int j = 0; j < upgradeEntryList.size(); j++) {
+					if (i < rpgClass.upgrade_entry_group_list().size()) {
+						List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list();
+						for (int j = 0; j < upgradeEntryList.size(); j++) {
 
-						RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryList.get(j);
-						if (upgradeIdentifier.equals(upgradeEntry.upgrade_identifier())) {
-							this.currentUpgradeIndexList.add(j);
-							break;
+							RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryList.get(j);
+							if (upgradeIdentifier.equals(upgradeEntry.upgrade_identifier())) {
+								this.currentUpgradeIndexList.add(j);
+								break;
+							}
 						}
+						continue;
 					}
-					continue;
 				}
 				this.currentUpgradeIndexList.add(0);
 			}
@@ -157,12 +135,7 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 	protected void updateActiveClassState() {
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		List<String> activeUpgradeIdentifierList = new ArrayList<>();
-		for (int i = 0; i < this.currentUpgradeIndexList.size(); i++) {
-			if (i < rpgClass.upgrade_entry_group_list().size()) {
-				activeUpgradeIdentifierList.add(rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list().get(this.currentUpgradeIndexList.get(i)).upgrade_identifier());
-			}
-		}
+		List<String> activeUpgradeIdentifierList = this.getActiveUpgradeIdentifierList();
 		this.newActiveClassState = new ClassStateComponent.ActiveClassState(
 				rpgClass.class_identifier(),
 				activeUpgradeIdentifierList
@@ -177,12 +150,70 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		this.updateWidgets();
 	}
 
+	private List<String> getActiveUpgradeIdentifierList() {
+		List<String> activeUpgradeIdentifierList = new ArrayList<>();
+		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> upgradeUnlockStateDataList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
+		List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = rpgClass.upgrade_entry_group_list();
+		for (int i = 0; i < upgradeEntryGroupList.size(); i++) {
+			if (i < this.currentUpgradeIndexList.size() && i < upgradeUnlockStateDataList.size()) {
+				int currentUpgradeIndex = this.currentUpgradeIndexList.get(i);
+				List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = upgradeEntryGroupList.get(i).upgrade_entry_list();
+				List<Boolean> upgradeUnlockStatesList = upgradeUnlockStateDataList.get(i).upgradeUnlockStatesList();
+				if (currentUpgradeIndex < upgradeEntryList.size() && currentUpgradeIndex < upgradeUnlockStatesList.size()) {
+					if (upgradeUnlockStatesList.get(currentUpgradeIndex)) {
+						activeUpgradeIdentifierList.add(upgradeEntryList.get(currentUpgradeIndex).upgrade_identifier());
+						continue;
+					}
+				}
+				activeUpgradeIdentifierList.add("");
+			}
+		}
+		return activeUpgradeIdentifierList;
+	}
+
 	protected void chooseClass() {
 		ClientPlayNetworking.send(new UpdateClassPacket(this.newActiveClassState));
 	}
 
 	protected void updateWidgets() {
 
+	}
+
+	@Override
+	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+		super.render(context, mouseX, mouseY, delta);
+
+		this.drawMouseoverTooltip(context, mouseX, mouseY);
+	}
+
+	@Override
+	protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
+
+		this.drawClassTitleAndDescription(context);
+
+		this.drawUpgradeEntryTitles(context);
+	}
+
+	@Override
+	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+		context.drawTexture(BACKGROUND_TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
+
+		this.drawUpgradeEntryIcons(context);
+	}
+
+	protected void drawClassTitleAndDescription(DrawContext context) {
+	}
+
+	protected void drawUpgradeEntryIcons(DrawContext context) {
+		this.drawUpgradeEntries(context, true);
+	}
+
+	protected void drawUpgradeEntryTitles(DrawContext context) {
+		this.drawUpgradeEntries(context, false);
+	}
+
+	protected void drawUpgradeEntries(DrawContext context, boolean background) {
 	}
 
 }

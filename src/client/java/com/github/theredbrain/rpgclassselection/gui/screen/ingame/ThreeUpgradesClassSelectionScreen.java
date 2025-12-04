@@ -18,7 +18,6 @@ import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScreen {
-	public static final Identifier BACKGROUND_TEXTURE = RPGClassSelection.identifier("textures/gui/container/three_upgrades_class_selection_background.png");
 
 	private ButtonWidget cycleClassesBackwardsButton;
 	private ButtonWidget cycleClassesForwardsButton;
@@ -44,7 +43,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 
 		this.currentClassIndex = this.handler.getInitialClassIndex();
 
-		this.updateCurrentUpgradeIndexes();
+		this.resetCurrentUpgradeIndexes();
 
 		this.cycleClassesBackwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal("<"), button -> this.cycleClassBackwards()).dimensions(this.x + 7, this.y + 7, 20, 20).build());
 		this.cycleClassesForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleClassForwards()).dimensions(this.x + this.backgroundWidth - 27, this.y + 7, 20, 20).build());
@@ -54,7 +53,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 		this.cycleUpgrade2ForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleUpgradeForwards(1)).dimensions(this.x + this.backgroundWidth - 27, this.y + 140, 20, 20).build());
 		this.cycleUpgrade3BackwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal("<"), button -> this.cycleUpgradeBackwards(2)).dimensions(this.x + 7, this.y + 164, 20, 20).build());
 		this.cycleUpgrade3ForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleUpgradeForwards(2)).dimensions(this.x + this.backgroundWidth - 27, this.y + 164, 20, 20).build());
-		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(Text.translatable("Choose Class (WIP)"), button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
+		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(CHOOSE_CLASS_BUTTON_LABEL_TEXT, button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
 
 		this.updateActiveClassState();
 	}
@@ -99,28 +98,27 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 			this.cycleClassesForwardsButton.active = true;
 
 		}
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = rpgClass.upgrade_entry_group_list();
-		if (upgradeEntryGroupList.size() >= 1) {
+		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> upgradeUnlockStateDataList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
+		if (upgradeUnlockStateDataList.size() >= 1) {
 			this.cycleUpgrade1BackwardsButton.visible = true;
 			this.cycleUpgrade1ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(0).upgrade_entry_list().size() > 1) {
+			if (upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade1BackwardsButton.active = true;
 				this.cycleUpgrade1ForwardsButton.active = true;
 			}
 		}
-		if (upgradeEntryGroupList.size() >= 2) {
+		if (upgradeUnlockStateDataList.size() >= 2) {
 			this.cycleUpgrade2BackwardsButton.visible = true;
 			this.cycleUpgrade2ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(1).upgrade_entry_list().size() > 1) {
+			if (upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade2BackwardsButton.active = true;
 				this.cycleUpgrade2ForwardsButton.active = true;
 			}
 		}
-		if (upgradeEntryGroupList.size() >= 3) {
+		if (upgradeUnlockStateDataList.size() >= 3) {
 			this.cycleUpgrade3BackwardsButton.visible = true;
 			this.cycleUpgrade3ForwardsButton.visible = true;
-			if (upgradeEntryGroupList.get(2).upgrade_entry_list().size() > 1) {
+			if (upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade3BackwardsButton.active = true;
 				this.cycleUpgrade3ForwardsButton.active = true;
 			}
@@ -129,14 +127,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 	}
 
 	@Override
-	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-		super.render(context, mouseX, mouseY, delta);
-
-		this.drawMouseoverTooltip(context, mouseX, mouseY);
-	}
-
-	@Override
-	protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
+	protected void drawClassTitleAndDescription(DrawContext context) {
 
 		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
 
@@ -145,8 +136,13 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 		if (!this.activeClassDescription.isEmpty()) {
 			context.drawTextWrapped(this.textRenderer, Text.translatable(this.activeClassDescription), 11, 35, 196, 0/*Colors.BLACK*/);
 		}
+
+	}
+
+	@Override
+	protected void drawUpgradeEntries(DrawContext context, boolean background) {
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		for (int i = 0; i < Math.min(3, rpgClass.upgrade_entry_group_list().size()); i++) {
+		for (int i = 0; i < Math.min(4, rpgClass.upgrade_entry_group_list().size()); i++) {
 			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
@@ -154,21 +150,20 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 
 				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
 					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
-					int x_offset = 0;
 
-					if (!upgradeEntry.icon_path().isEmpty()) {
-						x_offset = 20;
-						context.drawTexture(Identifier.of(upgradeEntry.icon_path()), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
+					if (background) {
+						if (!upgradeEntry.icon_path().isEmpty()) {
+							context.drawTexture(Identifier.of(upgradeEntry.icon_path()), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
+						}
+					} else {
+						context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 31 + (upgradeEntry.icon_path().isEmpty() ? 0 : 20), 122 + i * 24, 0/*4210752*/, false);
 					}
-					context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 31 + x_offset, 122 + i * 24, 0/*4210752*/, false);
 				}
 			}
 		}
 	}
 
-	@Override
-	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-		context.drawTexture(BACKGROUND_TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
+	static {
+		BACKGROUND_TEXTURE = RPGClassSelection.identifier("textures/gui/container/three_upgrades_class_selection_background.png");
 	}
-
 }

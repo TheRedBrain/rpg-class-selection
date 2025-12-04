@@ -104,9 +104,12 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 									}
 
 								}
-								upgradeEntryList.add(upgradeEntry);
-								upgradeUnlockStatesList.add(isUpgradeUnlocked);
+								if (isUpgradeUnlocked || upgradeEntry.visible_when_locked()) {
+									upgradeEntryList.add(upgradeEntry);
+									upgradeUnlockStatesList.add(isUpgradeUnlocked);
+								}
 							}
+
 							upgradeEntryGroupList.add(
 									new RPGClass.UpgradeEntryGroup(upgradeEntryList)
 							);
@@ -117,25 +120,28 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 
 					}
 
-					if (entry.getKey().getValue().toString().equals(initialClassIdentifierString)) {
-						initialClassIndex = index + 1;
+					if (isClassUnlocked || rpgClass.visible_when_locked()) {
+
+						if (entry.getKey().getValue().toString().equals(initialClassIdentifierString)) {
+							initialClassIndex = index + 1;
+						}
+
+						classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
+								isClassUnlocked,
+								upgradeUnlockStateDataList
+						));
+						rpgClassList.add(new RPGClass(
+								rpgClass.class_identifier(),
+								rpgClass.unlock_advancement_identifier(),
+								rpgClass.class_item_identifier(),
+								rpgClass.visible_when_locked(),
+								rpgClass.description(),
+								rpgClass.locked_description(),
+								upgradeEntryGroupList
+						));
+
+						index++;
 					}
-
-					classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-							isClassUnlocked,
-							upgradeUnlockStateDataList
-					));
-					rpgClassList.add(new RPGClass(
-							rpgClass.class_identifier(),
-							rpgClass.unlock_advancement_identifier(),
-							rpgClass.class_item_identifier(),
-							rpgClass.visible_when_locked(),
-							rpgClass.description(),
-							rpgClass.locked_description(),
-							upgradeEntryGroupList
-					));
-
-					index++;
 
 				}
 

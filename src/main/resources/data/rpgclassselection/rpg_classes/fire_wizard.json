@@ -6,8 +6,10 @@
     "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
     "upgrade_entry_group_list": [
+        {},
+        {},
         {
-            "upgradeEntryList": [
+            "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:fire_wall",
                     "title": "spell.wizards.fire_wall.name",
