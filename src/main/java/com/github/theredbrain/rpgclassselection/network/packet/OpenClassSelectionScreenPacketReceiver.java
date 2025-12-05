@@ -2,7 +2,6 @@ package com.github.theredbrain.rpgclassselection.network.packet;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
-import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
@@ -27,11 +26,18 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetworking.PlayPayloadHandler<OpenClassSelectionScreenPacket> {
 
 	@Override
 	public void receive(OpenClassSelectionScreenPacket payload, ServerPlayNetworking.Context context) {
+
+		// when not empty, defines the selected class
+		String initial_class_identifier_string = payload.initial_class_identifier_string();
+
+		boolean allow_changing_class = payload.allow_changing_class();
+		boolean allow_changing_upgrades = payload.allow_changing_upgrades();
 
 		ServerPlayerEntity player = context.player();
 		MinecraftServer server = player.server;
@@ -42,14 +48,14 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 			ServerAdvancementLoader serverAdvancementLoader = server.getAdvancementLoader();
 
 			if (serverAdvancementLoader != null && playerAdvancementTracker != null) {
-				String initialClassIdentifierString = payload.initialClassIdentifierString(); // when not empty, defines the selected class
 
 				ItemStack currentClassItemStack = RPGClassSelection.getClassItemStack(context.player());
 
 				ClassStateComponent.ActiveClassState activeClassState = currentClassItemStack.getOrDefault(RPGClassSelection.CLASS_STATE_COMPONENT_TYPE, ClassStateComponent.DEFAULT).activeClassState();
+				String currentClassIdentifierString = activeClassState.activeClassIdentifier();
 
-				if (initialClassIdentifierString.isEmpty()) {
-					initialClassIdentifierString = activeClassState.activeClassIdentifier();
+				if (initial_class_identifier_string.isEmpty() && allow_changing_class) {
+					initial_class_identifier_string = currentClassIdentifierString;
 				}
 
 				List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>();
@@ -57,14 +63,16 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 				List<RPGClass> rpgClassList = new ArrayList<>();
 
 				// add empty class
-				classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-						true,
-						new ArrayList<>()
-				));
-				rpgClassList.add(RPGClass.DEFAULT);
+				if (allow_changing_class || currentClassIdentifierString.isEmpty()) {
+					classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
+							true,
+							new ArrayList<>()
+					));
+					rpgClassList.add(RPGClass.DEFAULT);
+				}
 
 				int initialClassIndex = 0;
-				int index = 0;
+				int classIndex = 0;
 				ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelection.SERVER_CONFIG.empty_upgrade_mode.get();
 
 				for (Map.Entry<RegistryKey<RPGClass>, RPGClass> entry : context.player().getWorld().getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntrySet()) {
@@ -86,14 +94,20 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 					List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = new ArrayList<>();
 					if (isClassUnlocked) {
 
+						int groupIndex = 0;
 						for (RPGClass.UpgradeEntryGroup upgradeEntryGroup : rpgClass.upgrade_entry_group_list()) {
 							List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = new ArrayList<>();
 							List<Boolean> upgradeUnlockStatesList = new ArrayList<>();
 
+							String currentUpgradeIdentifierString = "";
+							if (groupIndex < activeClassState.activeUpgradeIdentifierList().size()) {
+								currentUpgradeIdentifierString = activeClassState.activeUpgradeIdentifierList().get(groupIndex);
+							}
+
 							if (
-									(!upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
-									(upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
-									emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS
+									(!upgradeEntryGroup.upgrade_entry_list().isEmpty()&& allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
+											(upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
+											(allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
 							) {
 								upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
 								upgradeUnlockStatesList.add(true);
@@ -112,7 +126,7 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 									}
 
 								}
-								if (isUpgradeUnlocked || upgradeEntry.visible_when_locked()) {
+								if ((isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || Objects.equals(upgradeEntry.upgrade_identifier(), currentUpgradeIdentifierString))) {
 									upgradeEntryList.add(upgradeEntry);
 									upgradeUnlockStatesList.add(isUpgradeUnlocked);
 								}
@@ -124,33 +138,38 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 							upgradeUnlockStateDataList.add(
 									new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData(upgradeUnlockStatesList)
 							);
+
+							groupIndex = groupIndex + 1;
 						}
 
 					}
 
-					if (isClassUnlocked || rpgClass.visible_when_locked()) {
+					boolean isCurrentClass = entry.getKey().getValue().toString().equals(currentClassIdentifierString);
 
-						if (entry.getKey().getValue().toString().equals(initialClassIdentifierString)) {
-							initialClassIndex = index + 1;
+					if (isClassUnlocked || rpgClass.visible_when_locked() || isCurrentClass) {
+
+						if (isCurrentClass || allow_changing_class) {
+							classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
+									isClassUnlocked,
+									upgradeUnlockStateDataList
+							));
+							rpgClassList.add(new RPGClass(
+									rpgClass.class_identifier(),
+									rpgClass.unlock_advancement_identifier(),
+									rpgClass.class_item_identifier(),
+									rpgClass.visible_when_locked(),
+									rpgClass.description(),
+									rpgClass.locked_description(),
+									upgradeEntryGroupList
+							));
+
+							classIndex = classIndex + 1;
+
+							if (entry.getKey().getValue().toString().equals(initial_class_identifier_string)) {
+								initialClassIndex = classIndex;
+							}
 						}
-
-						classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-								isClassUnlocked,
-								upgradeUnlockStateDataList
-						));
-						rpgClassList.add(new RPGClass(
-								rpgClass.class_identifier(),
-								rpgClass.unlock_advancement_identifier(),
-								rpgClass.class_item_identifier(),
-								rpgClass.visible_when_locked(),
-								rpgClass.description(),
-								rpgClass.locked_description(),
-								upgradeEntryGroupList
-						));
-
-						index++;
 					}
-
 				}
 
 				int finalInitialClassIndex = initialClassIndex;

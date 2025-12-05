@@ -7,19 +7,25 @@ import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.packet.CustomPayload;
 
 public record OpenClassSelectionScreenPacket(
-		String initialClassIdentifierString
+		String initial_class_identifier_string,
+		boolean allow_changing_class,
+		boolean allow_changing_upgrades
 ) implements CustomPayload {
 	public static final Id<OpenClassSelectionScreenPacket> PACKET_ID = new Id<>(RPGClassSelection.identifier("open_class_selection_screen"));
 	public static final PacketCodec<RegistryByteBuf, OpenClassSelectionScreenPacket> PACKET_CODEC = PacketCodec.of(OpenClassSelectionScreenPacket::write, OpenClassSelectionScreenPacket::new);
 
 	public OpenClassSelectionScreenPacket(PacketByteBuf buf) {
 		this(
-				buf.readString()
+				buf.readString(),
+				buf.readBoolean(),
+				buf.readBoolean()
 		);
 	}
 
 	private void write(RegistryByteBuf registryByteBuf) {
-		registryByteBuf.writeString(this.initialClassIdentifierString);
+		registryByteBuf.writeString(this.initial_class_identifier_string);
+		registryByteBuf.writeBoolean(this.allow_changing_class);
+		registryByteBuf.writeBoolean(this.allow_changing_upgrades);
 	}
 
 	@Override

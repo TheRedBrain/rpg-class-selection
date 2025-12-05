@@ -1,6 +1,7 @@
 package com.github.theredbrain.rpgclassselection.registry;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
+import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.network.packet.OpenClassSelectionScreenPacket;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -40,8 +41,9 @@ public class KeyBindingsRegistry {
 
 	public static void openClassSelectionScreen(MinecraftClient client) {
 		if (client.player != null) {
-			if (RPGClassSelection.SERVER_CONFIG.enable_class_selection_hotkey) {
-				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket(""));
+			ServerConfig serverConfig = RPGClassSelection.SERVER_CONFIG;
+			if (serverConfig.hotkeySettings.enable_class_selection_hotkey) {
+				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket("", serverConfig.hotkeySettings.allow_changing_class, serverConfig.hotkeySettings.allow_changing_upgrades));
 			} else {
 				client.player.sendMessage(Text.translatable("hud.message.class_selection_hot_key_was_disabled"), true);
 			}
