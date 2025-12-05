@@ -2,6 +2,8 @@
   "class_selection_screen.empty_upgrade.description": "Empty",
   "class_selection_screen.rpgclassselection.empty_class.title": "No Class",
   "class_selection_screen.choose_class_button_label": "Choose Class",
+  "class_selection_screen.spells_label": "Spells",
+  "class_selection_screen.modifiers_label": "Modifiers",
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
@@ -14,6 +16,6 @@
   "class_selection_screen.rpgclassselection.arcane_wizard.title": "Arcane Wizard",
   "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
   "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.",
+  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.\nThird line\nForth line",
   "class_selection_screen.rpgclassselection.fire_wizard.locked_description": ""
 }

@@ -1,5 +1,6 @@
 package com.github.theredbrain.rpgclassselection.gui.screen.ingame;
 
+import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.network.packet.UpdateClassPacket;
@@ -7,6 +8,7 @@ import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandl
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,6 +21,8 @@ import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
 public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSelectionScreenHandler> {
+	protected static final Identifier SCROLL_BAR_BACKGROUND_TEXTURE = RPGClassSelection.identifier("scroll_bar/scroll_bar_background");
+	protected static final Identifier SCROLLER_TEXTURE = RPGClassSelection.identifier("scroll_bar/scroller_vertical_6_7");
 	public static Identifier BACKGROUND_TEXTURE;
 	protected static final Text CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.choose_class_button_label");
 
@@ -30,6 +34,21 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 	public AbstractClassSelectionScreen(ClassSelectionScreenHandler handler, PlayerInventory inventory, Text title) {
 		super(handler, inventory, title);
+	}
+
+	@Override
+	public void resize(MinecraftClient client, int width, int height) {
+		ClassStateComponent.ActiveClassState var = this.newActiveClassState;
+		int integer = this.currentClassIndex;
+		String string = this.activeClassDescription;
+		List<Integer> list = new ArrayList<>(this.currentUpgradeIndexList);
+		this.init(client, width, height);
+		this.newActiveClassState = var;
+		this.currentClassIndex = integer;
+		this.activeClassDescription = string;
+		this.currentUpgradeIndexList.clear();
+		this.currentUpgradeIndexList.addAll(list);
+		this.updateWidgets();
 	}
 
 	protected void cycleClassIndexBackwards() {

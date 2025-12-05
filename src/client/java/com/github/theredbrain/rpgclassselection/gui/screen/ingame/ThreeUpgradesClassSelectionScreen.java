@@ -59,21 +59,6 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 	}
 
 	@Override
-	public void resize(MinecraftClient client, int width, int height) {
-		ClassStateComponent.ActiveClassState var = this.newActiveClassState;
-		int integer = this.currentClassIndex;
-		String string = this.activeClassDescription;
-		List<Integer> list = new ArrayList<>(this.currentUpgradeIndexList);
-		this.init(client, width, height);
-		this.newActiveClassState = var;
-		this.currentClassIndex = integer;
-		this.activeClassDescription = string;
-		this.currentUpgradeIndexList.clear();
-		this.currentUpgradeIndexList.addAll(list);
-		this.updateWidgets();
-	}
-
-	@Override
 	protected void updateWidgets() {
 
 		this.cycleClassesBackwardsButton.active = false;
