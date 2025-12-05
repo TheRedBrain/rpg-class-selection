@@ -24,4 +24,13 @@ public class ServerConfig extends Config {
 		public boolean allow_changing_upgrades = true;
 
 	}
+	public FirstJoinScreenSettings firstJoinScreenSettings = new FirstJoinScreenSettings();
+
+	public static class FirstJoinScreenSettings extends ConfigSection {
+
+		public boolean enable_first_join_class_selection = true;
+		public boolean allow_changing_class = true;
+		public boolean allow_changing_upgrades = true;
+
+	}
 }
