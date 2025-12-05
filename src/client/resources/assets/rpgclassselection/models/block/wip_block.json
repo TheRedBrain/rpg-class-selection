@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "#up",
+    "down": "rpgclassselection:block/wip_block_down",
+    "up": "rpgclassselection:block/wip_block_up",
+    "north": "rpgclassselection:block/wip_block_north",
+    "east": "rpgclassselection:block/wip_block_east",
+    "south": "rpgclassselection:block/wip_block_south",
+    "west": "rpgclassselection:block/wip_block_west"
+  }
+}

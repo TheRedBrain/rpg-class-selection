@@ -4,8 +4,10 @@ import com.github.theredbrain.rpgclassselection.compat.RPGInventoryCompat;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.registry.BlockRegistry;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.registry.DataComponentRegistry;
+import com.github.theredbrain.rpgclassselection.registry.EntityRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ServerEventRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ServerPacketRegistry;
@@ -245,8 +247,10 @@ public class RPGClassSelection implements ModInitializer {
 		LOGGER.info("Initializing class selection!");
 		SERVER_CONFIG = ConfigApiJava.registerAndLoadConfig(ServerConfig::new);
 
+		BlockRegistry.init();
 		CustomDynamicRegistries.init();
 		DataComponentRegistry.init();
+		EntityRegistry.init();
 		ScreenHandlerTypesRegistry.registerAll();
 		ServerEventRegistry.initializeServerEvents();
 		ServerPacketRegistry.init();
