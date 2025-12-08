@@ -11,13 +11,24 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.spell_engine.api.spell.Spell;
+import net.spell_engine.api.spell.registry.SpellRegistry;
+import net.spell_engine.client.gui.SpellTooltip;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSelectionScreenHandler> {
@@ -219,6 +230,67 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		context.drawTexture(BACKGROUND_TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
 
 		this.drawUpgradeEntryIcons(context);
+	}
+
+	protected List<Text> getUpgradeEntryTooltipList(RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry) {
+		List<Text> list = new ArrayList<>();
+
+		for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent upgradeEntryComponent : upgradeEntry.component_list()) {
+
+			if (Objects.equals(upgradeEntryComponent.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
+				Optional<RegistryEntry.Reference<Spell>> optionalSpellReference = this.handler.getWorld().getRegistryManager().get(SpellRegistry.KEY).getEntry(Identifier.of(upgradeEntryComponent.spell_identifier()));
+
+				if (optionalSpellReference.isPresent() && this.handler.getPlayer() != null) {
+					list.addAll(SpellTooltip.spellEntry(optionalSpellReference.get(), this.handler.getPlayer(), ItemStack.EMPTY, true, 0));
+				}
+			} else if (Objects.equals(upgradeEntryComponent.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+
+				Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = this.handler.getWorld().getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(upgradeEntryComponent.attribute_identifier()));
+
+				if (optionalEntityAttributeReference.isPresent()) {
+					RegistryEntry<EntityAttribute> entityAttributeRegistryEntry = optionalEntityAttributeReference.get();
+					double d = upgradeEntryComponent.attribute_modifier_amount();
+
+					EntityAttributeModifier.Operation entityAttributeModifierOperation = null;
+					try {
+						entityAttributeModifierOperation = EntityAttributeModifier.Operation.valueOf(upgradeEntryComponent.attribute_modifier_operation());
+					} catch (IllegalArgumentException e) {
+						RPGClassSelection.warn(e.getMessage());
+					}
+					if (entityAttributeModifierOperation != null) {
+						double displayAmount;
+						if (entityAttributeModifierOperation == EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE
+								|| entityAttributeModifierOperation == EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL) {
+							displayAmount = d * 100.0;
+						} else if (entityAttributeRegistryEntry.matches(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE)) {
+							displayAmount = d * 10.0;
+						} else {
+							displayAmount = d;
+						}
+						if (d > 0.0) {
+							list.add(
+									Text.translatable(
+													"attribute.modifier.plus." + entityAttributeModifierOperation.getId(),
+													AttributeModifiersComponent.DECIMAL_FORMAT.format(displayAmount),
+													Text.translatable(entityAttributeRegistryEntry.value().getTranslationKey())
+											)
+											.formatted(entityAttributeRegistryEntry.value().getFormatting(true))
+							);
+						} else if (d < 0.0) {
+							list.add(
+									Text.translatable(
+													"attribute.modifier.take." + entityAttributeModifierOperation.getId(),
+													AttributeModifiersComponent.DECIMAL_FORMAT.format(-displayAmount),
+													Text.translatable(entityAttributeRegistryEntry.value().getTranslationKey())
+											)
+											.formatted(entityAttributeRegistryEntry.value().getFormatting(false))
+							);
+						}
+					}
+				}
+			}
+		}
+		return list;
 	}
 
 	protected void drawClassTitleAndDescription(DrawContext context) {

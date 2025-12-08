@@ -1,19 +1,16 @@
 package com.github.theredbrain.rpgclassselection.gui.screen.ingame;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
-import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Environment(EnvType.CLIENT)
@@ -112,6 +109,32 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 	}
 
 	@Override
+	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+		super.render(context, mouseX, mouseY, delta);
+
+		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+
+		for (int i = 0; i < Math.min(3, rpgClass.upgrade_entry_group_list().size()); i++) {
+			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+
+			if (i < this.currentUpgradeIndexList.size()) {
+				int index = this.currentUpgradeIndexList.get(i);
+
+				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
+					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+
+					if (this.isPointWithinBounds(31, 118 + i * 24, this.backgroundWidth - 62, 20, mouseX, mouseY)) {
+						List<Text> list = this.getUpgradeEntryTooltipList(upgradeEntry);
+
+						context.drawTooltip(this.textRenderer, list, mouseX, mouseY);
+					}
+				}
+			}
+		}
+
+	}
+
+	@Override
 	protected void drawClassTitleAndDescription(DrawContext context) {
 
 		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
@@ -127,7 +150,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 	@Override
 	protected void drawUpgradeEntries(DrawContext context, boolean background) {
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		for (int i = 0; i < Math.min(4, rpgClass.upgrade_entry_group_list().size()); i++) {
+		for (int i = 0; i < Math.min(3, rpgClass.upgrade_entry_group_list().size()); i++) {
 			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
@@ -138,7 +161,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 
 					if (background) {
 						if (!upgradeEntry.icon_path().isEmpty()) {
-							context.drawTexture(Identifier.of(upgradeEntry.icon_path()), 31, 118 + i * 24, 0, 0, 16, 16, 16, 16);
+							context.drawTexture(Identifier.of(upgradeEntry.icon_path()), this.x + 31, this.y + 118 + i * 24, 0, 0, 16, 16, 16, 16);
 						}
 					} else {
 						context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 31 + (upgradeEntry.icon_path().isEmpty() ? 0 : 20), 122 + i * 24, 0/*4210752*/, false);

@@ -11,6 +11,7 @@ import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.StringIdentifiable;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -22,9 +23,13 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 	private final ClassStateComponent.ActiveClassState activeClassState;
 	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>(List.of());
 	private final List<RPGClass> rpgClassList = new ArrayList<>();
+	private final PlayerEntity player;
+	private final World world;
 
 	public ClassSelectionScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
 		super(type, syncId);
+		this.player = playerInventory.player;
+		this.world = playerInventory.player.getEntityWorld();
 		this.initialClassIndex = initialClassIndex;
 		this.activeClassState = activeClassState;
 		this.classUnlockStateDataList.addAll(classUnlockStateDataList);
@@ -55,6 +60,14 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 
 	public List<RPGClass> getRpgClassList() {
 		return this.rpgClassList;
+	}
+
+	public PlayerEntity getPlayer() {
+		return this.player;
+	}
+
+	public World getWorld() {
+		return this.world;
 	}
 
 	public enum ClassSelectionScreenType implements StringIdentifiable {

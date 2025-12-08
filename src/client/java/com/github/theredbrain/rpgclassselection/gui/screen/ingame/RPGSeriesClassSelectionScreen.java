@@ -257,6 +257,50 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	}
 
 	@Override
+	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+		super.render(context, mouseX, mouseY, delta);
+
+		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+
+		for (int i = 0; i < Math.min(5, rpgClass.upgrade_entry_group_list().size()); i++) {
+			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+
+			if (i < this.currentUpgradeIndexList.size()) {
+				int index = this.currentUpgradeIndexList.get(i);
+
+				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
+					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+
+					if (this.isPointWithinBounds(31, 88 + i * 24, 155, 20, mouseX, mouseY)) {
+						List<Text> list = this.getUpgradeEntryTooltipList(upgradeEntry);
+
+						context.drawTooltip(this.textRenderer, list, mouseX, mouseY);
+					}
+				}
+			}
+		}
+
+		for (int i = 5 + this.scrollPosition; i < Math.min(10 + this.scrollPosition, rpgClass.upgrade_entry_group_list().size()); i++) {
+			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+
+			if (i < this.currentUpgradeIndexList.size()) {
+				int index = this.currentUpgradeIndexList.get(i);
+
+				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
+					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+
+					if (this.isPointWithinBounds(238, 88 + (i - 5 - this.scrollPosition) * 24, 155, 20, mouseX, mouseY)) {
+						List<Text> list = this.getUpgradeEntryTooltipList(upgradeEntry);
+
+						context.drawTooltip(this.textRenderer, list, mouseX, mouseY);
+					}
+				}
+			}
+		}
+
+	}
+
+	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
 		this.mouseClicked = false;
