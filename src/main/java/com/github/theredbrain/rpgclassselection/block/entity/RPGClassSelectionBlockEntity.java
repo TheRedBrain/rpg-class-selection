@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class RPGClassSelectionBlockEntity extends BlockEntity {
 	private String initialClassIdentifierString = "";
+	private boolean restrictClassList = true;
 	private boolean allowChangingClass = true;
 	private boolean allowChangingUpgrades = true;
 
@@ -24,6 +25,8 @@ public class RPGClassSelectionBlockEntity extends BlockEntity {
 			nbt.putString("initial_class_identifier_string", this.initialClassIdentifierString);
 		}
 
+		nbt.putBoolean("restrictClassList", this.restrictClassList);
+
 		nbt.putBoolean("allow_changing_class", this.allowChangingClass);
 
 		nbt.putBoolean("allow_changing_upgrades", this.allowChangingUpgrades);
@@ -37,6 +40,8 @@ public class RPGClassSelectionBlockEntity extends BlockEntity {
 		if (nbt.contains("initial_class_identifier_string")) {
 			this.initialClassIdentifierString = nbt.getString("initial_class_identifier_string");
 		}
+
+		this.restrictClassList = nbt.getBoolean("restrictClassList");
 
 		this.allowChangingClass = nbt.getBoolean("allow_changing_class");
 
@@ -62,8 +67,16 @@ public class RPGClassSelectionBlockEntity extends BlockEntity {
 		this.initialClassIdentifierString = initial_class_identifier_string;
 	}
 
+	public boolean restrictClassList() {
+		return this.restrictClassList;
+	}
+
+	public void setRestrictClassList(boolean restrictClassList) {
+		this.restrictClassList = restrictClassList;
+	}
+
 	public boolean allowChangingClass() {
-		return allowChangingClass;
+		return this.allowChangingClass;
 	}
 
 	public void setAllowChangingClass(boolean allowChangingClass) {
@@ -71,7 +84,7 @@ public class RPGClassSelectionBlockEntity extends BlockEntity {
 	}
 
 	public boolean allowChangingUpgrades() {
-		return allowChangingUpgrades;
+		return this.allowChangingUpgrades;
 	}
 
 	public void setAllowChangingUpgrades(boolean allowChangingUpgrades) {

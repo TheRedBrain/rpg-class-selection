@@ -63,7 +63,7 @@ public class RPGClassSelection implements ModInitializer {
 		RPGInventoryCompat.setClassItemStack(player, classItemStack);
 	}
 
-	public static void openRPGClassSelectionScreen(ServerPlayerEntity player, String initial_class_identifier_string, boolean allow_changing_class, boolean allow_changing_upgrades) {
+	public static void openRPGClassSelectionScreen(ServerPlayerEntity player, String initial_class_identifier_string, boolean restrict_class_list, boolean allow_changing_class, boolean allow_changing_upgrades) {
 
 		MinecraftServer server = player.server;
 
@@ -129,10 +129,11 @@ public class RPGClassSelection implements ModInitializer {
 								currentUpgradeIdentifierString = activeClassState.activeUpgradeIdentifierList().get(groupIndex);
 							}
 
+							boolean groupEntryListIsEmpty = upgradeEntryGroup.upgrade_entry_list().isEmpty();
 							if (
-									(!upgradeEntryGroup.upgrade_entry_list().isEmpty()&& allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
-											(upgradeEntryGroup.upgrade_entry_list().isEmpty() && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
-											(allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
+									(!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
+											(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
+											((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
 							) {
 								upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
 								upgradeUnlockStatesList.add(true);
@@ -170,10 +171,13 @@ public class RPGClassSelection implements ModInitializer {
 					}
 
 					boolean isCurrentClass = entry.getKey().getValue().toString().equals(currentClassIdentifierString);
+					boolean isInitialClass = entry.getKey().getValue().toString().equals(initial_class_identifier_string);
 
-					if (isClassUnlocked || rpgClass.visible_when_locked() || isCurrentClass) {
+					if ((isClassUnlocked || rpgClass.visible_when_locked() || isCurrentClass)
+							&& (isCurrentClass || allow_changing_class)
+							&& ((restrict_class_list && (isInitialClass || isCurrentClass)) || initial_class_identifier_string.isEmpty())
+					) {
 
-						if (isCurrentClass || allow_changing_class) {
 							classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
 									isClassUnlocked,
 									upgradeUnlockStateDataList
@@ -193,7 +197,6 @@ public class RPGClassSelection implements ModInitializer {
 							if (entry.getKey().getValue().toString().equals(initial_class_identifier_string)) {
 								initialClassIndex = classIndex;
 							}
-						}
 					}
 				}
 

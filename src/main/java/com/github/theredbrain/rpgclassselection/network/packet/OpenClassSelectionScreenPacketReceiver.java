@@ -11,6 +11,7 @@ public class OpenClassSelectionScreenPacketReceiver implements ServerPlayNetwork
 		RPGClassSelection.openRPGClassSelectionScreen(
 				context.player(),
 				payload.initial_class_identifier_string(),
+				payload.restrict_class_list(),
 				payload.allow_changing_class(),
 				payload.allow_changing_upgrades()
 		);

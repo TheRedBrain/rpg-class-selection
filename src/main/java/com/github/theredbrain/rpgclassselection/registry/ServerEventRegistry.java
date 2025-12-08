@@ -14,6 +14,7 @@ public class ServerEventRegistry {
 				RPGClassSelection.openRPGClassSelectionScreen(
 						player,
 						"",
+						false,
 						serverConfig.firstJoinScreenSettings.allow_changing_class,
 						serverConfig.firstJoinScreenSettings.allow_changing_upgrades
 				);

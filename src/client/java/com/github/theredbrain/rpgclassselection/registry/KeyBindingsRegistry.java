@@ -43,7 +43,7 @@ public class KeyBindingsRegistry {
 		if (client.player != null) {
 			ServerConfig serverConfig = RPGClassSelection.SERVER_CONFIG;
 			if (serverConfig.hotkeySettings.enable_class_selection_hotkey) {
-				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket("", serverConfig.hotkeySettings.allow_changing_class, serverConfig.hotkeySettings.allow_changing_upgrades));
+				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket("", false, serverConfig.hotkeySettings.allow_changing_class, serverConfig.hotkeySettings.allow_changing_upgrades));
 			} else {
 				client.player.sendMessage(Text.translatable("hud.message.class_selection_hot_key_was_disabled"), true);
 			}

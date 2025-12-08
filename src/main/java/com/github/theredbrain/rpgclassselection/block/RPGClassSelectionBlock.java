@@ -46,6 +46,7 @@ public class RPGClassSelectionBlock extends BlockWithEntity {
 				RPGClassSelection.openRPGClassSelectionScreen(
 						serverPlayerEntity,
 						rpgClassSelectionBlockEntity.getInitialClassIdentifierString(),
+						rpgClassSelectionBlockEntity.restrictClassList(),
 						rpgClassSelectionBlockEntity.allowChangingClass(),
 						rpgClassSelectionBlockEntity.allowChangingUpgrades()
 				);
