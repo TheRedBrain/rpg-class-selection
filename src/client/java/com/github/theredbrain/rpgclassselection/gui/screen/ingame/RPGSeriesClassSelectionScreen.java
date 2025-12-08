@@ -95,6 +95,22 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	}
 
 	@Override
+	protected void cycleClassIndexBackwards() {
+		super.cycleClassIndexBackwards();
+
+		this.scrollPosition = 0;
+		this.scrollAmount = 0.0F;
+	}
+
+	@Override
+	protected void cycleClassIndexForwards() {
+		super.cycleClassIndexForwards();
+
+		this.scrollPosition = 0;
+		this.scrollAmount = 0.0F;
+	}
+
+	@Override
 	public void resize(MinecraftClient client, int width, int height) {
 		int number = this.scrollPosition;
 		float number1 = this.scrollAmount;
