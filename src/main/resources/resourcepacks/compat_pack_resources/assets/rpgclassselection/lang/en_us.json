@@ -1,6 +1,49 @@
 {
   "class_selection_screen.rpgclassselection.arcane_wizard.title": "Arcane Wizard",
+  "class_selection_screen.rpgclassselection.arcane_wizard.description": "Arcane Wizard Description",
+
+  "class_selection_screen.rpgclassselection.archer.title": "Archer",
+  "class_selection_screen.rpgclassselection.archer.description": "Archer Description",
+
   "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
+  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.",
+
   "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time."
+  "class_selection_screen.rpgclassselection.frost_wizard.description": "Frost Wizard Description",
+
+  "class_selection_screen.rpgclassselection.paladin.title": "Paladin",
+  "class_selection_screen.rpgclassselection.paladin.description": "Paladin Description",
+
+  "class_selection_screen.rpgclassselection.priest.title": "Priest",
+  "class_selection_screen.rpgclassselection.priest.description": "Priest Description",
+
+  "class_selection_screen.rpgclassselection.rogue.title": "Rogue",
+  "class_selection_screen.rpgclassselection.rogue.description": "Rogue Description",
+
+  "class_selection_screen.rpgclassselection.warrior.title": "Warrior",
+  "class_selection_screen.rpgclassselection.warrior.description": "Warrior Description",
+
+  "class_selection_screen.rpgclassselection.air_wizard.title": "Air Wizard",
+  "class_selection_screen.rpgclassselection.air_wizard.description": "Air Wizard Description",
+
+  "class_selection_screen.rpgclassselection.berserker.title": "Berserker",
+  "class_selection_screen.rpgclassselection.berserker.description": "Berserker Description",
+
+  "class_selection_screen.rpgclassselection.deadeye.title": "Deadeye",
+  "class_selection_screen.rpgclassselection.deadeye.description": "Deadeye Description",
+
+  "class_selection_screen.rpgclassselection.earth_wizard.title": "Earth Wizard",
+  "class_selection_screen.rpgclassselection.earth_wizard.description": "Earth Wizard Description",
+
+  "class_selection_screen.rpgclassselection.forcemaster.title": "Forcemaster",
+  "class_selection_screen.rpgclassselection.forcemaster.description": "Forcemaster Description",
+
+  "class_selection_screen.rpgclassselection.tundra_hunter.title": "Tundra Hunter",
+  "class_selection_screen.rpgclassselection.tundra_hunter.description": "Tundra Hunter Description",
+
+  "class_selection_screen.rpgclassselection.war_archer.title": "War Archer",
+  "class_selection_screen.rpgclassselection.war_archer.description": "War Archer Description",
+
+  "class_selection_screen.rpgclassselection.water_wizard.title": "Water Wizard",
+  "class_selection_screen.rpgclassselection.water_wizard.description": "Water Wizard Description"
 }

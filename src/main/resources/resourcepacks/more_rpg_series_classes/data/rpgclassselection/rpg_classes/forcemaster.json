@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:forcemaster",
+    "class_item_identifier": "forcemaster_rpg:forcemaster_spell_book",
+    "description": "class_selection_screen.rpgclassselection.forcemaster.description",
+    "locked_description": "class_selection_screen.rpgclassselection.forcemaster.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_1",
+                    "title": "spell.forcemaster_rpg.stonehand.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/stonehand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "forcemaster_rpg:stonehand"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_2",
+                    "title": "spell.forcemaster_rpg.burstcrack.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/burstcrack.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "forcemaster_rpg:burstcrack"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_3",
+                    "title": "spell.forcemaster_rpg.belial_smashing.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/belial_smashing.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "forcemaster_rpg:belial_smashing"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_4",
+                    "title": "spell.forcemaster_rpg.asal.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/asal.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "forcemaster_rpg:asal"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_a_1",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_modifier_1.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/stonehand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_b_1",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_modifier_1.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/stonehand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_a_1",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_b_1",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_a_2",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_modifier_2.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/burstcrack.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_b_2",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_modifier_2.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/burstcrack.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_a_2",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_b_2",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_a_3",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_modifier_3.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/belial_smashing.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_b_3",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_modifier_3.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/belial_smashing.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_a_3",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_passive_b_3",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/forcemaster_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_a_4",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_a_modifier_4.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/asal.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:forcemaster_modifier_b_4",
+                    "title": "spell.mrpgc_skill_tree.forcemaster_spec_b_modifier_4.name",
+                    "icon_path": "forcemaster_rpg:textures/spell/asal.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:forcemaster_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:war_archer",
+    "class_item_identifier": "archers_expansion:war_archer_spell_book",
+    "description": "class_selection_screen.rpgclassselection.war_archer.description",
+    "locked_description": "class_selection_screen.rpgclassselection.war_archer.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_1",
+                    "title": "spell.archers_expansion.smoldering_arrow.name",
+                    "icon_path": "archers_expansion:textures/spell/smoldering_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:smoldering_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_2",
+                    "title": "spell.archers_expansion.dual_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/dual_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:dual_shot"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_3",
+                    "title": "spell.archers_expansion.point_blank_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/point_blank_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:point_blank_shot"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_4",
+                    "title": "spell.archers_expansion.pin_down.name",
+                    "icon_path": "archers_expansion:textures/spell/pin_down.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:pin_down"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_a_1",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_modifier_1.name",
+                    "icon_path": "archers_expansion:textures/spell/smoldering_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_b_1",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_modifier_1.name",
+                    "icon_path": "archers_expansion:textures/spell/smoldering_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_a_1",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_b_1",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_a_2",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_modifier_2.name",
+                    "icon_path": "archers_expansion:textures/spell/dual_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_b_2",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_modifier_2.name",
+                    "icon_path": "archers_expansion:textures/spell/dual_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_a_2",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_b_2",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_a_3",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_modifier_3.name",
+                    "icon_path": "archers_expansion:textures/spell/point_blank_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_b_3",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_modifier_3.name",
+                    "icon_path": "archers_expansion:textures/spell/point_blank_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_a_3",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_passive_b_3",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/war_archer_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_a_4",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_a_modifier_4.name",
+                    "icon_path": "archers_expansion:textures/spell/pin_down.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_modifier_b_4",
+                    "title": "spell.mrpgc_skill_tree.war_archer_spec_b_modifier_4.name",
+                    "icon_path": "archers_expansion:textures/spell/pin_down.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:war_archer_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

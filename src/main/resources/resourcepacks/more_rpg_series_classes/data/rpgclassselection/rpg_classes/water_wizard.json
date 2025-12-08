@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:water_wizard",
+    "class_item_identifier": "elemental_wizards_rpg:aqua_spell_book",
+    "description": "class_selection_screen.rpgclassselection.water_wizard.description",
+    "locked_description": "class_selection_screen.rpgclassselection.water_wizard.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_spell_1",
+                    "title": "spell.elemental_wizards_rpg.aqua_bubble_beam.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_bubble_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_bubble_beam"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_spell_2",
+                    "title": "spell.elemental_wizards_rpg.aqua_springwater.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_springwater.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_springwater"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_spell_3",
+                    "title": "spell.elemental_wizards_rpg.aqua_hydro_beam.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_hydro_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_hydro_beam"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_spell_4",
+                    "title": "spell.elemental_wizards_rpg.aqua_water_whip.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_water_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_water_whip"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_a_1",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_modifier_1.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_bubble_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_b_1",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_modifier_1.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_bubble_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_a_1",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_b_1",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_a_2",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_modifier_2.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_springwater.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_b_2",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_modifier_2.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_springwater.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_a_2",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_b_2",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_a_3",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_modifier_3.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_hydro_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_b_3",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_modifier_3.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_hydro_beam.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_a_3",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_passive_b_3",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/water_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_a_4",
+                    "title": "spell.mrpgc_skill_tree.water_spec_a_modifier_4.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_water_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_modifier_b_4",
+                    "title": "spell.mrpgc_skill_tree.water_spec_b_modifier_4.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_water_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:water_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

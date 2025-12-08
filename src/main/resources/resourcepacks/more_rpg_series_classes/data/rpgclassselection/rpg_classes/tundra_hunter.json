@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:tundra_hunter",
+    "class_item_identifier": "archers_expansion:tundra_hunter_spell_book",
+    "description": "class_selection_screen.rpgclassselection.tundra_hunter.description",
+    "locked_description": "class_selection_screen.rpgclassselection.tundra_hunter.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_1",
+                    "title": "spell.archers_expansion.frozen_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:frozen_shot"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_2",
+                    "title": "spell.archers_expansion.frozen_pact.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_pact.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:frozen_pact"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_3",
+                    "title": "spell.archers_expansion.arctic_volley.name",
+                    "icon_path": "archers_expansion:textures/spell/arctic_volley.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:arctic_volley"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_4",
+                    "title": "spell.archers_expansion.enchanted_crystal_arrow.name",
+                    "icon_path": "archers_expansion:textures/spell/enchanted_crystal_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:enchanted_crystal_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_a_1",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_modifier_1.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_b_1",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_modifier_1.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_a_1",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_b_1",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_passive_1.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_a_2",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_modifier_2.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_pact.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_b_2",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_modifier_2.name",
+                    "icon_path": "archers_expansion:textures/spell/frozen_pact.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_a_2",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_b_2",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_passive_2.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_a_3",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_modifier_3.name",
+                    "icon_path": "archers_expansion:textures/spell/arctic_volley.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_b_3",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_modifier_3.name",
+                    "icon_path": "archers_expansion:textures/spell/arctic_volley.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_a_3",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_passive_b_3",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_passive_3.name",
+                    "icon_path": "mrpgc_skill_tree:textures/spell/tundra_hunter_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_a_4",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_a_modifier_4.name",
+                    "icon_path": "archers_expansion:textures/spell/enchanted_crystal_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_modifier_b_4",
+                    "title": "spell.mrpgc_skill_tree.tundra_hunter_spec_b_modifier_4.name",
+                    "icon_path": "archers_expansion:textures/spell/enchanted_crystal_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "mrpgc_skill_tree:tundra_hunter_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
