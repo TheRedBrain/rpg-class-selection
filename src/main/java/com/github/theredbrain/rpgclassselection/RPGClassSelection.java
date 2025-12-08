@@ -175,7 +175,7 @@ public class RPGClassSelection implements ModInitializer {
 
 					if ((isClassUnlocked || rpgClass.visible_when_locked() || isCurrentClass)
 							&& (isCurrentClass || allow_changing_class)
-							&& ((restrict_class_list && (isInitialClass || isCurrentClass)) || initial_class_identifier_string.isEmpty())
+							&& (!restrict_class_list || isInitialClass || isCurrentClass || initial_class_identifier_string.isEmpty())
 					) {
 
 							classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
