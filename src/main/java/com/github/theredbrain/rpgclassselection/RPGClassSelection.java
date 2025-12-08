@@ -16,7 +16,11 @@ import com.github.theredbrain.rpgclassselection.screen.RPGSeriesClassSelectionSc
 import com.github.theredbrain.rpgclassselection.screen.ThreeUpgradesClassSelectionScreenHandler;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.PlayerAdvancementTracker;
 import net.minecraft.component.ComponentType;
@@ -39,6 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 public class RPGClassSelection implements ModInitializer {
 	public static final String MOD_ID = "rpgclassselection";
@@ -257,6 +262,12 @@ public class RPGClassSelection implements ModInitializer {
 		ScreenHandlerTypesRegistry.registerAll();
 		ServerEventRegistry.initializeServerEvents();
 		ServerPacketRegistry.init();
+
+		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
+		if (modContainer.isPresent()) {
+			ResourceManagerHelper.registerBuiltinResourcePack(identifier("rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+		}
 	}
 
 	public static Identifier identifier(String path) {

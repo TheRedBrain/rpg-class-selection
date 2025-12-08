@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:fire_wizard",
+    "class_item_identifier": "wizards:fire_spell_book",
+    "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
+    "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_spell_1",
+                    "title": "spell.wizards.fire_blast.name",
+                    "icon_path": "wizards:textures/spell/fire_blast.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_blast"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_spell_2",
+                    "title": "spell.wizards.fire_breath.name",
+                    "icon_path": "wizards:textures/spell/fire_breath.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_breath"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_spell_3",
+                    "title": "spell.wizards.fire_meteor.name",
+                    "icon_path": "wizards:textures/spell/fire_meteor.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_meteor"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_spell_4",
+                    "title": "spell.wizards.fire_wall.name",
+                    "icon_path": "wizards:textures/spell/fire_wall.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_wall"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_a_1",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/fire_blast.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_b_1",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/fire_blast.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_a_1",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_passive_1.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_b_1",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_passive_1.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_a_2",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/fire_breath.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_b_2",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/fire_breath.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_a_2",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_passive_2.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_b_2",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_passive_2.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_a_3",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_modifier_3.name",
+                    "icon_path": "wizards:textures/spell/fire_meteor.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_b_3",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_modifier_3.name",
+                    "icon_path": "wizards:textures/spell/fire_meteor.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_a_3",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_passive_3.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_passive_b_3",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_passive_3.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/fire_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_a_4",
+                    "title": "spell.skill_tree_rpgs.fire_spec_a_modifier_4.name",
+                    "icon_path": "wizards:textures/spell/fire_wall.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_modifier_b_4",
+                    "title": "spell.skill_tree_rpgs.fire_spec_b_modifier_4.name",
+                    "icon_path": "wizards:textures/spell/fire_wall.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

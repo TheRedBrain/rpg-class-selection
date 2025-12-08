@@ -7,15 +7,21 @@
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
+  "resourcepack.rpgclassselection.rpg_series_classes.name": "RPG Class Selection X RPG Series",
+  "resourcepack.rpgclassselection.compat_pack_resources.name": "Compatibility Pack Resources",
+
   "rpgclassselection.server": "Server Side Settings",
 
-  "rpgclassselection.server.enable_class_selection_hotkey": "Enable Class Selection Hotkey",
   "rpgclassselection.server.class_selection_screen_type": "Class Selection Screen Layout",
   "rpgclassselection.server.class_selection_screen_type.desc": "Different layouts can show different amounts of upgrades and can also have different UI elements.",
+  "rpgclassselection.server.empty_upgrade_mode": "Empty Upgrade Mode",
+  "rpgclassselection.server.empty_upgrade_mode.desc": "Under which conditions an upgrade group should contain an empty upgrade entry.",
 
-  "class_selection_screen.rpgclassselection.arcane_wizard.title": "Arcane Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
-  "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
-  "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses the destructive power of fire.\nThey specialize in dealing damage in an area and/or over time.\nThird line\nForth line",
-  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": ""
+  "rpgclassselection.server.hotkeySettings.enable_class_selection_hotkey": "Enable Class Selection Hotkey",
+  "rpgclassselection.server.hotkeySettings.allow_changing_class": "Allow Changing Class",
+  "rpgclassselection.server.hotkeySettings.allow_changing_upgrades": "Allow Changing Upgrades",
+
+  "rpgclassselection.server.firstJoinScreenSettings.enable_first_join_class_selection": "Enable Class Selection On First Join",
+  "rpgclassselection.server.firstJoinScreenSettings.allow_changing_class": "Allow Changing Class",
+  "rpgclassselection.server.firstJoinScreenSettings.allow_changing_upgrades": "Allow Changing Upgrades"
 }

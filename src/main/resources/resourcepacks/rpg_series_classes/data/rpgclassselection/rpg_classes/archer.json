@@ -1,0 +1,251 @@
+{
+    "class_identifier": "rpgclassselection:archer",
+    "class_item_identifier": "archers:archer_spell_book",
+    "description": "class_selection_screen.rpgclassselection.archer.description",
+    "locked_description": "class_selection_screen.rpgclassselection.archer.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_spell_1",
+                    "title": "spell.archers.power_shot.name",
+                    "icon_path": "archers:textures/spell/power_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:power_shot"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_spell_2",
+                    "title": "spell.archers.entangling_roots.name",
+                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:entangling_roots"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_spell_3",
+                    "title": "spell.archers.barrage.name",
+                    "icon_path": "archers:textures/spell/barrage.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:barrage"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_spell_4",
+                    "title": "spell.archers.magic_arrow.name",
+                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:magic_arrow"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_a_1",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_modifier_1.name",
+                    "icon_path": "archers:textures/spell/power_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_b_1",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_modifier_1.name",
+                    "icon_path": "archers:textures/spell/power_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_modifier_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_a_1",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_passive_1.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_a_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_b_1",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_passive_1.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_b_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_passive_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_a_2",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_modifier_2.name",
+                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_b_2",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_modifier_2.name",
+                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_a_2",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_passive_2.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_a_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_passive_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_b_2",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_passive_2.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_b_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_a_3",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_modifier_3.name",
+                    "icon_path": "archers:textures/spell/barrage.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_modifier_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_b_3",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_modifier_3.name",
+                    "icon_path": "archers:textures/spell/barrage.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_modifier_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_a_3",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_passive_3.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_a_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_passive_3"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_passive_b_3",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_passive_3.name",
+                    "icon_path": "skill_tree_rpgs:textures/spell/archer_spec_b_passive_3.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_passive_3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_a_4",
+                    "title": "spell.skill_tree_rpgs.archer_spec_a_modifier_4.name",
+                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_a_modifier_4"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_modifier_b_4",
+                    "title": "spell.skill_tree_rpgs.archer_spec_b_modifier_4.name",
+                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_spec_b_modifier_4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
