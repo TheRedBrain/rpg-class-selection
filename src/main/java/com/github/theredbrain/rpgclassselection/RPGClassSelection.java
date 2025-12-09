@@ -91,18 +91,19 @@ public class RPGClassSelection implements ModInitializer {
 				List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>();
 
 				List<RPGClass> rpgClassList = new ArrayList<>();
+				int classIndex = 0;
 
 				// add empty class
-				if (allow_changing_class || currentClassIdentifierString.isEmpty()) {
+				if ((allow_changing_class && !restrict_class_list) || currentClassIdentifierString.isEmpty()) {
 					classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
 							true,
 							new ArrayList<>()
 					));
 					rpgClassList.add(RPGClass.DEFAULT);
+					classIndex = classIndex + 1;
 				}
 
 				int initialClassIndex = 0;
-				int classIndex = 0;
 				ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelection.SERVER_CONFIG.empty_upgrade_mode.get();
 
 				for (Map.Entry<RegistryKey<RPGClass>, RPGClass> entry : player.getWorld().getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntrySet()) {
@@ -183,25 +184,26 @@ public class RPGClassSelection implements ModInitializer {
 							&& (!restrict_class_list || isInitialClass || isCurrentClass || initial_class_identifier_string.isEmpty())
 					) {
 
-							classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-									isClassUnlocked,
-									upgradeUnlockStateDataList
-							));
-							rpgClassList.add(new RPGClass(
-									rpgClass.class_identifier(),
-									rpgClass.unlock_advancement_identifier(),
-									rpgClass.class_item_identifier(),
-									rpgClass.visible_when_locked(),
-									rpgClass.description(),
-									rpgClass.locked_description(),
-									upgradeEntryGroupList
-							));
+						classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
+								isClassUnlocked,
+								upgradeUnlockStateDataList
+						));
+						rpgClassList.add(new RPGClass(
+								rpgClass.class_identifier(),
+								rpgClass.unlock_advancement_identifier(),
+								rpgClass.class_item_identifier(),
+								rpgClass.visible_when_locked(),
+								rpgClass.description(),
+								rpgClass.locked_description(),
+								upgradeEntryGroupList
+						));
 
-							classIndex = classIndex + 1;
+						if (isInitialClass) {
+							initialClassIndex = classIndex;
+						}
 
-							if (entry.getKey().getValue().toString().equals(initial_class_identifier_string)) {
-								initialClassIndex = classIndex;
-							}
+						classIndex = classIndex + 1;
+
 					}
 				}
 
