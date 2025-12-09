@@ -1,9 +1,11 @@
 {
   "class_selection_screen.empty_upgrade.description": "Empty",
-  "class_selection_screen.rpgclassselection.empty_class.title": "No Class",
   "class_selection_screen.choose_class_button_label": "Choose Class",
   "class_selection_screen.spells_label": "Spells",
   "class_selection_screen.modifiers_label": "Modifiers",
+
+  "class_selection_screen.rpgclassselection.empty_class.title": "No Class",
+  "class_selection_screen.rpgclassselection.empty_class.description": "The default Minecraft experience.\nNo special abilities or modifiers.",
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
