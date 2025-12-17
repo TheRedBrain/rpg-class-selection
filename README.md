@@ -53,7 +53,9 @@ Example class:
 ```json
 {
   "class_identifier": "rpgclassselection:fire_wizard",
+  "unlock_advancement_identifier": "minecraft:story/smelt_iron",
   "class_item_identifier": "wizards:fire_spell_book",
+  "visible_when_locked": true,
   "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
   "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
   "upgrade_entry_group_list": [
@@ -61,17 +63,30 @@ Example class:
       "upgrade_entry_list": [
         {
           "upgrade_identifier": "rpgclassselection:fire_spell_1",
+          "unlock_advancement_identifier": "minecraft:story/mine_diamond",
+          "visible_when_locked": true,
           "title": "spell.wizards.fire_blast.name",
           "icon_path": "wizards:textures/spell/fire_blast.png",
           "component_list": [
             {
               "type": "spell",
-              "spell_identifier": "wizards:fire_blast"
+              "spell_identifier": "wizards:fire_blast",
+              "attribute_identifier": "",
+              "attribute_modifier_amount": 0.0,
+              "attribute_modifier_operation": ""
+            },
+            {
+              "type": "attribute_modifier",
+              "spell_identifier": "",
+              "attribute_identifier": "minecraft:generic.attack_damage",
+              "attribute_modifier_amount": 3.0,
+              "attribute_modifier_operation": "ADD_VALUE"
             }
           ]
         }
       ]
     },
+    {},
     {
       "upgrade_entry_list": [
         {
@@ -86,38 +101,7 @@ Example class:
           ]
         }
       ]
-    },
-    {
-      "upgrade_entry_list": [
-        {
-          "upgrade_identifier": "rpgclassselection:fire_spell_3",
-          "title": "spell.wizards.fire_meteor.name",
-          "icon_path": "wizards:textures/spell/fire_meteor.png",
-          "component_list": [
-            {
-              "type": "spell",
-              "spell_identifier": "wizards:fire_meteor"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "upgrade_entry_list": [
-        {
-          "upgrade_identifier": "rpgclassselection:fire_spell_4",
-          "title": "spell.wizards.fire_wall.name",
-          "icon_path": "wizards:textures/spell/fire_wall.png",
-          "component_list": [
-            {
-              "type": "spell",
-              "spell_identifier": "wizards:fire_wall"
-            }
-          ]
-        }
-      ]
-    },
-    {}
+    }
   ]
 }
 ```
