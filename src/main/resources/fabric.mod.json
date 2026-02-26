@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "rpgclassselection",
 	"version": "${version}",
-	"name": "RPG Class Selection",
+	"name": "RPG Class Selection (RPG Series Tweaks)",
 	"description": "Adds a class selection screen known from many RPGs.",
 	"authors": [
 		"TheRedBrain"
