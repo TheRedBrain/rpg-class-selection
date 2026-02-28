@@ -16,19 +16,17 @@ import java.util.Optional;
 public record RPGClass(
 		String class_identifier,
 		String unlock_advancement_identifier,
-		String class_item_identifier,
 		boolean visible_when_locked,
 		String description,
 		String locked_description,
 		List<UpgradeEntryGroup> upgrade_entry_group_list
 ) {
 
-	public static final RPGClass DEFAULT = new RPGClass("rpgclassselection:empty_class", "", "", true, "class_selection_screen.rpgclassselection.empty_class.description", "", List.of());
+	public static final RPGClass DEFAULT = new RPGClass("rpgclassselection:empty_class", "", true, "class_selection_screen.rpgclassselection.empty_class.description", "", List.of());
 
 	public static final Codec<RPGClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			Codec.STRING.optionalFieldOf("class_identifier", "").forGetter(x -> x.class_identifier),
 			Codec.STRING.optionalFieldOf("unlock_advancement_identifier", "").forGetter(x -> x.unlock_advancement_identifier),
-			Codec.STRING.optionalFieldOf("class_item_identifier", "").forGetter(x -> x.class_item_identifier),
 			Codec.BOOL.optionalFieldOf("visible_when_locked", true).forGetter(x -> x.visible_when_locked),
 			Codec.STRING.optionalFieldOf("description", "").forGetter(x -> x.description),
 			Codec.STRING.optionalFieldOf("locked_description", "").forGetter(x -> x.locked_description),
@@ -39,7 +37,6 @@ public record RPGClass(
 		public RPGClass decode(ByteBuf byteBuf) {
 			String class_identifier = PacketCodecs.STRING.decode(byteBuf);
 			String unlock_advancement_identifier = PacketCodecs.STRING.decode(byteBuf);
-			String class_item_identifier = PacketCodecs.STRING.decode(byteBuf);
 			boolean visible_when_locked = PacketCodecs.BOOL.decode(byteBuf);
 			String description = PacketCodecs.STRING.decode(byteBuf);
 			String locked_description = PacketCodecs.STRING.decode(byteBuf);
@@ -51,7 +48,6 @@ public record RPGClass(
 			return new RPGClass(
 					class_identifier,
 					unlock_advancement_identifier,
-					class_item_identifier,
 					visible_when_locked,
 					description,
 					locked_description,
@@ -62,7 +58,6 @@ public record RPGClass(
 		public void encode(ByteBuf byteBuf, RPGClass classUnlockStateData) {
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.class_identifier());
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.unlock_advancement_identifier());
-			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.class_item_identifier());
 			PacketCodecs.BOOL.encode(byteBuf, classUnlockStateData.visible_when_locked());
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.description());
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.locked_description());
@@ -77,7 +72,6 @@ public record RPGClass(
 	public RPGClass(
 			String class_identifier,
 			String unlock_advancement_identifier,
-			String class_item_identifier,
 			boolean visible_when_locked,
 			String description,
 			String locked_description,
@@ -85,7 +79,6 @@ public record RPGClass(
 	) {
 		this.class_identifier = class_identifier != null ? class_identifier : "";
 		this.unlock_advancement_identifier = unlock_advancement_identifier != null ? unlock_advancement_identifier : "";
-		this.class_item_identifier = class_item_identifier != null ? class_item_identifier : "";
 		this.visible_when_locked = visible_when_locked;
 		this.description = description != null ? description : "";
 		this.locked_description = locked_description != null ? locked_description : "";

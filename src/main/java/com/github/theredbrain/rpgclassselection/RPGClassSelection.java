@@ -191,7 +191,6 @@ public class RPGClassSelection implements ModInitializer {
 						rpgClassList.add(new RPGClass(
 								rpgClass.class_identifier(),
 								rpgClass.unlock_advancement_identifier(),
-								rpgClass.class_item_identifier(),
 								rpgClass.visible_when_locked(),
 								rpgClass.description(),
 								rpgClass.locked_description(),

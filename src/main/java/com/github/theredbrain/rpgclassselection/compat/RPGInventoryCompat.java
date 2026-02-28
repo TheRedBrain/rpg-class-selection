@@ -13,11 +13,11 @@ public class RPGInventoryCompat {
 	}
 
 	public static ItemStack getClassItemStack(PlayerEntity player) {
-		return player.getEquippedStack(ExtendedEquipmentSlot.RELIC);
+		return player.getEquippedStack(ExtendedEquipmentSlot.CLASS_ITEM);
 	}
 
 	public static void setClassItemStack(PlayerEntity player, ItemStack classItemStack) {
-		player.equipStack(ExtendedEquipmentSlot.RELIC, classItemStack);
+		player.equipStack(ExtendedEquipmentSlot.CLASS_ITEM, classItemStack);
 	}
 
 }
