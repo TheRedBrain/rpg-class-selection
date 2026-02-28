@@ -11,7 +11,7 @@ public class EntityRegistry {
 
 	public static final BlockEntityType<RPGClassSelectionBlockEntity> RPG_CLASS_SELECTION_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE,
 			RPGClassSelection.identifier("rpg_class_selection_block"),
-			FabricBlockEntityTypeBuilder.create(RPGClassSelectionBlockEntity::new, BlockRegistry.RPG_CLASS_SELECTION_BLOCK).build());
+			BlockEntityType.Builder.create(RPGClassSelectionBlockEntity::new, BlockRegistry.RPG_CLASS_SELECTION_BLOCK).build());
 
 	public static void init() {
 	}
