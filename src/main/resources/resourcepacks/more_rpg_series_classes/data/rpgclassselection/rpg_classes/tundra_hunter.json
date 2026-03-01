@@ -1,13 +1,12 @@
 {
     "class_identifier": "rpgclassselection:tundra_hunter",
-    "class_item_identifier": "archers_expansion:tundra_hunter_spell_book",
     "description": "class_selection_screen.rpgclassselection.tundra_hunter.description",
     "locked_description": "class_selection_screen.rpgclassselection.tundra_hunter.locked_description",
     "upgrade_entry_group_list": [
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_1",
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_1_1",
                     "title": "spell.archers_expansion.frozen_shot.name",
                     "icon_path": "archers_expansion:textures/spell/frozen_shot.png",
                     "component_list": [
@@ -16,13 +15,9 @@
                             "spell_identifier": "archers_expansion:frozen_shot"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_2",
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_1_2",
                     "title": "spell.archers_expansion.frozen_pact.name",
                     "icon_path": "archers_expansion:textures/spell/frozen_pact.png",
                     "component_list": [
@@ -37,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_3",
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_2",
                     "title": "spell.archers_expansion.arctic_volley.name",
                     "icon_path": "archers_expansion:textures/spell/arctic_volley.png",
                     "component_list": [
@@ -52,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_4",
+                    "upgrade_identifier": "rpgclassselection:tundra_hunter_spell_3",
                     "title": "spell.archers_expansion.enchanted_crystal_arrow.name",
                     "icon_path": "archers_expansion:textures/spell/enchanted_crystal_arrow.png",
                     "component_list": [
@@ -64,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

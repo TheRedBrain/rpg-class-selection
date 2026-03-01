@@ -1,13 +1,23 @@
 {
     "class_identifier": "rpgclassselection:war_archer",
-    "class_item_identifier": "archers_expansion:war_archer_spell_book",
     "description": "class_selection_screen.rpgclassselection.war_archer.description",
     "locked_description": "class_selection_screen.rpgclassselection.war_archer.locked_description",
     "upgrade_entry_group_list": [
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:war_archer_spell_1",
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_1_1",
+                    "title": "spell.archers_expansion.dual_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/dual_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:dual_shot"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_1_2",
                     "title": "spell.archers_expansion.smoldering_arrow.name",
                     "icon_path": "archers_expansion:textures/spell/smoldering_arrow.png",
                     "component_list": [
@@ -23,21 +33,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:war_archer_spell_2",
-                    "title": "spell.archers_expansion.dual_shot.name",
-                    "icon_path": "archers_expansion:textures/spell/dual_shot.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "archers_expansion:dual_shot"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:war_archer_spell_3",
                     "title": "spell.archers_expansion.point_blank_shot.name",
                     "icon_path": "archers_expansion:textures/spell/point_blank_shot.png",
                     "component_list": [
@@ -52,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:war_archer_spell_4",
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_3",
                     "title": "spell.archers_expansion.pin_down.name",
                     "icon_path": "archers_expansion:textures/spell/pin_down.png",
                     "component_list": [
@@ -64,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

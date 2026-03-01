@@ -1,19 +1,29 @@
 {
     "class_identifier": "rpgclassselection:deadeye",
-    "class_item_identifier": "archers_expansion:deadeye_spell_book",
     "description": "class_selection_screen.rpgclassselection.deadeye.description",
     "locked_description": "class_selection_screen.rpgclassselection.deadeye.locked_description",
     "upgrade_entry_group_list": [
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_1",
+                    "upgrade_identifier": "rpgclassselection:deadeye_spell_1_1",
                     "title": "spell.archers_expansion.fast_shot.name",
                     "icon_path": "archers_expansion:textures/spell/fast_shot.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "archers_expansion:fast_shot"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:deadeye_spell_1_2",
+                    "title": "spell.archers_expansion.trick_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/trick_shot.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:trick_shot"
                         }
                     ]
                 }
@@ -23,12 +33,12 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:deadeye_spell_2",
-                    "title": "spell.archers_expansion.trick_shot.name",
-                    "icon_path": "archers_expansion:textures/spell/trick_shot.png",
+                    "title": "spell.archers_expansion.disabling_shot.name",
+                    "icon_path": "archers_expansion:textures/spell/disabling_shot.png",
                     "component_list": [
                         {
                             "type": "spell",
-                            "spell_identifier": "archers_expansion:trick_shot"
+                            "spell_identifier": "archers_expansion:disabling_shot"
                         }
                     ]
                 }
@@ -49,21 +59,7 @@
                 }
             ]
         },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_4",
-                    "title": "spell.archers_expansion.disabling_shot.name",
-                    "icon_path": "archers_expansion:textures/spell/disabling_shot.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "archers_expansion:disabling_shot"
-                        }
-                    ]
-                }
-            ]
-        },
+        {},
         {},
         {
             "upgrade_entry_list": [
