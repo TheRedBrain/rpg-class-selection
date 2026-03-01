@@ -54,7 +54,6 @@ Example class:
 {
   "class_identifier": "rpgclassselection:fire_wizard",
   "unlock_advancement_identifier": "minecraft:story/smelt_iron",
-  "class_item_identifier": "wizards:fire_spell_book",
   "visible_when_locked": true,
   "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
   "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
