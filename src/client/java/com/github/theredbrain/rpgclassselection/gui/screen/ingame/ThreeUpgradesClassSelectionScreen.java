@@ -135,16 +135,28 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 	}
 
 	@Override
-	protected void drawClassTitleAndDescription(DrawContext context) {
+	protected int getClassDescriptionFieldX() {
+		return 7;
+	}
 
-		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
+	@Override
+	protected int getClassDescriptionFieldY() {
+		return 31;
+	}
 
-		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, 0/*4210752*/, false);
+	@Override
+	protected int getClassDescriptionFieldWidth() {
+		return 204;
+	}
 
-		if (!this.activeClassDescription.isEmpty()) {
-			context.drawTextWrapped(this.textRenderer, Text.translatable(this.activeClassDescription), 11, 35, 196, 0/*Colors.BLACK*/);
-		}
+	@Override
+	protected int getClassDescriptionFieldHeight() {
+		return 69;
+	}
 
+	@Override
+	protected int getClassDescriptionFieldMaxLineAmount() {
+		return 7;
 	}
 
 	@Override

@@ -114,7 +114,10 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	public void resize(MinecraftClient client, int width, int height) {
 		int number = this.scrollPosition;
 		float number1 = this.scrollAmount;
+		int number2 = this.classDescriptionScrollPosition;
+		float number3 = this.classDescriptionScrollAmount;
 		boolean bool = this.mouseClicked;
+		boolean bool1 = this.classDescriptionMouseClicked;
 		ClassStateComponent.ActiveClassState var = this.newActiveClassState;
 		int integer = this.currentClassIndex;
 		String string = this.activeClassDescription;
@@ -127,7 +130,10 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		this.currentUpgradeIndexList.addAll(list);
 		this.scrollPosition = number;
 		this.scrollAmount = number1;
+		this.classDescriptionScrollPosition = number2;
+		this.classDescriptionScrollAmount = number3;
 		this.mouseClicked = bool;
+		this.classDescriptionMouseClicked = bool1;
 		this.updateWidgets();
 	}
 
@@ -320,10 +326,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {
 		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
 		this.mouseClicked = false;
-		int i;
-		int j;
 		if (rpgClass.upgrade_entry_group_list().size() > 10) {
-			i = this.x;
 			if (mouseX >= this.x + 388 && mouseX < this.x + 394 && mouseY >= (double) this.y + 86 && mouseY < (double) this.y + 202) {
 				this.mouseClicked = true;
 			}
@@ -361,16 +364,28 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	}
 
 	@Override
-	protected void drawClassTitleAndDescription(DrawContext context) {
+	protected int getClassDescriptionFieldX() {
+		return 7;
+	}
 
-		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
+	@Override
+	protected int getClassDescriptionFieldY() {
+		return 31;
+	}
 
-		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, 0/*4210752*/, false);
+	@Override
+	protected int getClassDescriptionFieldWidth() {
+		return 410;
+	}
 
-		if (!this.activeClassDescription.isEmpty()) {
-			context.drawTextWrapped(this.textRenderer, Text.translatable(this.activeClassDescription), 11, 35, 402, 0/*Colors.BLACK*/);
-		}
+	@Override
+	protected int getClassDescriptionFieldHeight() {
+		return 42;
+	}
 
+	@Override
+	protected int getClassDescriptionFieldMaxLineAmount() {
+		return 4;
 	}
 
 	@Override

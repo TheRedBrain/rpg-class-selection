@@ -19,8 +19,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 import net.spell_engine.api.spell.Spell;
 import net.spell_engine.api.spell.registry.SpellRegistry;
 import net.spell_engine.client.gui.SpellTooltip;
@@ -34,6 +36,7 @@ import java.util.Optional;
 public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSelectionScreenHandler> {
 	protected static final Identifier SCROLL_BAR_BACKGROUND_TEXTURE = RPGClassSelection.identifier("scroll_bar/scroll_bar_background");
 	protected static final Identifier SCROLLER_TEXTURE = RPGClassSelection.identifier("scroll_bar/scroller_vertical_6_7");
+	protected static final Identifier DESCRIPTION_FIELD_SCROLLER_TEXTURE = RPGClassSelection.identifier("scroll_bar/description_field_scroller");
 	public static Identifier BACKGROUND_TEXTURE;
 	protected static final Text CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.choose_class_button_label");
 
@@ -43,12 +46,19 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	protected String activeClassDescription = "";
 	protected final List<Integer> currentUpgradeIndexList = new ArrayList<>();
 
+	protected int classDescriptionScrollPosition = 0;
+	protected float classDescriptionScrollAmount = 0.0f;
+	protected boolean classDescriptionMouseClicked = false;
+
 	public AbstractClassSelectionScreen(ClassSelectionScreenHandler handler, PlayerInventory inventory, Text title) {
 		super(handler, inventory, title);
 	}
 
 	@Override
 	public void resize(MinecraftClient client, int width, int height) {
+		int number = this.classDescriptionScrollPosition;
+		float number1 = this.classDescriptionScrollAmount;
+		boolean bool = this.classDescriptionMouseClicked;
 		ClassStateComponent.ActiveClassState var = this.newActiveClassState;
 		int integer = this.currentClassIndex;
 		String string = this.activeClassDescription;
@@ -59,6 +69,9 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		this.activeClassDescription = string;
 		this.currentUpgradeIndexList.clear();
 		this.currentUpgradeIndexList.addAll(list);
+		this.classDescriptionScrollPosition = number;
+		this.classDescriptionScrollAmount = number1;
+		this.classDescriptionMouseClicked = bool;
 		this.updateWidgets();
 	}
 
@@ -69,6 +82,9 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 			index = this.handler.getRpgClassList().size() - 1;
 		}
 		this.currentClassIndex = index;
+
+		this.classDescriptionScrollPosition = 0;
+		this.classDescriptionScrollAmount = 0.0F;
 	}
 
 	protected void cycleClassIndexForwards() {
@@ -78,6 +94,9 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 			index = 0;
 		}
 		this.currentClassIndex = index;
+
+		this.classDescriptionScrollPosition = 0;
+		this.classDescriptionScrollAmount = 0.0F;
 	}
 
 	protected void cycleUpgradeIndexBackwards(int upgradeIndex) {
@@ -217,6 +236,65 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		this.drawMouseoverTooltip(context, mouseX, mouseY);
 	}
 
+	protected List<OrderedText> getActiveClassDescriptionLines() {
+		return this.textRenderer.wrapLines(Text.translatable(this.activeClassDescription), this.getClassDescriptionFieldWidth() - 8);
+	}
+
+	protected abstract int getClassDescriptionFieldX();
+
+	protected abstract int getClassDescriptionFieldY();
+
+	protected abstract int getClassDescriptionFieldWidth();
+
+	protected abstract int getClassDescriptionFieldHeight();
+
+	protected abstract int getClassDescriptionFieldMaxLineAmount();
+
+	@Override
+	public boolean mouseClicked(double mouseX, double mouseY, int button) {
+		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
+		this.classDescriptionMouseClicked = false;
+		if (classDescriptionLines.size() > this.getClassDescriptionFieldMaxLineAmount()) {
+			if (mouseX >= this.x + this.getClassDescriptionFieldX() + this.getClassDescriptionFieldWidth() - 6
+					&& mouseX < this.x + this.getClassDescriptionFieldX() + this.getClassDescriptionFieldWidth()
+					&& mouseY >= (double) this.y + this.getClassDescriptionFieldY()
+					&& mouseY < (double) this.y + this.getClassDescriptionFieldY() + this.getClassDescriptionFieldHeight()
+			) {
+				this.classDescriptionMouseClicked = true;
+			}
+		}
+		return super.mouseClicked(mouseX, mouseY, button);
+	}
+
+	@Override
+	public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
+		if (this.classDescriptionMouseClicked) {
+			int i = classDescriptionLines.size() - this.getClassDescriptionFieldMaxLineAmount();
+			float f = (float) deltaY / (float) i;
+			this.classDescriptionScrollAmount = MathHelper.clamp(this.classDescriptionScrollAmount + f, 0.0f, 1.0f);
+			this.classDescriptionScrollPosition = (int) ((double) (this.classDescriptionScrollAmount * (float) i));
+		}
+		return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+	}
+
+	@Override
+	public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
+		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
+		if (classDescriptionLines.size() > this.getClassDescriptionFieldMaxLineAmount()
+				&& mouseX >= this.x + this.getClassDescriptionFieldX()
+				&& mouseX < this.x + this.getClassDescriptionFieldX() + this.getClassDescriptionFieldWidth()
+				&& mouseY >= (double) this.y + this.getClassDescriptionFieldY()
+				&& mouseY < (double) this.y + this.getClassDescriptionFieldY() + this.getClassDescriptionFieldHeight()
+		) {
+			int i = classDescriptionLines.size() - this.getClassDescriptionFieldMaxLineAmount();
+			float f = (float) verticalAmount / (float) i;
+			this.classDescriptionScrollAmount = MathHelper.clamp(this.classDescriptionScrollAmount - f, 0.0f, 1.0f);
+			this.classDescriptionScrollPosition = (int) ((double) (this.classDescriptionScrollAmount * (float) i));
+		}
+		return super.mouseScrolled(mouseX, mouseY, horizontalAmount, verticalAmount);
+	}
+
 	@Override
 	protected void drawForeground(DrawContext context, int mouseX, int mouseY) {
 
@@ -228,6 +306,12 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	@Override
 	protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
 		context.drawTexture(BACKGROUND_TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
+
+		if (getActiveClassDescriptionLines().size() > this.getClassDescriptionFieldMaxLineAmount()) {
+//			context.drawGuiTexture(SCROLL_BAR_BACKGROUND_TEXTURE, this.x + 387, this.y + 86, 8, 116);
+			int k = (int) ((this.getClassDescriptionFieldHeight() - 7) * this.classDescriptionScrollAmount);
+			context.drawGuiTexture(DESCRIPTION_FIELD_SCROLLER_TEXTURE, this.x + this.getClassDescriptionFieldX() + this.getClassDescriptionFieldWidth() - 6, this.y + this.getClassDescriptionFieldY() + k, 6, 7);
+		}
 
 		this.drawUpgradeEntryIcons(context);
 	}
@@ -294,6 +378,18 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	}
 
 	protected void drawClassTitleAndDescription(DrawContext context) {
+
+		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
+
+		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, 0, false);
+
+		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
+		RPGClassSelection.info("classDescriptionLines: " + classDescriptionLines);
+		for (int i = this.classDescriptionScrollPosition; i < Math.min(this.getClassDescriptionFieldMaxLineAmount() + this.classDescriptionScrollPosition, classDescriptionLines.size()); i++) {
+
+			RPGClassSelection.info("draw line: " + classDescriptionLines.get(i));
+			context.drawText(this.textRenderer, classDescriptionLines.get(i), 11, 35 + (i - this.classDescriptionScrollPosition) * 9, 0, false);
+		}
 	}
 
 	protected void drawUpgradeEntryIcons(DrawContext context) {
