@@ -10,6 +10,7 @@ Updated to Spell Engine 1.9 and RPG Inventory 2.10.0
 
 - removed "class_item_identifier" field from rpg_class JSON files (now always uses the "spell_engine:spell_book" item)
 - now uses the "class_item" equipment slot provided by RPG Inventory
+- More RPG Series compat data pack is no longer enabled by default. This will be reverted, when all relevant mods have been updated.
 
 # 1.0.0
 
