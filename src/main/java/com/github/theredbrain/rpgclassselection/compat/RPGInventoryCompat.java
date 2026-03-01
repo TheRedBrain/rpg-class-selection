@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class RPGInventoryCompat {
 
 	public static AttributeModifierSlot getClassItemAttributeModifierSlot() {
-		return ExtendedAttributeModifierSlot.RELIC;
+		return ExtendedAttributeModifierSlot.CLASS_ITEM;
 	}
 
 	public static ItemStack getClassItemStack(PlayerEntity player) {
