@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:arcane_wizard",
-    "class_item_identifier": "wizards:arcane_spell_book",
     "description": "class_selection_screen.rpgclassselection.arcane_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.arcane_wizard.locked_description",
     "upgrade_entry_group_list": [
@@ -23,21 +22,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:arcane_spell_2",
-                    "title": "spell.wizards.arcane_blast.name",
-                    "icon_path": "wizards:textures/spell/arcane_blast.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "wizards:arcane_blast"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:arcane_spell_3",
                     "title": "spell.wizards.arcane_beam.name",
                     "icon_path": "wizards:textures/spell/arcane_beam.png",
                     "component_list": [
@@ -52,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:arcane_spell_4",
+                    "upgrade_identifier": "rpgclassselection:arcane_spell_3",
                     "title": "spell.wizards.arcane_blink.name",
                     "icon_path": "wizards:textures/spell/arcane_blink.png",
                     "component_list": [
@@ -64,6 +48,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

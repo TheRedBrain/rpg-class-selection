@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:warrior",
-    "class_item_identifier": "rogues:warrior_spell_book",
     "description": "class_selection_screen.rpgclassselection.warrior.description",
     "locked_description": "class_selection_screen.rpgclassselection.warrior.locked_description",
     "upgrade_entry_group_list": [
@@ -49,21 +48,7 @@
                 }
             ]
         },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:warrior_spell_4",
-                    "title": "spell.rogues.whirlwind.name",
-                    "icon_path": "rogues:textures/spell/whirlwind.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "rogues:whirlwind"
-                        }
-                    ]
-                }
-            ]
-        },
+        {},
         {},
         {
             "upgrade_entry_list": [

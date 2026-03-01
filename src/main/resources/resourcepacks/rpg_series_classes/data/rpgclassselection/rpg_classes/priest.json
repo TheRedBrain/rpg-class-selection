@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:priest",
-    "class_item_identifier": "paladins:priest_spell_book",
     "description": "class_selection_screen.rpgclassselection.priest.description",
     "locked_description": "class_selection_screen.rpgclassselection.priest.locked_description",
     "upgrade_entry_group_list": [
@@ -8,21 +7,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:priest_spell_1",
-                    "title": "spell.paladins.holy_shock.name",
-                    "icon_path": "paladins:textures/spell/holy_shock.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "paladins:holy_shock"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_2",
                     "title": "spell.paladins.holy_beam.name",
                     "icon_path": "paladins:textures/spell/holy_beam.png",
                     "component_list": [
@@ -37,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_3",
+                    "upgrade_identifier": "rpgclassselection:priest_spell_2",
                     "title": "spell.paladins.circle_of_healing.name",
                     "icon_path": "paladins:textures/spell/circle_of_healing.png",
                     "component_list": [
@@ -52,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_4",
+                    "upgrade_identifier": "rpgclassselection:priest_spell_3",
                     "title": "spell.paladins.barrier.name",
                     "icon_path": "paladins:textures/spell/barrier.png",
                     "component_list": [
@@ -64,6 +48,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

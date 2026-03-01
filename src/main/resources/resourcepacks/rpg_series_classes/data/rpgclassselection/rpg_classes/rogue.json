@@ -1,13 +1,12 @@
 {
     "class_identifier": "rpgclassselection:rogue",
-    "class_item_identifier": "rogues:rogue_spell_book",
     "description": "class_selection_screen.rpgclassselection.rogue.description",
     "locked_description": "class_selection_screen.rpgclassselection.rogue.locked_description",
     "upgrade_entry_group_list": [
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_1",
+                    "upgrade_identifier": "rpgclassselection:rogue_spell_1_1",
                     "title": "spell.rogues.slice_and_dice.name",
                     "icon_path": "rogues:textures/spell/slice_and_dice.png",
                     "component_list": [
@@ -16,13 +15,9 @@
                             "spell_identifier": "rogues:slice_and_dice"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_2",
+                    "upgrade_identifier": "rpgclassselection:rogue_spell_1_2",
                     "title": "spell.rogues.shock_powder.name",
                     "icon_path": "rogues:textures/spell/shock_powder.png",
                     "component_list": [
@@ -37,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_3",
+                    "upgrade_identifier": "rpgclassselection:rogue_spell_2",
                     "title": "spell.rogues.shadow_step.name",
                     "icon_path": "rogues:textures/spell/shadow_step.png",
                     "component_list": [
@@ -52,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_4",
+                    "upgrade_identifier": "rpgclassselection:rogue_spell_3",
                     "title": "spell.rogues.vanish.name",
                     "icon_path": "rogues:textures/spell/vanish.png",
                     "component_list": [
@@ -64,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

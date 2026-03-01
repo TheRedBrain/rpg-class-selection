@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:archer",
-    "class_item_identifier": "archers:archer_spell_book",
     "description": "class_selection_screen.rpgclassselection.archer.description",
     "locked_description": "class_selection_screen.rpgclassselection.archer.locked_description",
     "upgrade_entry_group_list": [

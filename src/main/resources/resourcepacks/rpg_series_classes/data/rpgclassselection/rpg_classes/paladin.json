@@ -1,19 +1,29 @@
 {
     "class_identifier": "rpgclassselection:paladin",
-    "class_item_identifier": "paladins:paladin_spell_book",
     "description": "class_selection_screen.rpgclassselection.paladin.description",
     "locked_description": "class_selection_screen.rpgclassselection.paladin.locked_description",
     "upgrade_entry_group_list": [
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_1",
+                    "upgrade_identifier": "rpgclassselection:paladin_spell_1_1",
                     "title": "spell.paladins.flash_heal.name",
                     "icon_path": "paladins:textures/spell/flash_heal.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "paladins:flash_heal"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_spell_1_2",
+                    "title": "spell.paladins.divine_protection.name",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:divine_protection"
                         }
                     ]
                 }
@@ -38,21 +48,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_spell_3",
-                    "title": "spell.paladins.divine_protection.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "paladins:divine_protection"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_4",
                     "title": "spell.paladins.battle_banner.name",
                     "icon_path": "paladins:textures/spell/battle_banner.png",
                     "component_list": [
@@ -64,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [
@@ -122,7 +118,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_modifier_a_2",
                     "title": "spell.skill_tree_rpgs.paladin_spec_a_modifier_2.name",
-                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -133,7 +129,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_modifier_b_2",
                     "title": "spell.skill_tree_rpgs.paladin_spec_b_modifier_2.name",
-                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -174,7 +170,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_modifier_a_3",
                     "title": "spell.skill_tree_rpgs.paladin_spec_a_modifier_3.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "icon_path": "paladins:textures/spell/judgement.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -185,7 +181,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_modifier_b_3",
                     "title": "spell.skill_tree_rpgs.paladin_spec_b_modifier_3.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "icon_path": "paladins:textures/spell/judgement.png",
                     "component_list": [
                         {
                             "type": "spell",

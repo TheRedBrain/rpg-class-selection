@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:fire_wizard",
-    "class_item_identifier": "wizards:fire_spell_book",
     "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
     "upgrade_entry_group_list": [
@@ -8,21 +7,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:fire_spell_1",
-                    "title": "spell.wizards.fire_blast.name",
-                    "icon_path": "wizards:textures/spell/fire_blast.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "wizards:fire_blast"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_2",
                     "title": "spell.wizards.fire_breath.name",
                     "icon_path": "wizards:textures/spell/fire_breath.png",
                     "component_list": [
@@ -37,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_3",
+                    "upgrade_identifier": "rpgclassselection:fire_spell_2",
                     "title": "spell.wizards.fire_meteor.name",
                     "icon_path": "wizards:textures/spell/fire_meteor.png",
                     "component_list": [
@@ -52,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_4",
+                    "upgrade_identifier": "rpgclassselection:fire_spell_3",
                     "title": "spell.wizards.fire_wall.name",
                     "icon_path": "wizards:textures/spell/fire_wall.png",
                     "component_list": [
@@ -64,6 +48,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [
