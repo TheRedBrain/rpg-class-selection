@@ -28,6 +28,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.MinecraftServer;
@@ -100,7 +101,7 @@ public class RPGClassSelection implements ModInitializer {
 			int initialClassIndex = 0;
 			ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelection.SERVER_CONFIG.empty_upgrade_mode.get();
 
-			Optional<EntityPredicate> optionalEntityPredicate;
+			Optional<LootContextPredicate> optionalEntityPredicate;
 
 			for (Map.Entry<RegistryKey<RPGClass>, RPGClass> entry : player.getWorld().getRegistryManager().get(CustomDynamicRegistries.RPG_CLASS_REGISTRY_KEY).getEntrySet()) {
 				RPGClass rpgClass = entry.getValue();
@@ -111,7 +112,7 @@ public class RPGClassSelection implements ModInitializer {
 				optionalEntityPredicate = rpgClass.unlock_predicate();
 
 				if (optionalEntityPredicate.isPresent()) {
-					isClassUnlocked = optionalEntityPredicate.get().test(player, player);
+					isClassUnlocked = optionalEntityPredicate.get().test(EntityPredicate.createAdvancementEntityLootContext(player, player));
 				}
 
 				List<DisplayedRPGClass.DisplayedUpgradeEntryGroup> displayedUpgradeEntryGroupList = new ArrayList<>();
@@ -143,7 +144,7 @@ public class RPGClassSelection implements ModInitializer {
 							optionalEntityPredicate = upgradeEntry.unlock_predicate();
 
 							if (optionalEntityPredicate.isPresent()) {
-								isUpgradeUnlocked = optionalEntityPredicate.get().test(player, player);
+								isUpgradeUnlocked = optionalEntityPredicate.get().test(EntityPredicate.createAdvancementEntityLootContext(player, player));
 							}
 
 							if ((isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || Objects.equals(upgradeEntry.upgrade_identifier(), currentUpgradeIdentifierString))) {

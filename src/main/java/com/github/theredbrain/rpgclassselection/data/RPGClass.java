@@ -3,13 +3,14 @@ package com.github.theredbrain.rpgclassselection.data;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 
 import java.util.List;
 import java.util.Optional;
 
 public record RPGClass(
 		String class_identifier,
-		Optional<EntityPredicate> unlock_predicate,
+		Optional<LootContextPredicate> unlock_predicate,
 		boolean visible_when_locked,
 		String description,
 		String locked_description,
@@ -18,7 +19,7 @@ public record RPGClass(
 
 	public static final Codec<RPGClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			Codec.STRING.optionalFieldOf("class_identifier", "").forGetter(x -> x.class_identifier),
-			EntityPredicate.CODEC.optionalFieldOf("unlock_predicate").forGetter(x -> x.unlock_predicate),
+			EntityPredicate.LOOT_CONTEXT_PREDICATE_CODEC.optionalFieldOf("unlock_predicate").forGetter(x -> x.unlock_predicate),
 			Codec.BOOL.optionalFieldOf("visible_when_locked", true).forGetter(x -> x.visible_when_locked),
 			Codec.STRING.optionalFieldOf("description", "").forGetter(x -> x.description),
 			Codec.STRING.optionalFieldOf("locked_description", "").forGetter(x -> x.locked_description),
@@ -27,7 +28,7 @@ public record RPGClass(
 
 	public RPGClass(
 			String class_identifier,
-			Optional<EntityPredicate> unlock_predicate,
+			Optional<LootContextPredicate> unlock_predicate,
 			boolean visible_when_locked,
 			String description,
 			String locked_description,
@@ -58,7 +59,7 @@ public record RPGClass(
 
 		public record UpgradeEntry(
 				String upgrade_identifier,
-				Optional<EntityPredicate> unlock_predicate,
+				Optional<LootContextPredicate> unlock_predicate,
 				boolean visible_when_locked,
 				String title,
 				String icon_path,
@@ -67,7 +68,7 @@ public record RPGClass(
 
 			public static final Codec<UpgradeEntry> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 					Codec.STRING.optionalFieldOf("upgrade_identifier", "").forGetter(x -> x.upgrade_identifier),
-					EntityPredicate.CODEC.optionalFieldOf("unlock_predicate").forGetter(x -> x.unlock_predicate),
+					EntityPredicate.LOOT_CONTEXT_PREDICATE_CODEC.optionalFieldOf("unlock_predicate").forGetter(x -> x.unlock_predicate),
 					Codec.BOOL.optionalFieldOf("visible_when_locked", true).forGetter(x -> x.visible_when_locked),
 					Codec.STRING.optionalFieldOf("title", "").forGetter(x -> x.title),
 					Codec.STRING.optionalFieldOf("icon_path", "").forGetter(x -> x.icon_path),
@@ -76,7 +77,7 @@ public record RPGClass(
 
 			public UpgradeEntry(
 					String upgrade_identifier,
-					Optional<EntityPredicate> unlock_predicate,
+					Optional<LootContextPredicate> unlock_predicate,
 					boolean visible_when_locked,
 					String title,
 					String icon_path,
