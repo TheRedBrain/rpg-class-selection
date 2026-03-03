@@ -1,4 +1,4 @@
-# RPG Class Selection
+# RPG Class Selection (RPG Series Tweaks)
 
 This mod adds a class selection screen known from many RPG games.
 
@@ -44,7 +44,7 @@ Selected upgrades are stored on that item.
 > Currently, the equipment slot used is provided by RPG Inventory.\
 > Alternative compatibility with Trinkets is getting explored and might be added at a later date.
 
-Classes and class upgrades can be unlocked with advancements.
+Classes and class upgrades can optionally be unlocked with loot context predicates.
 
 Classes are defined via data packs.
 
@@ -53,7 +53,17 @@ Example class:
 ```json
 {
   "class_identifier": "rpgclassselection:fire_wizard",
-  "unlock_advancement_identifier": "minecraft:story/smelt_iron",
+  "unlock_predicate": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "location": {
+          "dimension": "minecraft:the_nether"
+        }
+      }
+    }
+  ],
   "visible_when_locked": true,
   "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
   "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
@@ -62,9 +72,23 @@ Example class:
       "upgrade_entry_list": [
         {
           "upgrade_identifier": "rpgclassselection:fire_spell_1",
-          "unlock_advancement_identifier": "minecraft:story/mine_diamond",
+          "unlock_predicate": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "type_specific": {
+                  "type": "minecraft:player",
+                  "advancements": {
+                    "minecraft:story/mine_diamond": true
+                  }
+                }
+              }
+            }
+          ],
           "visible_when_locked": true,
           "title": "spell.wizards.fire_blast.name",
+          "locked_title": "spell.wizards.fire_blast.name.locked",
           "icon_path": "wizards:textures/spell/fire_blast.png",
           "component_list": [
             {

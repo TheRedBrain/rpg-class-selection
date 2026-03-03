@@ -1,3 +1,15 @@
+# 1.2.0
+
+## Changes
+
+- changed classes/upgrades to no longer be unlocked by an advancement, but by a loot context predicate instead. (An example for this can be seen in the Fire Wizard class)
+- improved the visual feedback on the class selection screen. 
+
+## Technical
+
+- reduced amount of data send to client when opening the class selection screen
+- fixed log spam
+
 # 1.1.0
 
 Updated to Spell Engine 1.9 and RPG Inventory 2.10.0
