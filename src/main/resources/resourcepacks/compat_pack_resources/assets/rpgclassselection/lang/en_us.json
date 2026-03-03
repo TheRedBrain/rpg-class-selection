@@ -7,6 +7,7 @@
 
   "class_selection_screen.rpgclassselection.fire_wizard.title": "Fire Wizard",
   "class_selection_screen.rpgclassselection.fire_wizard.description": "The Fire Wizard uses fiery magic to defeat enemies both near and far\n- Strengths: Magical damage dealt at large areas\n- Weaknesses: Low defense and mobility\n- Equipment: Lightly armored",
+  "class_selection_screen.rpgclassselection.fire_wizard.locked_description": "You have to be in the nether to unlock the Fire Wizard class.",
 
   "class_selection_screen.rpgclassselection.frost_wizard.title": "Frost Wizard",
   "class_selection_screen.rpgclassselection.frost_wizard.description": "The Frost Wizard uses cold magic to slow enemies and control the battlefield\n- Strengths: Magical damage that slows and freezes enemies\n- Weaknesses: Low defense and mobility\n- Equipment: Lightly armored",
