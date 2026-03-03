@@ -1,5 +1,6 @@
 {
   "class_selection_screen.empty_upgrade.description": "Empty",
+  "class_selection_screen.locked_upgrade.description": "Locked Upgrade",
   "class_selection_screen.unlocked_choose_class_button_label": "Choose Class",
   "class_selection_screen.displayed_choose_class_button_label": "Keep Current Class",
   "class_selection_screen.locked_choose_class_button_label": "This Class Is Locked",

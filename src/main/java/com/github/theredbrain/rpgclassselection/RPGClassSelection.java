@@ -155,11 +155,14 @@ public class RPGClassSelection implements ModInitializer {
 							if ((isClassUnlocked || isCurrentUpgrade) && (isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || isCurrentUpgrade)) {
 								displayedUpgradeEntryList.add(new DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry(
 										upgradeEntry.upgrade_identifier(),
-										upgradeEntry.title(),
+										isUpgradeUnlocked ? upgradeEntry.title() : upgradeEntry.locked_title(),
 										upgradeEntry.icon_path(),
 										upgradeEntry.component_list()
 								));
 								upgradeUnlockStatesList.add(isUpgradeUnlocked);
+							} else {
+								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.LOCKED_UPGRADE);
+								upgradeUnlockStatesList.add(false);
 							}
 						}
 

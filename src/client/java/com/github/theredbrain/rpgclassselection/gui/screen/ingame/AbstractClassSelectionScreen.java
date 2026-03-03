@@ -214,8 +214,8 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 						continue;
 					}
 				}
-				activeUpgradeIdentifierList.add("");
 			}
+			activeUpgradeIdentifierList.add("");
 		}
 		return activeUpgradeIdentifierList;
 	}

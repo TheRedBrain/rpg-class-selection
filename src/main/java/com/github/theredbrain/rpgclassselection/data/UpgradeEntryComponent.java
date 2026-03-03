@@ -53,11 +53,11 @@ public record UpgradeEntryComponent(
 			double attribute_modifier_amount,
 			String attribute_modifier_operation
 	) {
-		this.type = type != null ? type : "";
-		this.spell_identifier = spell_identifier != null ? spell_identifier : "";
-		this.attribute_identifier = attribute_identifier != null ? attribute_identifier : "";
+		this.type = !type.isEmpty() ? type : "";
+		this.spell_identifier = !spell_identifier.isEmpty() ? spell_identifier : "";
+		this.attribute_identifier = !attribute_identifier.isEmpty() ? attribute_identifier : "";
 		this.attribute_modifier_amount = attribute_modifier_amount;
-		this.attribute_modifier_operation = attribute_modifier_operation != null ? attribute_modifier_operation : EntityAttributeModifier.Operation.ADD_VALUE.asString();
+		this.attribute_modifier_operation = !attribute_modifier_operation.isEmpty() ? attribute_modifier_operation : EntityAttributeModifier.Operation.ADD_VALUE.asString();
 	}
 
 	public enum Type implements StringIdentifiable {
