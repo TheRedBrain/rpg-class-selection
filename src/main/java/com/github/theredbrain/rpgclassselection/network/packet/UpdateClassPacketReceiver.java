@@ -3,6 +3,7 @@ package com.github.theredbrain.rpgclassselection.network.packet;
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.data.UpgradeEntryComponent;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -63,15 +64,15 @@ public class UpdateClassPacketReceiver implements ServerPlayNetworking.PlayPaylo
 
 								if (Objects.equals(upgradeEntry.upgrade_identifier(), activeUpgradeIdentifier)) {
 
-									for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent component : upgradeEntry.component_list()) {
+									for (UpgradeEntryComponent component : upgradeEntry.component_list()) {
 
-										if (Objects.equals(component.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
+										if (Objects.equals(component.type(), UpgradeEntryComponent.Type.SPELL.asString())) {
 											String spellIdentifierString = component.spell_identifier();
 											// TODO check if spellIdentifier is valid?
 											if (!spellIdentifierString.isEmpty()) {
 												spellIdentifiers.add(spellIdentifierString);
 											}
-										} else if (Objects.equals(component.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+										} else if (Objects.equals(component.type(), UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
 
 											Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = world.getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(component.attribute_identifier()));
 

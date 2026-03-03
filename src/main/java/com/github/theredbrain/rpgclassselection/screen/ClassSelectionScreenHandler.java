@@ -1,7 +1,7 @@
 package com.github.theredbrain.rpgclassselection.screen;
 
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
-import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -22,18 +22,18 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 	private final int initialClassIndex;
 	private final ClassStateComponent.ActiveClassState activeClassState;
 	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>(List.of());
-	private final List<RPGClass> rpgClassList = new ArrayList<>();
+	private final List<DisplayedRPGClass> displayedRpgClassList = new ArrayList<>();
 	private final PlayerEntity player;
 	private final World world;
 
-	public ClassSelectionScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<RPGClass> rpgClassList) {
+	public ClassSelectionScreenHandler(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, int initialClassIndex, ClassStateComponent.ActiveClassState activeClassState, List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList, List<DisplayedRPGClass> displayedRpgClassList) {
 		super(type, syncId);
 		this.player = playerInventory.player;
 		this.world = playerInventory.player.getEntityWorld();
 		this.initialClassIndex = initialClassIndex;
 		this.activeClassState = activeClassState;
 		this.classUnlockStateDataList.addAll(classUnlockStateDataList);
-		this.rpgClassList.addAll(rpgClassList);
+		this.displayedRpgClassList.addAll(displayedRpgClassList);
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 		return this.classUnlockStateDataList;
 	}
 
-	public List<RPGClass> getRpgClassList() {
-		return this.rpgClassList;
+	public List<DisplayedRPGClass> getDisplayedRpgClassList() {
+		return this.displayedRpgClassList;
 	}
 
 	public PlayerEntity getPlayer() {
@@ -111,7 +111,7 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 			// potential customization for the screen
 			ClassStateComponent.ActiveClassState activeClassState,
 			List<ClassUnlockStateData> classUnlockStateDataList,
-			List<RPGClass> rpgClassList
+			List<DisplayedRPGClass> displayedRPGClassList
 	) {
 
 		public static final PacketCodec<ByteBuf, ClassSelectionScreenData> PACKET_CODEC = new PacketCodec<>() {
@@ -124,9 +124,9 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 					classUnlockStateDataList.add(ClassUnlockStateData.PACKET_CODEC.decode(byteBuf));
 				}
 				listSize = PacketCodecs.INTEGER.decode(byteBuf);
-				List<RPGClass> rpgClassList = new ArrayList<>();
+				List<DisplayedRPGClass> rpgClassList = new ArrayList<>();
 				for (int i = 0; i < listSize; i++) {
-					rpgClassList.add(RPGClass.PACKET_CODEC.decode(byteBuf));
+					rpgClassList.add(DisplayedRPGClass.PACKET_CODEC.decode(byteBuf));
 				}
 				return new ClassSelectionScreenData(initialClassIndex, activeClassState, classUnlockStateDataList, rpgClassList);
 			}
@@ -139,10 +139,10 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 				for (int i = 0; i < listSize; i++) {
 					ClassUnlockStateData.PACKET_CODEC.encode(byteBuf, classSelectionScreenData.classUnlockStateDataList().get(i));
 				}
-				listSize = classSelectionScreenData.rpgClassList().size();
+				listSize = classSelectionScreenData.displayedRPGClassList().size();
 				PacketCodecs.INTEGER.encode(byteBuf, listSize);
 				for (int i = 0; i < listSize; i++) {
-					RPGClass.PACKET_CODEC.encode(byteBuf, classSelectionScreenData.rpgClassList().get(i));
+					DisplayedRPGClass.PACKET_CODEC.encode(byteBuf, classSelectionScreenData.displayedRPGClassList().get(i));
 				}
 			}
 		};

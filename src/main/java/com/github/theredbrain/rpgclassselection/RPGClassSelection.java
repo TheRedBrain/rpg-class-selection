@@ -3,6 +3,7 @@ package com.github.theredbrain.rpgclassselection;
 import com.github.theredbrain.rpgclassselection.compat.RPGInventoryCompat;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
 import com.github.theredbrain.rpgclassselection.config.ServerConfig;
+import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.registry.BlockRegistry;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
@@ -90,7 +91,7 @@ public class RPGClassSelection implements ModInitializer {
 
 				List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>();
 
-				List<RPGClass> rpgClassList = new ArrayList<>();
+				List<DisplayedRPGClass> displayedRPGClassList = new ArrayList<>();
 				int classIndex = 0;
 
 				// add empty class
@@ -99,7 +100,7 @@ public class RPGClassSelection implements ModInitializer {
 							true,
 							new ArrayList<>()
 					));
-					rpgClassList.add(RPGClass.DEFAULT);
+					displayedRPGClassList.add(DisplayedRPGClass.DEFAULT);
 					classIndex = classIndex + 1;
 				}
 
@@ -122,12 +123,12 @@ public class RPGClassSelection implements ModInitializer {
 						}
 					}
 
-					List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = new ArrayList<>();
+					List<DisplayedRPGClass.DisplayedUpgradeEntryGroup> displayedUpgradeEntryGroupList = new ArrayList<>();
 					if (isClassUnlocked) {
 
 						int groupIndex = 0;
 						for (RPGClass.UpgradeEntryGroup upgradeEntryGroup : rpgClass.upgrade_entry_group_list()) {
-							List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = new ArrayList<>();
+							List<DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry> displayedUpgradeEntryList = new ArrayList<>();
 							List<Boolean> upgradeUnlockStatesList = new ArrayList<>();
 
 							String currentUpgradeIdentifierString = "";
@@ -141,7 +142,7 @@ public class RPGClassSelection implements ModInitializer {
 											(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
 											((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
 							) {
-								upgradeEntryList.add(RPGClass.UpgradeEntryGroup.UpgradeEntry.DEFAULT);
+								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.DEFAULT);
 								upgradeUnlockStatesList.add(true);
 							}
 
@@ -159,13 +160,18 @@ public class RPGClassSelection implements ModInitializer {
 
 								}
 								if ((isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || Objects.equals(upgradeEntry.upgrade_identifier(), currentUpgradeIdentifierString))) {
-									upgradeEntryList.add(upgradeEntry);
+									displayedUpgradeEntryList.add(new DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry(
+											upgradeEntry.upgrade_identifier(),
+											upgradeEntry.title(),
+											upgradeEntry.icon_path(),
+											upgradeEntry.component_list()
+									));
 									upgradeUnlockStatesList.add(isUpgradeUnlocked);
 								}
 							}
 
-							upgradeEntryGroupList.add(
-									new RPGClass.UpgradeEntryGroup(upgradeEntryList)
+							displayedUpgradeEntryGroupList.add(
+									new DisplayedRPGClass.DisplayedUpgradeEntryGroup(displayedUpgradeEntryList)
 							);
 							upgradeUnlockStateDataList.add(
 									new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData(upgradeUnlockStatesList)
@@ -188,13 +194,11 @@ public class RPGClassSelection implements ModInitializer {
 								isClassUnlocked,
 								upgradeUnlockStateDataList
 						));
-						rpgClassList.add(new RPGClass(
+						displayedRPGClassList.add(new DisplayedRPGClass(
 								rpgClass.class_identifier(),
-								rpgClass.unlock_advancement_identifier(),
-								rpgClass.visible_when_locked(),
 								rpgClass.description(),
 								rpgClass.locked_description(),
-								upgradeEntryGroupList
+								displayedUpgradeEntryGroupList
 						));
 
 						if (isInitialClass) {
@@ -214,7 +218,7 @@ public class RPGClassSelection implements ModInitializer {
 								finalInitialClassIndex,
 								activeClassState,
 								classUnlockStateDataList,
-								rpgClassList
+								displayedRPGClassList
 						);
 					}
 
@@ -233,7 +237,7 @@ public class RPGClassSelection implements ModInitializer {
 									finalInitialClassIndex,
 									activeClassState,
 									classUnlockStateDataList,
-									rpgClassList
+									displayedRPGClassList
 							);
 						} else {
 							return new ThreeUpgradesClassSelectionScreenHandler(
@@ -242,7 +246,7 @@ public class RPGClassSelection implements ModInitializer {
 									finalInitialClassIndex,
 									activeClassState,
 									classUnlockStateDataList,
-									rpgClassList
+									displayedRPGClassList
 							);
 						}
 					}

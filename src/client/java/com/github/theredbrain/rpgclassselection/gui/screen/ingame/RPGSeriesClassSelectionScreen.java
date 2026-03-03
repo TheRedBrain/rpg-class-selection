@@ -2,7 +2,7 @@ package com.github.theredbrain.rpgclassselection.gui.screen.ingame;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
-import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -188,7 +188,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		this.cycleUpgrade10BackwardsButton.visible = false;
 		this.cycleUpgrade10ForwardsButton.visible = false;
 
-		if (this.handler.getRpgClassList().size() > 1) {
+		if (this.handler.getDisplayedRpgClassList().size() > 1) {
 
 			this.cycleClassesBackwardsButton.active = true;
 			this.cycleClassesForwardsButton.active = true;
@@ -282,16 +282,16 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 	public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 		super.render(context, mouseX, mouseY, delta);
 
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		DisplayedRPGClass displayedRpgClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
 
-		for (int i = 0; i < Math.min(5, rpgClass.upgrade_entry_group_list().size()); i++) {
-			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+		for (int i = 0; i < Math.min(5, displayedRpgClass.displayed_upgrade_entry_group_list().size()); i++) {
+			DisplayedRPGClass.DisplayedUpgradeEntryGroup displayedUpgradeEntryGroup = displayedRpgClass.displayed_upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
 
-				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
-					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+				if (index < displayedUpgradeEntryGroup.displayed_upgrade_entry_list().size()) {
+					DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry upgradeEntry = displayedUpgradeEntryGroup.displayed_upgrade_entry_list().get(index);
 
 					if (this.isPointWithinBounds(31, 88 + i * 24, 155, 20, mouseX, mouseY)) {
 						List<Text> list = this.getUpgradeEntryTooltipList(upgradeEntry);
@@ -302,14 +302,14 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 			}
 		}
 
-		for (int i = 5 + this.scrollPosition; i < Math.min(10 + this.scrollPosition, rpgClass.upgrade_entry_group_list().size()); i++) {
-			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+		for (int i = 5 + this.scrollPosition; i < Math.min(10 + this.scrollPosition, displayedRpgClass.displayed_upgrade_entry_group_list().size()); i++) {
+			DisplayedRPGClass.DisplayedUpgradeEntryGroup displayedUpgradeEntryGroup = displayedRpgClass.displayed_upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
 
-				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
-					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+				if (index < displayedUpgradeEntryGroup.displayed_upgrade_entry_list().size()) {
+					DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry upgradeEntry = displayedUpgradeEntryGroup.displayed_upgrade_entry_list().get(index);
 
 					if (this.isPointWithinBounds(238, 88 + (i - 5 - this.scrollPosition) * 24, 155, 20, mouseX, mouseY)) {
 						List<Text> list = this.getUpgradeEntryTooltipList(upgradeEntry);
@@ -324,9 +324,9 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 
 	@Override
 	public boolean mouseClicked(double mouseX, double mouseY, int button) {
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		DisplayedRPGClass displayedRpgClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
 		this.mouseClicked = false;
-		if (rpgClass.upgrade_entry_group_list().size() > 10) {
+		if (displayedRpgClass.displayed_upgrade_entry_group_list().size() > 10) {
 			if (mouseX >= this.x + 388 && mouseX < this.x + 394 && mouseY >= (double) this.y + 86 && mouseY < (double) this.y + 202) {
 				this.mouseClicked = true;
 			}
@@ -336,10 +336,10 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 
 	@Override
 	public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		if (rpgClass.upgrade_entry_group_list().size() > 10
+		DisplayedRPGClass displayedRpgClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
+		if (displayedRpgClass.displayed_upgrade_entry_group_list().size() > 10
 				&& this.mouseClicked) {
-			int i = rpgClass.upgrade_entry_group_list().size() - 10;
+			int i = displayedRpgClass.displayed_upgrade_entry_group_list().size() - 10;
 			float f = (float) deltaY / (float) i;
 			this.scrollAmount = MathHelper.clamp(this.scrollAmount + f, 0.0f, 1.0f);
 			this.scrollPosition = (int) ((double) (this.scrollAmount * (float) i));
@@ -350,11 +350,11 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 
 	@Override
 	public boolean mouseScrolled(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		if (rpgClass.upgrade_entry_group_list().size() > 10
+		DisplayedRPGClass displayedRpgClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
+		if (displayedRpgClass.displayed_upgrade_entry_group_list().size() > 10
 				&& mouseX >= this.x + 234 && mouseX <= this.x + 395
 				&& mouseY >= this.y + 86 && mouseY <= this.y + 202) {
-			int i = rpgClass.upgrade_entry_group_list().size() - 10;
+			int i = displayedRpgClass.displayed_upgrade_entry_group_list().size() - 10;
 			float f = (float) verticalAmount / (float) i;
 			this.scrollAmount = MathHelper.clamp(this.scrollAmount - f, 0.0f, 1.0f);
 			this.scrollPosition = (int) ((double) (this.scrollAmount * (float) i));
@@ -390,60 +390,60 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 
 	@Override
 	protected void drawUpgradeEntries(DrawContext context, boolean background) {
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		DisplayedRPGClass displayedRpgClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
 
 		if (!background) {
-			if (rpgClass.upgrade_entry_group_list().size() > 0) {
+			if (displayedRpgClass.displayed_upgrade_entry_group_list().size() > 0) {
 				Text spellsLabel = Text.translatable("class_selection_screen.spells_label");
 				context.drawText(this.textRenderer, spellsLabel, ((this.backgroundWidth / 2) - this.textRenderer.getWidth(spellsLabel)) / 2, 76, 0/*4210752*/, false);
 			}
-			if (rpgClass.upgrade_entry_group_list().size() > 5) {
+			if (displayedRpgClass.displayed_upgrade_entry_group_list().size() > 5) {
 				Text modifiersLabel = Text.translatable("class_selection_screen.modifiers_label");
 				context.drawText(this.textRenderer, modifiersLabel, (this.backgroundWidth / 2) + ((this.backgroundWidth / 2) - this.textRenderer.getWidth(modifiersLabel)) / 2, 76, 0/*4210752*/, false);
 			}
 		}
 
-		for (int i = 0; i < Math.min(5, rpgClass.upgrade_entry_group_list().size()); i++) {
-			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+		for (int i = 0; i < Math.min(5, displayedRpgClass.displayed_upgrade_entry_group_list().size()); i++) {
+			DisplayedRPGClass.DisplayedUpgradeEntryGroup displayedUpgradeEntryGroup = displayedRpgClass.displayed_upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
 
-				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
-					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+				if (index < displayedUpgradeEntryGroup.displayed_upgrade_entry_list().size()) {
+					DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry displayedUpgradeEntry = displayedUpgradeEntryGroup.displayed_upgrade_entry_list().get(index);
 
 					if (background) {
-						if (!upgradeEntry.icon_path().isEmpty()) {
-							context.drawTexture(Identifier.of(upgradeEntry.icon_path()), this.x + 31, this.y + 88 + i * 24, 0, 0, 16, 16, 16, 16);
+						if (!displayedUpgradeEntry.icon_path().isEmpty()) {
+							context.drawTexture(Identifier.of(displayedUpgradeEntry.icon_path()), this.x + 31, this.y + 88 + i * 24, 0, 0, 16, 16, 16, 16);
 						}
 					} else {
-						context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 31 + (upgradeEntry.icon_path().isEmpty() ? 0 : 20), 92 + i * 24, 0/*4210752*/, false);
+						context.drawText(this.textRenderer, Text.translatable(displayedUpgradeEntry.title()), 31 + (displayedUpgradeEntry.icon_path().isEmpty() ? 0 : 20), 92 + i * 24, 0/*4210752*/, false);
 					}
 				}
 			}
 		}
 
-		if (background && rpgClass.upgrade_entry_group_list().size() > 10) {
+		if (background && displayedRpgClass.displayed_upgrade_entry_group_list().size() > 10) {
 			context.drawGuiTexture(SCROLL_BAR_BACKGROUND_TEXTURE, this.x + 387, this.y + 86, 8, 116);
 			int k = (int) ((116 - 7 - 2) * this.scrollAmount);
 			context.drawGuiTexture(SCROLLER_TEXTURE, this.x + 387 + 1, this.y + 86 + 1 + k, 6, 7);
 		}
 
-		for (int i = 5 + this.scrollPosition; i < Math.min(10 + this.scrollPosition, rpgClass.upgrade_entry_group_list().size()); i++) {
-			RPGClass.UpgradeEntryGroup upgradeEntryGroup = rpgClass.upgrade_entry_group_list().get(i);
+		for (int i = 5 + this.scrollPosition; i < Math.min(10 + this.scrollPosition, displayedRpgClass.displayed_upgrade_entry_group_list().size()); i++) {
+			DisplayedRPGClass.DisplayedUpgradeEntryGroup displayedUpgradeEntryGroup = displayedRpgClass.displayed_upgrade_entry_group_list().get(i);
 
 			if (i < this.currentUpgradeIndexList.size()) {
 				int index = this.currentUpgradeIndexList.get(i);
 
-				if (index < upgradeEntryGroup.upgrade_entry_list().size()) {
-					RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryGroup.upgrade_entry_list().get(index);
+				if (index < displayedUpgradeEntryGroup.displayed_upgrade_entry_list().size()) {
+					DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry displayedUpgradeEntry = displayedUpgradeEntryGroup.displayed_upgrade_entry_list().get(index);
 
 					if (background) {
-						if (!upgradeEntry.icon_path().isEmpty()) {
-							context.drawTexture(Identifier.of(upgradeEntry.icon_path()), this.x + 238, this.y + 88 + (i - 5 - this.scrollPosition) * 24, 0, 0, 16, 16, 16, 16);
+						if (!displayedUpgradeEntry.icon_path().isEmpty()) {
+							context.drawTexture(Identifier.of(displayedUpgradeEntry.icon_path()), this.x + 238, this.y + 88 + (i - 5 - this.scrollPosition) * 24, 0, 0, 16, 16, 16, 16);
 						}
 					} else {
-						context.drawText(this.textRenderer, Text.translatable(upgradeEntry.title()), 238 + (upgradeEntry.icon_path().isEmpty() ? 0 : 20), 92 + (i - 5 - this.scrollPosition) * 24, 0/*4210752*/, false);
+						context.drawText(this.textRenderer, Text.translatable(displayedUpgradeEntry.title()), 238 + (displayedUpgradeEntry.icon_path().isEmpty() ? 0 : 20), 92 + (i - 5 - this.scrollPosition) * 24, 0/*4210752*/, false);
 					}
 				}
 			}

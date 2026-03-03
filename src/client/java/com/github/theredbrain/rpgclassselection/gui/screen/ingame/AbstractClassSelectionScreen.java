@@ -2,7 +2,8 @@ package com.github.theredbrain.rpgclassselection.gui.screen.ingame;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
-import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
+import com.github.theredbrain.rpgclassselection.data.UpgradeEntryComponent;
 import com.github.theredbrain.rpgclassselection.network.packet.UpdateClassPacket;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import net.fabricmc.api.EnvType;
@@ -79,7 +80,7 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		int index = this.currentClassIndex;
 		index = index - 1;
 		if (index < 0) {
-			index = this.handler.getRpgClassList().size() - 1;
+			index = this.handler.getDisplayedRpgClassList().size() - 1;
 		}
 		this.currentClassIndex = index;
 
@@ -90,7 +91,7 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	protected void cycleClassIndexForwards() {
 		int index = this.currentClassIndex;
 		index = index + 1;
-		if (index >= this.handler.getRpgClassList().size()) {
+		if (index >= this.handler.getDisplayedRpgClassList().size()) {
 			index = 0;
 		}
 		this.currentClassIndex = index;
@@ -154,18 +155,18 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	protected void resetCurrentUpgradeIndexes() {
 
 		this.currentUpgradeIndexList.clear();
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
-		if (Objects.equals(rpgClass.class_identifier(), this.handler.getActiveClassState().activeClassIdentifier())) {
+		DisplayedRPGClass displayedRPGClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
+		if (Objects.equals(displayedRPGClass.class_identifier(), this.handler.getActiveClassState().activeClassIdentifier())) {
 			List<String> list = this.handler.getActiveClassState().activeUpgradeIdentifierList();
 			for (int i = 0; i < list.size(); i++) {
 				String upgradeIdentifier = list.get(i);
 				if (!upgradeIdentifier.isEmpty()) {
-					if (i < rpgClass.upgrade_entry_group_list().size()) {
-						List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = rpgClass.upgrade_entry_group_list().get(i).upgrade_entry_list();
-						for (int j = 0; j < upgradeEntryList.size(); j++) {
+					if (i < displayedRPGClass.displayed_upgrade_entry_group_list().size()) {
+						List<DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry> displayedUpgradeEntryList = displayedRPGClass.displayed_upgrade_entry_group_list().get(i).displayed_upgrade_entry_list();
+						for (int j = 0; j < displayedUpgradeEntryList.size(); j++) {
 
-							RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry = upgradeEntryList.get(j);
-							if (upgradeIdentifier.equals(upgradeEntry.upgrade_identifier())) {
+							DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry displayedUpgradeEntry = displayedUpgradeEntryList.get(j);
+							if (upgradeIdentifier.equals(displayedUpgradeEntry.upgrade_identifier())) {
 								this.currentUpgradeIndexList.add(j);
 								break;
 							}
@@ -176,24 +177,24 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 				this.currentUpgradeIndexList.add(0);
 			}
 		} else {
-			for (int i = 0; i < rpgClass.upgrade_entry_group_list().size(); i++) {
+			for (int i = 0; i < displayedRPGClass.displayed_upgrade_entry_group_list().size(); i++) {
 				this.currentUpgradeIndexList.add(0);
 			}
 		}
 	}
 
 	protected void updateActiveClassState() {
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		DisplayedRPGClass displayedRPGClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
 		List<String> activeUpgradeIdentifierList = this.getActiveUpgradeIdentifierList();
 		this.newActiveClassState = new ClassStateComponent.ActiveClassState(
-				rpgClass.class_identifier(),
+				displayedRPGClass.class_identifier(),
 				activeUpgradeIdentifierList
 		);
 
 		if (this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).classUnlockState()) {
-			this.activeClassDescription = rpgClass.description();
+			this.activeClassDescription = displayedRPGClass.description();
 		} else {
-			this.activeClassDescription = rpgClass.locked_description();
+			this.activeClassDescription = displayedRPGClass.locked_description();
 		}
 
 		this.updateWidgets();
@@ -201,13 +202,13 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 	private List<String> getActiveUpgradeIdentifierList() {
 		List<String> activeUpgradeIdentifierList = new ArrayList<>();
-		RPGClass rpgClass = this.handler.getRpgClassList().get(this.currentClassIndex);
+		DisplayedRPGClass displayedRPGClass = this.handler.getDisplayedRpgClassList().get(this.currentClassIndex);
 		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> upgradeUnlockStateDataList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
-		List<RPGClass.UpgradeEntryGroup> upgradeEntryGroupList = rpgClass.upgrade_entry_group_list();
-		for (int i = 0; i < upgradeEntryGroupList.size(); i++) {
+		List<DisplayedRPGClass.DisplayedUpgradeEntryGroup> displayedUpgradeEntryGroupList = displayedRPGClass.displayed_upgrade_entry_group_list();
+		for (int i = 0; i < displayedUpgradeEntryGroupList.size(); i++) {
 			if (i < this.currentUpgradeIndexList.size() && i < upgradeUnlockStateDataList.size()) {
 				int currentUpgradeIndex = this.currentUpgradeIndexList.get(i);
-				List<RPGClass.UpgradeEntryGroup.UpgradeEntry> upgradeEntryList = upgradeEntryGroupList.get(i).upgrade_entry_list();
+				List<DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry> upgradeEntryList = displayedUpgradeEntryGroupList.get(i).displayed_upgrade_entry_list();
 				List<Boolean> upgradeUnlockStatesList = upgradeUnlockStateDataList.get(i).upgradeUnlockStatesList();
 				if (currentUpgradeIndex < upgradeEntryList.size() && currentUpgradeIndex < upgradeUnlockStatesList.size()) {
 					if (upgradeUnlockStatesList.get(currentUpgradeIndex)) {
@@ -316,18 +317,18 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		this.drawUpgradeEntryIcons(context);
 	}
 
-	protected List<Text> getUpgradeEntryTooltipList(RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry) {
+	protected List<Text> getUpgradeEntryTooltipList(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry upgradeEntry) {
 		List<Text> list = new ArrayList<>();
 
-		for (RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent upgradeEntryComponent : upgradeEntry.component_list()) {
+		for (UpgradeEntryComponent upgradeEntryComponent : upgradeEntry.component_list()) {
 
-			if (Objects.equals(upgradeEntryComponent.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.SPELL.asString())) {
+			if (Objects.equals(upgradeEntryComponent.type(), UpgradeEntryComponent.Type.SPELL.asString())) {
 				Optional<RegistryEntry.Reference<Spell>> optionalSpellReference = this.handler.getWorld().getRegistryManager().get(SpellRegistry.KEY).getEntry(Identifier.of(upgradeEntryComponent.spell_identifier()));
 
 				if (optionalSpellReference.isPresent() && this.handler.getPlayer() != null) {
 					list.addAll(SpellTooltip.spellEntry(optionalSpellReference.get(), this.handler.getPlayer(), ItemStack.EMPTY, true, 0));
 				}
-			} else if (Objects.equals(upgradeEntryComponent.type(), RPGClass.UpgradeEntryGroup.UpgradeEntry.UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+			} else if (Objects.equals(upgradeEntryComponent.type(), UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
 
 				Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = this.handler.getWorld().getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(upgradeEntryComponent.attribute_identifier()));
 
