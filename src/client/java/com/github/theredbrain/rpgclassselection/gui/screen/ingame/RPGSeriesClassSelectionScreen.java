@@ -16,6 +16,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
 public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen {
@@ -89,7 +90,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		this.cycleUpgrade10BackwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal("<"), button -> this.cycleUpgradeBackwards(9 + this.scrollPosition)).dimensions(this.x + 214, this.y + 182, 20, 20).build());
 		this.cycleUpgrade10ForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleUpgradeForwards(9 + this.scrollPosition)).dimensions(this.x + 397, this.y + 182, 20, 20).build());
 
-		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(CHOOSE_CLASS_BUTTON_LABEL_TEXT, button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
+		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(UNLOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT, button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
 
 		this.updateActiveClassState();
 	}
@@ -195,10 +196,19 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 
 		}
 		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> upgradeUnlockStateDataList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
+		String currentUnlockStateString = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).unlockStateString();
+
+		boolean classIsUnlocked = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.UNLOCKED.asString());
+		boolean classIsDisplayed = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.DISPLAY.asString());
+		boolean classIsLocked = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.LOCKED.asString());
+
+		this.chooseClassButton.active = !classIsLocked;
+		this.chooseClassButton.setMessage(classIsUnlocked ? UNLOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT : classIsDisplayed ? DISPLAYED_CHOOSE_CLASS_BUTTON_LABEL_TEXT : LOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT);
+
 		if (upgradeUnlockStateDataList.size() >= 1 && !upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade1BackwardsButton.visible = true;
 			this.cycleUpgrade1ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade1BackwardsButton.active = true;
 				this.cycleUpgrade1ForwardsButton.active = true;
 			}
@@ -206,7 +216,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 2 && !upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade2BackwardsButton.visible = true;
 			this.cycleUpgrade2ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade2BackwardsButton.active = true;
 				this.cycleUpgrade2ForwardsButton.active = true;
 			}
@@ -214,7 +224,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 3 && !upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade3BackwardsButton.visible = true;
 			this.cycleUpgrade3ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade3BackwardsButton.active = true;
 				this.cycleUpgrade3ForwardsButton.active = true;
 			}
@@ -222,7 +232,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 4 && !upgradeUnlockStateDataList.get(3).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade4BackwardsButton.visible = true;
 			this.cycleUpgrade4ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(3).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(3).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade4BackwardsButton.active = true;
 				this.cycleUpgrade4ForwardsButton.active = true;
 			}
@@ -230,7 +240,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 5 && !upgradeUnlockStateDataList.get(4).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade5BackwardsButton.visible = true;
 			this.cycleUpgrade5ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(4).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(4).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade5BackwardsButton.active = true;
 				this.cycleUpgrade5ForwardsButton.active = true;
 			}
@@ -238,7 +248,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 6 + this.scrollPosition && !upgradeUnlockStateDataList.get(5 + this.scrollPosition).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade6BackwardsButton.visible = true;
 			this.cycleUpgrade6ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(5 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(5 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade6BackwardsButton.active = true;
 				this.cycleUpgrade6ForwardsButton.active = true;
 			}
@@ -246,7 +256,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 7 + this.scrollPosition && !upgradeUnlockStateDataList.get(6 + this.scrollPosition).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade7BackwardsButton.visible = true;
 			this.cycleUpgrade7ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(6 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(6 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade7BackwardsButton.active = true;
 				this.cycleUpgrade7ForwardsButton.active = true;
 			}
@@ -254,7 +264,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 8 + this.scrollPosition && !upgradeUnlockStateDataList.get(7 + this.scrollPosition).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade8BackwardsButton.visible = true;
 			this.cycleUpgrade8ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(7 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(7 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade8BackwardsButton.active = true;
 				this.cycleUpgrade8ForwardsButton.active = true;
 			}
@@ -262,7 +272,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 9 + this.scrollPosition && !upgradeUnlockStateDataList.get(8 + this.scrollPosition).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade9BackwardsButton.visible = true;
 			this.cycleUpgrade9ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(8 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(8 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade9BackwardsButton.active = true;
 				this.cycleUpgrade9ForwardsButton.active = true;
 			}
@@ -270,7 +280,7 @@ public class RPGSeriesClassSelectionScreen extends AbstractClassSelectionScreen 
 		if (upgradeUnlockStateDataList.size() >= 10 + this.scrollPosition && !upgradeUnlockStateDataList.get(9 + this.scrollPosition).upgradeUnlockStatesList().isEmpty()) {
 			this.cycleUpgrade10BackwardsButton.visible = true;
 			this.cycleUpgrade10ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(9 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(9 + this.scrollPosition).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade10BackwardsButton.active = true;
 				this.cycleUpgrade10ForwardsButton.active = true;
 			}

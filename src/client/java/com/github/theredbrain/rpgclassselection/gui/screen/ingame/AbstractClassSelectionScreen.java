@@ -39,7 +39,9 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 	protected static final Identifier SCROLLER_TEXTURE = RPGClassSelection.identifier("scroll_bar/scroller_vertical_6_7");
 	protected static final Identifier DESCRIPTION_FIELD_SCROLLER_TEXTURE = RPGClassSelection.identifier("scroll_bar/description_field_scroller");
 	public static Identifier BACKGROUND_TEXTURE;
-	protected static final Text CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.choose_class_button_label");
+	protected static final Text UNLOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.unlocked_choose_class_button_label");
+	protected static final Text DISPLAYED_CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.displayed_choose_class_button_label");
+	protected static final Text LOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT = Text.translatable("class_selection_screen.locked_choose_class_button_label");
 
 	protected ClassStateComponent.ActiveClassState newActiveClassState;
 
@@ -191,11 +193,7 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 				activeUpgradeIdentifierList
 		);
 
-		if (this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).classUnlockState()) {
-			this.activeClassDescription = displayedRPGClass.description();
-		} else {
-			this.activeClassDescription = displayedRPGClass.locked_description();
-		}
+		this.activeClassDescription = displayedRPGClass.description();
 
 		this.updateWidgets();
 	}
@@ -309,7 +307,6 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		context.drawTexture(BACKGROUND_TEXTURE, this.x, this.y, 0, 0, this.backgroundWidth, this.backgroundHeight, this.backgroundWidth, this.backgroundHeight);
 
 		if (getActiveClassDescriptionLines().size() > this.getClassDescriptionFieldMaxLineAmount()) {
-//			context.drawGuiTexture(SCROLL_BAR_BACKGROUND_TEXTURE, this.x + 387, this.y + 86, 8, 116);
 			int k = (int) ((this.getClassDescriptionFieldHeight() - 7) * this.classDescriptionScrollAmount);
 			context.drawGuiTexture(DESCRIPTION_FIELD_SCROLLER_TEXTURE, this.x + this.getClassDescriptionFieldX() + this.getClassDescriptionFieldWidth() - 6, this.y + this.getClassDescriptionFieldY() + k, 6, 7);
 		}
@@ -385,10 +382,8 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, 0, false);
 
 		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
-		RPGClassSelection.info("classDescriptionLines: " + classDescriptionLines);
 		for (int i = this.classDescriptionScrollPosition; i < Math.min(this.getClassDescriptionFieldMaxLineAmount() + this.classDescriptionScrollPosition, classDescriptionLines.size()); i++) {
 
-			RPGClassSelection.info("draw line: " + classDescriptionLines.get(i));
 			context.drawText(this.textRenderer, classDescriptionLines.get(i), 11, 35 + (i - this.classDescriptionScrollPosition) * 9, 0, false);
 		}
 	}

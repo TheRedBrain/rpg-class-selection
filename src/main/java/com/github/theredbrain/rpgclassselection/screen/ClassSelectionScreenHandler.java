@@ -15,13 +15,15 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 
 	private final int initialClassIndex;
 	private final ClassStateComponent.ActiveClassState activeClassState;
-	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>(List.of());
+	private final List<ClassSelectionScreenData.ClassUnlockStateData> classUnlockStateDataList = new ArrayList<>();
 	private final List<DisplayedRPGClass> displayedRpgClassList = new ArrayList<>();
 	private final PlayerEntity player;
 	private final World world;
@@ -148,23 +150,23 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 		};
 
 		public record ClassUnlockStateData(
-				boolean classUnlockState,
+				String unlockStateString,
 				List<UpgradeUnlockStateData> upgradeUnlockStateDataList
 		) {
 
 			public static final PacketCodec<ByteBuf, ClassUnlockStateData> PACKET_CODEC = new PacketCodec<>() {
 				public ClassUnlockStateData decode(ByteBuf byteBuf) {
-					boolean classUnlockState = PacketCodecs.BOOL.decode(byteBuf);
+					String unlockStateString = PacketCodecs.STRING.decode(byteBuf);
 					int listSize = PacketCodecs.INTEGER.decode(byteBuf);
 					List<UpgradeUnlockStateData> upgradeUnlockStateDataList = new ArrayList<>();
 					for (int i = 0; i < listSize; i++) {
 						upgradeUnlockStateDataList.add(UpgradeUnlockStateData.PACKET_CODEC.decode(byteBuf));
 					}
-					return new ClassUnlockStateData(classUnlockState, upgradeUnlockStateDataList);
+					return new ClassUnlockStateData(unlockStateString, upgradeUnlockStateDataList);
 				}
 
 				public void encode(ByteBuf byteBuf, ClassUnlockStateData classUnlockStateData) {
-					PacketCodecs.BOOL.encode(byteBuf, classUnlockStateData.classUnlockState());
+					PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.unlockStateString());
 					int listSize = classUnlockStateData.upgradeUnlockStateDataList().size();
 					PacketCodecs.INTEGER.encode(byteBuf, listSize);
 					for (int i = 0; i < listSize; i++) {
@@ -197,6 +199,28 @@ public abstract class ClassSelectionScreenHandler extends ScreenHandler {
 				};
 
 			}
+		}
+
+		public static enum UnlockState implements StringIdentifiable {
+			UNLOCKED("unlocked"),
+			DISPLAY("display"),
+			LOCKED("locked");
+
+			private final String name;
+
+			private UnlockState(String name) {
+				this.name = name;
+			}
+
+			@Override
+			public String asString() {
+				return this.name;
+			}
+
+			public static Optional<UnlockState> byName(String name) {
+				return Arrays.stream(UnlockState.values()).filter(unlockState -> unlockState.asString().equals(name)).findFirst();
+			}
+
 		}
 	}
 }

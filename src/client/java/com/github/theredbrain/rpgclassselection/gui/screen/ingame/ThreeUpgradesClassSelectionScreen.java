@@ -12,6 +12,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
+import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
 public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScreen {
@@ -50,7 +51,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 		this.cycleUpgrade2ForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleUpgradeForwards(1)).dimensions(this.x + this.backgroundWidth - 27, this.y + 140, 20, 20).build());
 		this.cycleUpgrade3BackwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal("<"), button -> this.cycleUpgradeBackwards(2)).dimensions(this.x + 7, this.y + 164, 20, 20).build());
 		this.cycleUpgrade3ForwardsButton = this.addDrawableChild(ButtonWidget.builder(Text.literal(">"), button -> this.cycleUpgradeForwards(2)).dimensions(this.x + this.backgroundWidth - 27, this.y + 164, 20, 20).build());
-		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(CHOOSE_CLASS_BUTTON_LABEL_TEXT, button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
+		this.chooseClassButton = this.addDrawableChild(ButtonWidget.builder(UNLOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT, button -> this.chooseClass()).dimensions(this.x + 7, this.y + this.backgroundHeight - 27, this.backgroundWidth - 14, 20).build());
 
 		this.updateActiveClassState();
 	}
@@ -81,10 +82,19 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 
 		}
 		List<ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData.UpgradeUnlockStateData> upgradeUnlockStateDataList = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).upgradeUnlockStateDataList();
+		String currentUnlockStateString = this.handler.getClassUnlockStateDataList().get(this.currentClassIndex).unlockStateString();
+
+		boolean classIsUnlocked = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.UNLOCKED.asString());
+		boolean classIsDisplayed = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.DISPLAY.asString());
+		boolean classIsLocked = Objects.equals(currentUnlockStateString, ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.LOCKED.asString());
+
+		this.chooseClassButton.active = !classIsLocked;
+		this.chooseClassButton.setMessage(classIsUnlocked ? UNLOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT : classIsDisplayed ? DISPLAYED_CHOOSE_CLASS_BUTTON_LABEL_TEXT : LOCKED_CHOOSE_CLASS_BUTTON_LABEL_TEXT);
+
 		if (upgradeUnlockStateDataList.size() >= 1) {
 			this.cycleUpgrade1BackwardsButton.visible = true;
 			this.cycleUpgrade1ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(0).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade1BackwardsButton.active = true;
 				this.cycleUpgrade1ForwardsButton.active = true;
 			}
@@ -92,7 +102,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 		if (upgradeUnlockStateDataList.size() >= 2) {
 			this.cycleUpgrade2BackwardsButton.visible = true;
 			this.cycleUpgrade2ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(1).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade2BackwardsButton.active = true;
 				this.cycleUpgrade2ForwardsButton.active = true;
 			}
@@ -100,7 +110,7 @@ public class ThreeUpgradesClassSelectionScreen extends AbstractClassSelectionScr
 		if (upgradeUnlockStateDataList.size() >= 3) {
 			this.cycleUpgrade3BackwardsButton.visible = true;
 			this.cycleUpgrade3ForwardsButton.visible = true;
-			if (upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().size() > 1) {
+			if (classIsUnlocked && upgradeUnlockStateDataList.get(2).upgradeUnlockStatesList().size() > 1) {
 				this.cycleUpgrade3BackwardsButton.active = true;
 				this.cycleUpgrade3ForwardsButton.active = true;
 			}

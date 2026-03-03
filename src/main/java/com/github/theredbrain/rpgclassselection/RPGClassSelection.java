@@ -91,7 +91,7 @@ public class RPGClassSelection implements ModInitializer {
 			// add empty class
 			if ((allow_changing_class && !restrict_class_list) || currentClassIdentifierString.isEmpty()) {
 				classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-						true,
+						ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.UNLOCKED.asString(),
 						new ArrayList<>()
 				));
 				displayedRPGClassList.add(DisplayedRPGClass.DEFAULT);
@@ -115,8 +115,10 @@ public class RPGClassSelection implements ModInitializer {
 					isClassUnlocked = optionalEntityPredicate.get().test(EntityPredicate.createAdvancementEntityLootContext(player, player));
 				}
 
+				boolean isCurrentClass = entry.getKey().getValue().toString().equals(currentClassIdentifierString);
+
 				List<DisplayedRPGClass.DisplayedUpgradeEntryGroup> displayedUpgradeEntryGroupList = new ArrayList<>();
-				if (isClassUnlocked) {
+				if (isClassUnlocked || isCurrentClass) {
 
 					int groupIndex = 0;
 					for (RPGClass.UpgradeEntryGroup upgradeEntryGroup : rpgClass.upgrade_entry_group_list()) {
@@ -130,9 +132,10 @@ public class RPGClassSelection implements ModInitializer {
 
 						boolean groupEntryListIsEmpty = upgradeEntryGroup.upgrade_entry_list().isEmpty();
 						if (
-								(!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
+								((!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
 										(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
 										((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
+												&& isClassUnlocked)
 						) {
 							displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.DEFAULT);
 							upgradeUnlockStatesList.add(true);
@@ -147,7 +150,9 @@ public class RPGClassSelection implements ModInitializer {
 								isUpgradeUnlocked = optionalEntityPredicate.get().test(EntityPredicate.createAdvancementEntityLootContext(player, player));
 							}
 
-							if ((isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || Objects.equals(upgradeEntry.upgrade_identifier(), currentUpgradeIdentifierString))) {
+							boolean isCurrentUpgrade = Objects.equals(upgradeEntry.upgrade_identifier(), currentUpgradeIdentifierString);
+
+							if ((isClassUnlocked || isCurrentUpgrade) && (isUpgradeUnlocked || upgradeEntry.visible_when_locked()) && (allow_changing_upgrades || isCurrentUpgrade)) {
 								displayedUpgradeEntryList.add(new DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry(
 										upgradeEntry.upgrade_identifier(),
 										upgradeEntry.title(),
@@ -170,7 +175,6 @@ public class RPGClassSelection implements ModInitializer {
 
 				}
 
-				boolean isCurrentClass = entry.getKey().getValue().toString().equals(currentClassIdentifierString);
 				boolean isInitialClass = entry.getKey().getValue().toString().equals(initial_class_identifier_string);
 
 				if ((isClassUnlocked || rpgClass.visible_when_locked() || isCurrentClass)
@@ -179,13 +183,12 @@ public class RPGClassSelection implements ModInitializer {
 				) {
 
 					classUnlockStateDataList.add(new ClassSelectionScreenHandler.ClassSelectionScreenData.ClassUnlockStateData(
-							isClassUnlocked,
+							isClassUnlocked ? ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.UNLOCKED.asString() : isCurrentClass ? ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.DISPLAY.asString() : ClassSelectionScreenHandler.ClassSelectionScreenData.UnlockState.LOCKED.asString(),
 							upgradeUnlockStateDataList
 					));
 					displayedRPGClassList.add(new DisplayedRPGClass(
 							rpgClass.class_identifier(),
-							rpgClass.description(),
-							rpgClass.locked_description(),
+							isClassUnlocked || isCurrentClass ? rpgClass.description() : rpgClass.locked_description(),
 							displayedUpgradeEntryGroupList
 					));
 
