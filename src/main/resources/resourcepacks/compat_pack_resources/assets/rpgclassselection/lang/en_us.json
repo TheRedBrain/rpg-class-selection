@@ -24,20 +24,20 @@
   "class_selection_screen.rpgclassselection.warrior.title": "Warrior",
   "class_selection_screen.rpgclassselection.warrior.description": "The Warrior uses heavy weapons and skills to dominate close combat\n- Strengths: Strong melee attacks with good mobility\n- Weaknesses: Limited ranged attacks and supportive skills\n- Equipment: Heavily armored",
 
-  "class_selection_screen.rpgclassselection.air_wizard.title": "Air Wizard",
-  "class_selection_screen.rpgclassselection.air_wizard.description": "Air Wizard Description",
+  "class_selection_screen.rpgclassselection.wind_wizard.title": "Wind Wizard",
+  "class_selection_screen.rpgclassselection.wind_wizard.description": "The Wind Wizard uses wind magic to perform dangerous combos on enemies.\n- Strengths: Strong CC and damage on single targets.\n- Weaknesses: Low defense and no mobility\n- Equipment: Light Armor",
 
   "class_selection_screen.rpgclassselection.berserker.title": "Berserker",
-  "class_selection_screen.rpgclassselection.berserker.description": "Berserker Description",
+  "class_selection_screen.rpgclassselection.berserker.description": "The Berserker uses raid axes and other high damage weapons. The Berserker is all about high physical melee damage.\n- Strengths: High damage output.\n- Weaknesses: Ranged Enemies\n- Equipment: Light Armor",
 
   "class_selection_screen.rpgclassselection.deadeye.title": "Deadeye",
-  "class_selection_screen.rpgclassselection.deadeye.description": "The Rogue Archer uses fast ranged weapons and tricky archery skills to slowly defeat enemies.\n- Strengths: Inflicting harmful effects and making sure not to be caught.\n- Weaknesses: Heavily armored enemies\n- Equipment: Moderately armored",
+  "class_selection_screen.rpgclassselection.deadeye.description": "The Deadeye uses fast ranged weapons and tricky archery skills to slowly defeat enemies.\n- Strengths: Inflicting harmful effects and making sure not to be caught.\n- Weaknesses: Heavily armored enemies\n- Equipment: Moderately armored",
 
   "class_selection_screen.rpgclassselection.earth_wizard.title": "Earth Wizard",
-  "class_selection_screen.rpgclassselection.earth_wizard.description": "Earth Wizard Description",
+  "class_selection_screen.rpgclassselection.earth_wizard.description": "The Earth Wizard uses earth magic to form dangerous and harming terrain.\n- Strengths: Crowd Control and protection.\n- Weaknesses: Limited mobility and range\n- Equipment: Light Armor",
 
   "class_selection_screen.rpgclassselection.forcemaster.title": "Forcemaster",
-  "class_selection_screen.rpgclassselection.forcemaster.description": "Forcemaster Description",
+  "class_selection_screen.rpgclassselection.forcemaster.description": "The Forcemaster uses martial weapons, the knuckle. Dealing melee and arcane damage with the power of the force.\n- Strengths: Fast attacks dealing physical and magical damage.\n- Weaknesses: Ranged Enemies\n- Equipment: Light Armor",
 
   "class_selection_screen.rpgclassselection.tundra_hunter.title": "Tundra Hunter",
   "class_selection_screen.rpgclassselection.tundra_hunter.description": "The Tundra Hunter uses balanced ranged weapons and freezing projectiles.\n- Strengths: Slowing and freezing enemies.\n- Weaknesses: Heavily armored and CC immune targets.\n- Equipment: Moderately armored",
@@ -46,5 +46,5 @@
   "class_selection_screen.rpgclassselection.war_archer.description": "The War Archer uses fast high ranged damage weapons to cause explosions and heavy damage.\n- Strengths: High Burst Damage.\n- Weaknesses: Fast and tricky Enemies\n- Equipment: Heavily armored",
 
   "class_selection_screen.rpgclassselection.water_wizard.title": "Water Wizard",
-  "class_selection_screen.rpgclassselection.water_wizard.description": "Water Wizard Description"
+  "class_selection_screen.rpgclassselection.water_wizard.description": "The Water Wizard uses water magic to damage foes and protect allies.\n- Strengths: Balanced healing and damage.\n- Weaknesses: Low defense and mobility\n- Equipment: Light Armor"
 }

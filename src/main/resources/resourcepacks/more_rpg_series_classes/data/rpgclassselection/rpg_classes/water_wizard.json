@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:water_wizard",
-    "class_item_identifier": "elemental_wizards_rpg:aqua_spell_book",
     "description": "class_selection_screen.rpgclassselection.water_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.water_wizard.locked_description",
     "upgrade_entry_group_list": [
@@ -22,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_2",
+                    "upgrade_identifier": "rpgclassselection:water_spell_2_1",
                     "title": "spell.elemental_wizards_rpg.aqua_springwater.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_springwater.png",
                     "component_list": [
@@ -31,13 +30,9 @@
                             "spell_identifier": "elemental_wizards_rpg:aqua_springwater"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_3",
+                    "upgrade_identifier": "rpgclassselection:water_spell_2_2",
                     "title": "spell.elemental_wizards_rpg.aqua_hydro_beam.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_hydro_beam.png",
                     "component_list": [
@@ -52,18 +47,19 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_4",
-                    "title": "spell.elemental_wizards_rpg.aqua_water_whip.name",
-                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_water_whip.png",
+                    "upgrade_identifier": "rpgclassselection:water_spell_3",
+                    "title": "spell.elemental_wizards_rpg.aqua_healing_rain.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_healing_rain.png",
                     "component_list": [
                         {
                             "type": "spell",
-                            "spell_identifier": "elemental_wizards_rpg:aqua_water_whip"
+                            "spell_identifier": "elemental_wizards_rpg:aqua_healing_rain"
                         }
                     ]
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

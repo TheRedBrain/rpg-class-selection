@@ -263,7 +263,7 @@ public class RPGClassSelection implements ModInitializer {
 
 		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 		if (modContainer.isPresent()) {
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("more_rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.more_rpg_series_classes.name"), ResourcePackActivationType.NORMAL);
+			ResourceManagerHelper.registerBuiltinResourcePack(identifier("more_rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.more_rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 		}

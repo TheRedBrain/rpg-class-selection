@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:earth_wizard",
-    "class_item_identifier": "elemental_wizards_rpg:terra_spell_book",
     "description": "class_selection_screen.rpgclassselection.earth_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.earth_wizard.locked_description",
     "upgrade_entry_group_list": [
@@ -8,21 +7,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:earth_spell_1",
-                    "title": "spell.elemental_wizards_rpg.terra_stone_spear.name",
-                    "icon_path": "elemental_wizards_rpg:textures/spell/terra_stone_spear.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "elemental_wizards_rpg:terra_stone_spear"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_2",
                     "title": "spell.elemental_wizards_rpg.terra_stone_flesh.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_stone_flesh.png",
                     "component_list": [
@@ -37,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_3",
+                    "upgrade_identifier": "rpgclassselection:earth_spell_2",
                     "title": "spell.elemental_wizards_rpg.terra_drip_circle.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_drip_circle.png",
                     "component_list": [
@@ -52,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_4",
+                    "upgrade_identifier": "rpgclassselection:earth_spell_3",
                     "title": "spell.elemental_wizards_rpg.terra_earthquake.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_earthquake.png",
                     "component_list": [
@@ -64,6 +48,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [

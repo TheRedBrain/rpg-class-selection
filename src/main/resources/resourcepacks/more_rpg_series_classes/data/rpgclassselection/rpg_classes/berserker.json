@@ -1,6 +1,5 @@
 {
     "class_identifier": "rpgclassselection:berserker",
-    "class_item_identifier": "berserker_rpg:berserker_spell_book",
     "description": "class_selection_screen.rpgclassselection.berserker.description",
     "locked_description": "class_selection_screen.rpgclassselection.berserker.locked_description",
     "upgrade_entry_group_list": [
@@ -23,21 +22,6 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:berserker_spell_2",
-                    "title": "spell.berserker_rpg.blood_reckoning.name",
-                    "icon_path": "berserker_rpg:textures/spell/blood_reckoning.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "berserker_rpg:blood_reckoning"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
-                {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_3",
                     "title": "spell.berserker_rpg.bloody_strike.name",
                     "icon_path": "berserker_rpg:textures/spell/bloody_strike.png",
                     "component_list": [
@@ -52,7 +36,18 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_4",
+                    "upgrade_identifier": "rpgclassselection:berserker_spell_3_1",
+                    "title": "spell.berserker_rpg.blood_reckoning.name",
+                    "icon_path": "berserker_rpg:textures/spell/blood_reckoning.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "berserker_rpg:blood_reckoning"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:berserker_spell_3_2",
                     "title": "spell.berserker_rpg.outrage.name",
                     "icon_path": "berserker_rpg:textures/spell/outrage.png",
                     "component_list": [
@@ -64,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [
