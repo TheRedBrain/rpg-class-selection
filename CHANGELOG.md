@@ -1,3 +1,15 @@
+# 1.3.0
+
+Updated to Spell Engine 1.9.5
+
+## Additions
+
+- added client config options for customizing the colours of the class name and description
+
+## Changes
+
+- updated the More RPG Series compat data pack and enabled it by default again
+
 # 1.2.0
 
 ## Changes

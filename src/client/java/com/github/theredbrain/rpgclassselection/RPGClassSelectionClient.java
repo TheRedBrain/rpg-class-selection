@@ -1,18 +1,21 @@
 package com.github.theredbrain.rpgclassselection;
 
+import com.github.theredbrain.rpgclassselection.config.ClientConfig;
 import com.github.theredbrain.rpgclassselection.gui.screen.ingame.RPGSeriesClassSelectionScreen;
 import com.github.theredbrain.rpgclassselection.gui.screen.ingame.ThreeUpgradesClassSelectionScreen;
 import com.github.theredbrain.rpgclassselection.registry.KeyBindingsRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
+import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
+import me.fzzyhmstrs.fzzy_config.api.RegisterType;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 
 public class RPGClassSelectionClient implements ClientModInitializer {
-//	public static ClientConfig CLIENT_CONFIG;
+	public static ClientConfig CLIENT_CONFIG;
 
 	@Override
 	public void onInitializeClient() {
-//		CLIENT_CONFIG = ConfigApiJava.registerAndLoadConfig(ClientConfig::new, RegisterType.CLIENT);
+		CLIENT_CONFIG = ConfigApiJava.registerAndLoadConfig(ClientConfig::new, RegisterType.CLIENT);
 
 		KeyBindingsRegistry.registerKeyBindings();
 		registerScreens();

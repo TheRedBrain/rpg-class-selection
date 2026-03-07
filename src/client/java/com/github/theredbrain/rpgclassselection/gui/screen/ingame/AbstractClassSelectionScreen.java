@@ -1,7 +1,9 @@
 package com.github.theredbrain.rpgclassselection.gui.screen.ingame;
 
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
+import com.github.theredbrain.rpgclassselection.RPGClassSelectionClient;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
+import com.github.theredbrain.rpgclassselection.config.ClientConfig;
 import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import com.github.theredbrain.rpgclassselection.data.UpgradeEntryComponent;
 import com.github.theredbrain.rpgclassselection.network.packet.UpdateClassPacket;
@@ -377,14 +379,16 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 	protected void drawClassTitleAndDescription(DrawContext context) {
 
+		ClientConfig clientConfig = RPGClassSelectionClient.CLIENT_CONFIG;
+
 		Text className = Text.translatable("class_selection_screen." + this.newActiveClassState.activeClassIdentifier().replace(":", ".") + ".title");
 
-		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, 0, false);
+		context.drawText(this.textRenderer, className, (this.backgroundWidth - this.textRenderer.getWidth(className)) / 2, 13, clientConfig.class_name_text_colour.toInt(), false);
 
 		List<OrderedText> classDescriptionLines = getActiveClassDescriptionLines();
 		for (int i = this.classDescriptionScrollPosition; i < Math.min(this.getClassDescriptionFieldMaxLineAmount() + this.classDescriptionScrollPosition, classDescriptionLines.size()); i++) {
 
-			context.drawText(this.textRenderer, classDescriptionLines.get(i), 11, 35 + (i - this.classDescriptionScrollPosition) * 9, 0, false);
+			context.drawText(this.textRenderer, classDescriptionLines.get(i), 11, 35 + (i - this.classDescriptionScrollPosition) * 9, clientConfig.class_description_text_colour.toInt(), false);
 		}
 	}
 
