@@ -30,13 +30,9 @@
                             "spell_identifier": "archers:entangling_roots"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_3",
+                    "upgrade_identifier": "rpgclassselection:archer_spell_2",
                     "title": "spell.archers.barrage.name",
                     "icon_path": "archers:textures/spell/barrage.png",
                     "component_list": [
@@ -51,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_4",
+                    "upgrade_identifier": "rpgclassselection:archer_spell_3",
                     "title": "spell.archers.magic_arrow.name",
                     "icon_path": "archers:textures/spell/magic_arrow.png",
                     "component_list": [
@@ -63,6 +59,7 @@
                 }
             ]
         },
+        {},
         {},
         {
             "upgrade_entry_list": [
