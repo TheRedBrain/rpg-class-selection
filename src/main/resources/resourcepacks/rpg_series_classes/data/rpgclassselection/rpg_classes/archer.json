@@ -59,7 +59,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_spell_4",
+                    "title": "spell.lne_archers.rangers_focus.name",
+                    "icon_path": "lne_archers:textures/spell/rangers_focus.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_archers:rangers_focus"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

@@ -59,7 +59,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:war_archer_spell_4",
+                    "title": "spell.archers_expansion.fan_of_fire.name",
+                    "icon_path": "archers_expansion:textures/spell/fan_of_fire.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers_expansion:fan_of_fire"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

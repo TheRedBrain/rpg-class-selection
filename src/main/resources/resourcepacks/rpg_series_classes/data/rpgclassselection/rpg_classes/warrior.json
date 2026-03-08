@@ -48,7 +48,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_spell_4",
+                    "title": "spell.lne_rogues.second_wind.name",
+                    "icon_path": "lne_rogues:textures/spell/second_wind.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_rogues:second_wind"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [
