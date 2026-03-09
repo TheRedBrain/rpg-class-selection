@@ -48,7 +48,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_spell_4",
+                    "title": "spell.lne_paladins.holy_prevention.name",
+                    "icon_path": "lne_paladins:textures/spell/holy_prevention.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_paladins:holy_prevention"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [
