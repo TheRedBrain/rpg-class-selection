@@ -107,6 +107,7 @@ public record DisplayedRPGClass(
 		) {
 			public static final DisplayedUpgradeEntry DEFAULT = new DisplayedUpgradeEntry("", "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
 			public static final DisplayedUpgradeEntry LOCKED_UPGRADE = new DisplayedUpgradeEntry("", "class_selection_screen.locked_upgrade.description", "", new ArrayList<>());
+			public static final DisplayedUpgradeEntry INVALID_UPGRADE = new DisplayedUpgradeEntry("", "class_selection_screen.invalid_upgrade.description", "", new ArrayList<>());
 
 			public static final Codec<DisplayedUpgradeEntry> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 					Codec.STRING.optionalFieldOf("upgrade_identifier", "").forGetter(x -> x.upgrade_identifier),

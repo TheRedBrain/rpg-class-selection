@@ -1,3 +1,10 @@
+# 1.4.0
+
+## Additions
+
+- invalid upgrade entries are now displayed as "Invalid Upgrade"
+  - upgrades are invalid if one of their components contains an invalid spell/attribute identifier
+
 # 1.3.0
 
 Updated to Spell Engine 1.9.5

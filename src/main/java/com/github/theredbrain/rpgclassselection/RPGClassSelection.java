@@ -5,6 +5,7 @@ import com.github.theredbrain.rpgclassselection.component.type.ClassStateCompone
 import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
+import com.github.theredbrain.rpgclassselection.data.UpgradeEntryComponent;
 import com.github.theredbrain.rpgclassselection.registry.BlockRegistry;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.registry.DataComponentRegistry;
@@ -24,17 +25,22 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.component.ComponentType;
 import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.spell_engine.api.spell.Spell;
+import net.spell_engine.api.spell.registry.SpellRegistry;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -142,6 +148,33 @@ public class RPGClassSelection implements ModInitializer {
 						}
 
 						for (RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry : upgradeEntryGroup.upgrade_entry_list()) {
+
+							// check if all upgrade entry components are valid
+							boolean upgradeEntryIsValid = true;
+
+							for (UpgradeEntryComponent upgradeEntryComponent : upgradeEntry.component_list()) {
+
+								if (Objects.equals(upgradeEntryComponent.type(), UpgradeEntryComponent.Type.SPELL.asString())) {
+									Optional<RegistryEntry.Reference<Spell>> optionalSpellReference = player.getServerWorld().getRegistryManager().get(SpellRegistry.KEY).getEntry(Identifier.of(upgradeEntryComponent.spell_identifier()));
+
+									if (optionalSpellReference.isEmpty()) {
+										upgradeEntryIsValid = false;
+									}
+								} else if (Objects.equals(upgradeEntryComponent.type(), UpgradeEntryComponent.Type.ATTRIBUTE_MODIFIER.asString())) {
+
+									Optional<RegistryEntry.Reference<EntityAttribute>> optionalEntityAttributeReference = player.getServerWorld().getRegistryManager().get(RegistryKeys.ATTRIBUTE).getEntry(Identifier.of(upgradeEntryComponent.attribute_identifier()));
+
+									if (optionalEntityAttributeReference.isEmpty()) {
+										upgradeEntryIsValid = false;
+									}
+								}
+							}
+
+							if (!upgradeEntryIsValid) {
+								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.INVALID_UPGRADE);
+								upgradeUnlockStatesList.add(false);
+								continue;
+							}
 
 							boolean isUpgradeUnlocked = true;
 							optionalEntityPredicate = upgradeEntry.unlock_predicate();
