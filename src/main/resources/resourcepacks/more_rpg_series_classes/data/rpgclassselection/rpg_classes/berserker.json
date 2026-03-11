@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_1",
+                    "upgrade_identifier": "rpgclassselection:berserker_tier_2_spell_1",
                     "title": "spell.berserker_rpg.wild_rage.name",
                     "icon_path": "berserker_rpg:textures/spell/wild_rage.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_2",
+                    "upgrade_identifier": "rpgclassselection:berserker_tier_3_spell_1",
                     "title": "spell.berserker_rpg.bloody_strike.name",
                     "icon_path": "berserker_rpg:textures/spell/bloody_strike.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_3_1",
+                    "upgrade_identifier": "rpgclassselection:berserker_tier_4_spell_1",
                     "title": "spell.berserker_rpg.blood_reckoning.name",
                     "icon_path": "berserker_rpg:textures/spell/blood_reckoning.png",
                     "component_list": [
@@ -47,7 +47,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:berserker_spell_3_2",
+                    "upgrade_identifier": "rpgclassselection:berserker_tier_4_spell_2",
                     "title": "spell.berserker_rpg.outrage.name",
                     "icon_path": "berserker_rpg:textures/spell/outrage.png",
                     "component_list": [

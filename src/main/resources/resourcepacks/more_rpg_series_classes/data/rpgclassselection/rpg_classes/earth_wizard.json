@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_1",
+                    "upgrade_identifier": "rpgclassselection:earth_tier_2_spell_1",
                     "title": "spell.elemental_wizards_rpg.terra_stone_flesh.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_stone_flesh.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_2",
+                    "upgrade_identifier": "rpgclassselection:earth_tier_3_spell_1",
                     "title": "spell.elemental_wizards_rpg.terra_drip_circle.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_drip_circle.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:earth_spell_3",
+                    "upgrade_identifier": "rpgclassselection:earth_tier_4_spell_1",
                     "title": "spell.elemental_wizards_rpg.terra_earthquake.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/terra_earthquake.png",
                     "component_list": [

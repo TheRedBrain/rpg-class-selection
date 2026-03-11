@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:frost_spell_1",
+                    "upgrade_identifier": "rpgclassselection:frost_tier_2_spell_1",
                     "title": "spell.wizards.frost_nova.name",
                     "icon_path": "wizards:textures/spell/frost_nova.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:frost_spell_2",
+                    "upgrade_identifier": "rpgclassselection:frost_tier_3_spell_1",
                     "title": "spell.wizards.frost_shield.name",
                     "icon_path": "wizards:textures/spell/frost_shield.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:frost_spell_3",
+                    "upgrade_identifier": "rpgclassselection:frost_tier_4_spell_1",
                     "title": "spell.wizards.frost_blizzard.name",
                     "icon_path": "wizards:textures/spell/frost_blizzard.png",
                     "component_list": [

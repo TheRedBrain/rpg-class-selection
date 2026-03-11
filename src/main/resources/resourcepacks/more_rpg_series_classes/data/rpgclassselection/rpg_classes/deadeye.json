@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_1_1",
+                    "upgrade_identifier": "rpgclassselection:deadeye_tier_2_spell_1",
                     "title": "spell.archers_expansion.fast_shot.name",
                     "icon_path": "archers_expansion:textures/spell/fast_shot.png",
                     "component_list": [
@@ -17,7 +17,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_1_2",
+                    "upgrade_identifier": "rpgclassselection:deadeye_tier_2_spell_2",
                     "title": "spell.archers_expansion.trick_shot.name",
                     "icon_path": "archers_expansion:textures/spell/trick_shot.png",
                     "component_list": [
@@ -32,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_2",
+                    "upgrade_identifier": "rpgclassselection:deadeye_tier_3_spell_1",
                     "title": "spell.archers_expansion.disabling_shot.name",
                     "icon_path": "archers_expansion:textures/spell/disabling_shot.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_3",
+                    "upgrade_identifier": "rpgclassselection:deadeye_tier_4_spell_1",
                     "title": "spell.archers_expansion.choking_gas.name",
                     "icon_path": "archers_expansion:textures/spell/choking_gas.png",
                     "component_list": [
@@ -62,7 +62,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:deadeye_spell_4",
+                    "upgrade_identifier": "rpgclassselection:deadeye_tier_5_spell_1",
                     "title": "spell.archers_expansion.infiltrators_arrow.name",
                     "icon_path": "archers_expansion:textures/spell/infiltrators_arrow.png",
                     "component_list": [

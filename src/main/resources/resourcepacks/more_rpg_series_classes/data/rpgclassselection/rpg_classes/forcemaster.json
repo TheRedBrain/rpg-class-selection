@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_1",
+                    "upgrade_identifier": "rpgclassselection:forcemaster_tier_2_spell_1",
                     "title": "spell.forcemaster_rpg.stonehand.name",
                     "icon_path": "forcemaster_rpg:textures/spell/stonehand.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_2",
+                    "upgrade_identifier": "rpgclassselection:forcemaster_tier_3_spell_1",
                     "title": "spell.forcemaster_rpg.belial_smashing.name",
                     "icon_path": "forcemaster_rpg:textures/spell/belial_smashing.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:forcemaster_spell_3",
+                    "upgrade_identifier": "rpgclassselection:forcemaster_tier_4_spell_1",
                     "title": "spell.forcemaster_rpg.asal.name",
                     "icon_path": "forcemaster_rpg:textures/spell/asal.png",
                     "component_list": [

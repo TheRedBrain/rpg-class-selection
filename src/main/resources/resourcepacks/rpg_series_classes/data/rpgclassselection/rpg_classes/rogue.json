@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_1_1",
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_1",
                     "title": "spell.rogues.slice_and_dice.name",
                     "icon_path": "rogues:textures/spell/slice_and_dice.png",
                     "component_list": [
@@ -17,7 +17,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_1_2",
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_2",
                     "title": "spell.rogues.shock_powder.name",
                     "icon_path": "rogues:textures/spell/shock_powder.png",
                     "component_list": [
@@ -32,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_2",
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_3_spell_1",
                     "title": "spell.rogues.shadow_step.name",
                     "icon_path": "rogues:textures/spell/shadow_step.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_3",
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_4_spell_1",
                     "title": "spell.rogues.vanish.name",
                     "icon_path": "rogues:textures/spell/vanish.png",
                     "component_list": [
@@ -62,7 +62,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:rogue_spell_4",
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_5_spell_1",
                     "title": "spell.lne_rogues.dancing_dagger.name",
                     "icon_path": "lne_rogues:textures/spell/dancing_dagger.png",
                     "component_list": [

@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_1_1",
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_1",
                     "title": "spell.paladins.flash_heal.name",
                     "icon_path": "paladins:textures/spell/flash_heal.png",
                     "component_list": [
@@ -17,7 +17,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_1_2",
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_2",
                     "title": "spell.paladins.divine_protection.name",
                     "icon_path": "paladins:textures/spell/divine_protection.png",
                     "component_list": [
@@ -32,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_2",
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_1",
                     "title": "spell.paladins.judgement.name",
                     "icon_path": "paladins:textures/spell/judgement.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_3",
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_4_spell_1",
                     "title": "spell.paladins.battle_banner.name",
                     "icon_path": "paladins:textures/spell/battle_banner.png",
                     "component_list": [
@@ -62,7 +62,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:paladin_spell_4",
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_5_spell_1",
                     "title": "spell.lne_paladins.holy_weapon.name",
                     "icon_path": "lne_paladins:textures/spell/holy_weapon.png",
                     "component_list": [

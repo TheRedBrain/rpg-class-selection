@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:warrior_spell_1",
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_1",
                     "title": "spell.rogues.throw.name",
                     "icon_path": "rogues:textures/spell/throw.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:warrior_spell_2",
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_3_spell_1",
                     "title": "spell.rogues.shout.name",
                     "icon_path": "rogues:textures/spell/shout.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:warrior_spell_3",
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_1",
                     "title": "spell.rogues.charge.name",
                     "icon_path": "rogues:textures/spell/charge.png",
                     "component_list": [
@@ -51,7 +51,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:warrior_spell_4",
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_5_spell_1",
                     "title": "spell.lne_rogues.second_wind.name",
                     "icon_path": "lne_rogues:textures/spell/second_wind.png",
                     "component_list": [

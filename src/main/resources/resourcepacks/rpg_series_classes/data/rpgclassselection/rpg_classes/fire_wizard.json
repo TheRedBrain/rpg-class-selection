@@ -17,7 +17,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_1",
+                    "upgrade_identifier": "rpgclassselection:fire_tier_2_spell_1",
                     "title": "spell.wizards.fire_breath.name",
                     "icon_path": "wizards:textures/spell/fire_breath.png",
                     "component_list": [
@@ -32,7 +32,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_2",
+                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_2",
                     "title": "spell.wizards.fire_meteor.name",
                     "icon_path": "wizards:textures/spell/fire_meteor.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_spell_3",
+                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_3",
                     "title": "spell.wizards.fire_wall.name",
                     "icon_path": "wizards:textures/spell/fire_wall.png",
                     "component_list": [

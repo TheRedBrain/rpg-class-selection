@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_1",
+                    "upgrade_identifier": "rpgclassselection:priest_tier_2_spell_1",
                     "title": "spell.paladins.holy_beam.name",
                     "icon_path": "paladins:textures/spell/holy_beam.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_2",
+                    "upgrade_identifier": "rpgclassselection:priest_tier_3_spell_1",
                     "title": "spell.paladins.circle_of_healing.name",
                     "icon_path": "paladins:textures/spell/circle_of_healing.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_3",
+                    "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_1",
                     "title": "spell.paladins.barrier.name",
                     "icon_path": "paladins:textures/spell/barrier.png",
                     "component_list": [
@@ -51,7 +51,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:priest_spell_4",
+                    "upgrade_identifier": "rpgclassselection:priest_tier_5_spell_1",
                     "title": "spell.lne_paladins.holy_prevention.name",
                     "icon_path": "lne_paladins:textures/spell/holy_prevention.png",
                     "component_list": [

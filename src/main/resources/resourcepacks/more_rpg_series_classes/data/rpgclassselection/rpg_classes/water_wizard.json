@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_1",
+                    "upgrade_identifier": "rpgclassselection:water_tier_2_spell_1",
                     "title": "spell.elemental_wizards_rpg.aqua_bubble_beam.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_bubble_beam.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_2_1",
+                    "upgrade_identifier": "rpgclassselection:water_tier_3_spell_1",
                     "title": "spell.elemental_wizards_rpg.aqua_springwater.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_springwater.png",
                     "component_list": [
@@ -32,7 +32,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_2_2",
+                    "upgrade_identifier": "rpgclassselection:water_tier_3_spell_2",
                     "title": "spell.elemental_wizards_rpg.aqua_hydro_beam.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_hydro_beam.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:water_spell_3",
+                    "upgrade_identifier": "rpgclassselection:water_tier_4_spell_1",
                     "title": "spell.elemental_wizards_rpg.aqua_healing_rain.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/aqua_healing_rain.png",
                     "component_list": [

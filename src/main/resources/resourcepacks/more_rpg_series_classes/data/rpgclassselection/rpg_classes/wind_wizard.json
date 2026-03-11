@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:wind_spell_1",
+                    "upgrade_identifier": "rpgclassselection:wind_tier_2_spell_1",
                     "title": "spell.elemental_wizards_rpg.wind_aeroblast.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/wind_aeroblast.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:wind_spell_2",
+                    "upgrade_identifier": "rpgclassselection:wind_tier_3_spell_1",
                     "title": "spell.elemental_wizards_rpg.wind_updraft.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/wind_updraft.png",
                     "component_list": [
@@ -36,7 +36,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:wind_spell_3",
+                    "upgrade_identifier": "rpgclassselection:wind_tier_4_spell_1",
                     "title": "spell.elemental_wizards_rpg.wind_tornado.name",
                     "icon_path": "elemental_wizards_rpg:textures/spell/wind_tornado.png",
                     "component_list": [

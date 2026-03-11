@@ -6,7 +6,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_1",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_1",
                     "title": "spell.archers.power_shot.name",
                     "icon_path": "archers:textures/spell/power_shot.png",
                     "component_list": [
@@ -21,7 +21,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_2",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_1",
                     "title": "spell.archers.entangling_roots.name",
                     "icon_path": "archers:textures/spell/entangling_roots.png",
                     "component_list": [
@@ -32,7 +32,7 @@
                     ]
                 },
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_2",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_2",
                     "title": "spell.archers.barrage.name",
                     "icon_path": "archers:textures/spell/barrage.png",
                     "component_list": [
@@ -47,7 +47,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_3",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_1",
                     "title": "spell.archers.magic_arrow.name",
                     "icon_path": "archers:textures/spell/magic_arrow.png",
                     "component_list": [
@@ -62,7 +62,7 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_spell_4",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_5_spell_1",
                     "title": "spell.lne_archers.rangers_focus.name",
                     "icon_path": "lne_archers:textures/spell/rangers_focus.png",
                     "component_list": [
