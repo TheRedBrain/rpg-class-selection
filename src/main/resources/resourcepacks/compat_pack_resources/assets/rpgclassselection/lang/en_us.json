@@ -46,5 +46,53 @@
   "class_selection_screen.rpgclassselection.war_archer.description": "The War Archer uses fast high ranged damage weapons to cause explosions and heavy damage.\n- Strengths: High Burst Damage.\n- Weaknesses: Fast and tricky Enemies\n- Equipment: Heavily armored",
 
   "class_selection_screen.rpgclassselection.water_wizard.title": "Water Wizard",
-  "class_selection_screen.rpgclassselection.water_wizard.description": "The Water Wizard uses water magic to damage foes and protect allies.\n- Strengths: Balanced healing and damage.\n- Weaknesses: Low defense and mobility\n- Equipment: Light Armor"
+  "class_selection_screen.rpgclassselection.water_wizard.description": "The Water Wizard uses water magic to damage foes and protect allies.\n- Strengths: Balanced healing and damage.\n- Weaknesses: Low defense and mobility\n- Equipment: Light Armor",
+
+  "enchantment.rpgclassselection.arcane_staff_modifier_1": "Conjured Arcane Charge",
+  "enchantment.rpgclassselection.arcane_staff_modifier_2": "Arcane Endurance",
+
+  "enchantment.rpgclassselection.axe_modifier_1": "Wide Cleave",
+  "enchantment.rpgclassselection.axe_modifier_2": "Hot Hatchet",
+
+  "enchantment.rpgclassselection.bow_modifier_1": "Dazing Arrow",
+  "enchantment.rpgclassselection.bow_modifier_2": "Poison Arrow",
+
+  "enchantment.rpgclassselection.claymore_modifier_1": "Relentless Flurry",
+  "enchantment.rpgclassselection.claymore_modifier_2": "Frenzied Strikes",
+
+  "enchantment.rpgclassselection.crossbow_modifier_1": "Weakening Bolt",
+  "enchantment.rpgclassselection.crossbow_modifier_2": "Fuse Bolt",
+
+  "enchantment.rpgclassselection.dagger_modifier_1": "Ricochet",
+  "enchantment.rpgclassselection.dagger_modifier_2": "Expanded Fan",
+
+  "enchantment.rpgclassselection.double_axe_modifier_1": "Whirlwind Mastery",
+  "enchantment.rpgclassselection.double_axe_modifier_2": "Hamstring",
+
+  "enchantment.rpgclassselection.fire_staff_modifier_1": "Blast Radius",
+  "enchantment.rpgclassselection.fire_staff_modifier_2": "Blast Punch",
+
+  "enchantment.rpgclassselection.frost_staff_modifier_1": "Frost Bounce",
+  "enchantment.rpgclassselection.frost_staff_modifier_2": "Lingering Chill",
+
+  "enchantment.rpgclassselection.glaive_modifier_1": "Full Thrust",
+  "enchantment.rpgclassselection.glaive_modifier_2": "Impaling Thrust",
+
+  "enchantment.rpgclassselection.hammer_modifier_1": "Aftershock",
+  "enchantment.rpgclassselection.hammer_modifier_2": "Punishment",
+
+  "enchantment.rpgclassselection.holy_staff_modifier_1": "Improved Healing",
+  "enchantment.rpgclassselection.holy_staff_modifier_2": "Holy Blast",
+
+  "enchantment.rpgclassselection.mace_modifier_1": "Justice Served",
+  "enchantment.rpgclassselection.mace_modifier_2": "Shatter",
+
+  "enchantment.rpgclassselection.sickle_modifier_1": "Evasive Swipe",
+  "enchantment.rpgclassselection.sickle_modifier_2": "Sequential Swipes",
+
+  "enchantment.rpgclassselection.spear_modifier_1": "Pierce",
+  "enchantment.rpgclassselection.spear_modifier_2": "Pin Down",
+
+  "enchantment.rpgclassselection.sword_modifier_1": "Frequent Strikes",
+  "enchantment.rpgclassselection.sword_modifier_2": "Precision"
 }

@@ -1,0 +1,34 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.rpgclassselection.frost_staff_modifier_1"
+  },
+  "effects": {
+    "minecraft:tick": [
+      {
+        "effect": {
+          "type": "spellengineextension:provide_spells",
+          "provided_spells_list": [
+            [
+              "skill_tree_rpgs:weapon_frostbolt_modifier_1"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 8
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#rpgclassselection:enchantable/weapon_skills/frost_staves",
+  "weight": 5
+}

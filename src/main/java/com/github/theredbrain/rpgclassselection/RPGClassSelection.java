@@ -56,6 +56,8 @@ public class RPGClassSelection implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static ServerConfig SERVER_CONFIG;
 
+	public static final boolean isSpellEngineExtensionLoaded = FabricLoader.getInstance().isModLoaded("spellengineextension");
+
 	public static ComponentType<ClassStateComponent> CLASS_STATE_COMPONENT_TYPE;
 
 	public static AttributeModifierSlot getClassItemAttributeModifierSlot() {
@@ -296,6 +298,9 @@ public class RPGClassSelection implements ModInitializer {
 
 		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 		if (modContainer.isPresent()) {
+			if (isSpellEngineExtensionLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("weapon_skill_upgrade_enchantments"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("more_rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.more_rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);

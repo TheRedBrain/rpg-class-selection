@@ -13,6 +13,7 @@
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
+  "resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name": "Various enchantments which provide the weapon skill modifiers from Skill Tree (RPG Series)",
   "resourcepack.rpgclassselection.more_rpg_series_classes.name": "RPG Class Selection X More RPG Series",
   "resourcepack.rpgclassselection.rpg_series_classes.name": "RPG Class Selection X RPG Series",
   "resourcepack.rpgclassselection.compat_pack_resources.name": "Compatibility Pack Resources",

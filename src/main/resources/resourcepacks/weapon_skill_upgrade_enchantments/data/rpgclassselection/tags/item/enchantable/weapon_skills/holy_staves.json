@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "paladins:holy_staff",
+      "required": false
+    },
+    {
+      "id": "#rpg_series:weapon_type/healing_staff",
+      "required": false
+    }
+  ]
+}
