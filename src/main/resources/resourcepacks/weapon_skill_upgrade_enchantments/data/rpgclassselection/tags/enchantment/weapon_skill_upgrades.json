@@ -1,0 +1,132 @@
+{
+  "values": [
+    {
+      "id": "#rpgclassselection:arcane_staff_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:arcane_staff_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:axe_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:axe_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:bow_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:bow_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:claymore_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:claymore_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:crossbow_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:crossbow_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:dagger_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:dagger_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:double_axe_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:double_axe_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:fire_staff_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:fire_staff_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:frost_staff_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:frost_staff_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:glaive_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:glaive_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:hammer_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:hammer_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:holy_staff_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:holy_staff_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:mace_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:mace_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:sickle_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:sickle_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:spear_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:spear_modifier_2",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:sword_modifier_1",
+      "required": false
+    },
+    {
+      "id": "#rpgclassselection:sword_modifier_2",
+      "required": false
+    }
+  ]
+}
