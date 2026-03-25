@@ -15,6 +15,17 @@
                             "spell_identifier": "elemental_wizards_rpg:terra_stone_flesh"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:earth_tier_2_spell_2",
+                    "title": "spell.elemental_wizards_rpg.terra_impale.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/terra_impale.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:terra_impale"
+                        }
+                    ]
                 }
             ]
         },
@@ -30,6 +41,17 @@
                             "spell_identifier": "elemental_wizards_rpg:terra_drip_circle"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:earth_tier_3_spell_2",
+                    "title": "spell.elemental_wizards_rpg.terra_shattering_stone.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/terra_shattering_stone.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:terra_shattering_stone"
+                        }
+                    ]
                 }
             ]
         },
@@ -43,6 +65,17 @@
                         {
                             "type": "spell",
                             "spell_identifier": "elemental_wizards_rpg:terra_earthquake"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:earth_tier_4_spell_2",
+                    "title": "spell.elemental_wizards_rpg.terra_earth_golem.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/terra_earth_golem.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:terra_earth_golem"
                         }
                     ]
                 }

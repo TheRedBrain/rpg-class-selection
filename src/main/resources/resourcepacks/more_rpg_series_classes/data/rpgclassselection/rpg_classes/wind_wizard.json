@@ -15,6 +15,17 @@
                             "spell_identifier": "elemental_wizards_rpg:wind_aeroblast"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:wind_tier_2_spell_2",
+                    "title": "spell.elemental_wizards_rpg.wind_twister.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/wind_twister.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:wind_twister"
+                        }
+                    ]
                 }
             ]
         },
@@ -30,6 +41,17 @@
                             "spell_identifier": "elemental_wizards_rpg:wind_updraft"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:wind_tier_3_spell_2",
+                    "title": "spell.elemental_wizards_rpg.wind_windfield.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/wind_windfield.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:wind_windfield"
+                        }
+                    ]
                 }
             ]
         },
@@ -43,6 +65,17 @@
                         {
                             "type": "spell",
                             "spell_identifier": "elemental_wizards_rpg:wind_tornado"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:wind_tier_4_spell_2",
+                    "title": "spell.elemental_wizards_rpg.wind_stormdraft.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/wind_stormdraft.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:wind_stormdraft"
                         }
                     ]
                 }

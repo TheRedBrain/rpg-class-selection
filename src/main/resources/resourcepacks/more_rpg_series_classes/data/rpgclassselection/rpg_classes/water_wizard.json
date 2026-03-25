@@ -15,6 +15,17 @@
                             "spell_identifier": "elemental_wizards_rpg:aqua_bubble_beam"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_tier_2_spell_2",
+                    "title": "spell.elemental_wizards_rpg.aqua_waterball.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_waterball.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_waterball"
+                        }
+                    ]
                 }
             ]
         },
@@ -56,10 +67,35 @@
                             "spell_identifier": "elemental_wizards_rpg:aqua_healing_rain"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:water_tier_4_spell_2",
+                    "title": "spell.elemental_wizards_rpg.aqua_tidal_wave.name",
+                    "icon_path": "elemental_wizards_rpg:textures/spell/aqua_tidal_wave.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "elemental_wizards_rpg:aqua_tidal_wave"
+                        }
+                    ]
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:water_tier_5_spell_1",
+                    "title": "spell.lne_wizards.aqua_explosive_bubbles.name",
+                    "icon_path": "lne_wizards:textures/spell/aqua_explosive_bubbles.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_wizards:aqua_explosive_bubbles"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [
