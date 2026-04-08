@@ -301,6 +301,7 @@ public class RPGClassSelection implements ModInitializer {
 			if (isSpellEngineExtensionLoaded) {
 				ResourceManagerHelper.registerBuiltinResourcePack(identifier("weapon_skill_upgrade_enchantments"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			}
+			ResourceManagerHelper.registerBuiltinResourcePack(identifier("druid_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.druid_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("more_rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.more_rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);

@@ -1,0 +1,210 @@
+{
+    "class_identifier": "rpgclassselection:druid",
+    "description": "class_selection_screen.rpgclassselection.druid.description",
+    "locked_description": "class_selection_screen.rpgclassselection.druid.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_2_spell_1",
+                    "title": "spell.druids.barkskin.name",
+                    "icon_path": "druids:textures/spell/barkskin.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:barkskin"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_3_spell_1",
+                    "title": "spell.druids.vine_whip.name",
+                    "icon_path": "druids:textures/spell/vine_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:vine_whip"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_4_spell_1",
+                    "title": "spell.druids.mass_entanglement.name",
+                    "icon_path": "druids:textures/spell/mass_entanglement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:mass_entanglement"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_1_passive_1",
+                    "title": "spell.druids.druid_tier_1_passive_1.name",
+                    "icon_path": "druids:textures/spell/druid_tier_1_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_1_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_1_passive_2",
+                    "title": "spell.druids.druid_tier_1_passive_2.name",
+                    "icon_path": "druids:textures/spell/druid_tier_1_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_1_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_2_spell_1_modifier_1",
+                    "title": "spell.druids.druid_tier_2_spell_1_modifier_1.name",
+                    "icon_path": "druids:textures/spell/barkskin.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_2_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_2_spell_1_modifier_2",
+                    "title": "spell.druids.druid_tier_2_spell_1_modifier_2.name",
+                    "icon_path": "druids:textures/spell/barkskin.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_2_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_2_passive_1",
+                    "title": "spell.druids.druid_tier_2_passive_1.name",
+                    "icon_path": "druids:textures/spell/druid_tier_2_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_2_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_2_passive_2",
+                    "title": "spell.druids.druid_tier_2_passive_2.name",
+                    "icon_path": "druids:textures/spell/druid_tier_2_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_2_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_3_spell_1_modifier_1",
+                    "title": "spell.druids.druid_tier_3_spell_1_modifier_1.name",
+                    "icon_path": "druids:textures/spell/vine_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_3_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_3_spell_1_modifier_2",
+                    "title": "spell.druids.druid_tier_3_spell_1_modifier_2.name",
+                    "icon_path": "druids:textures/spell/vine_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_3_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_3_passive_1",
+                    "title": "spell.druids.druid_tier_3_passive_1.name",
+                    "icon_path": "druids:textures/spell/druid_tier_3_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_3_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_3_passive_2",
+                    "title": "spell.druids.druid_tier_3_passive_2.name",
+                    "icon_path": "druids:textures/spell/druid_tier_3_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_3_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_4_spell_1_modifier_1",
+                    "title": "spell.druids.druid_tier_4_spell_1_modifier_1.name",
+                    "icon_path": "druids:textures/spell/mass_entanglement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_4_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:druid_tier_4_spell_1_modifier_2",
+                    "title": "spell.druids.druid_tier_4_spell_1_modifier_2.name",
+                    "icon_path": "druids:textures/spell/mass_entanglement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "druids:druid_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

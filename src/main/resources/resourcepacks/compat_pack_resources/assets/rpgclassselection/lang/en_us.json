@@ -48,6 +48,9 @@
   "class_selection_screen.rpgclassselection.water_wizard.title": "Water Wizard",
   "class_selection_screen.rpgclassselection.water_wizard.description": "The Water Wizard uses water magic to damage foes and protect allies.\n- Strengths: Balanced healing and damage.\n- Weaknesses: Low defense and mobility\n- Equipment: Light Armor",
 
+  "class_selection_screen.rpgclassselection.druid.title": "Druid",
+  "class_selection_screen.rpgclassselection.druid.description": "The Druid is bending nature magic to lock down and damage targets over time.\n- Strengths: Magical damage over time and rooting.\n- Weaknesses: Mediocre damage\n- Equipment: Lightly armored",
+
   "enchantment.rpgclassselection.arcane_staff_modifier_1": "Conjured Arcane Charge",
   "enchantment.rpgclassselection.arcane_staff_modifier_2": "Arcane Endurance",
 
@@ -86,6 +89,11 @@
 
   "enchantment.rpgclassselection.mace_modifier_1": "Justice Served",
   "enchantment.rpgclassselection.mace_modifier_2": "Shatter",
+
+  "enchantment.rpgclassselection.nature_staff_modifier_1": "Mass Bramble Volley",
+  "enchantment.rpgclassselection.nature_staff_modifier_1.description": "Increases the maximum number of bramble projectiles by 1.",
+  "enchantment.rpgclassselection.nature_staff_modifier_2": "Poison Tip",
+  "enchantment.rpgclassselection.nature_staff_modifier_2.description": "Increases the poison duration of Bramble Volley by {effect_duration_add} seconds.",
 
   "enchantment.rpgclassselection.sickle_modifier_1": "Evasive Swipe",
   "enchantment.rpgclassselection.sickle_modifier_2": "Sequential Swipes",
