@@ -15,6 +15,17 @@
                             "spell_identifier": "paladins:holy_beam"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_2_spell_2",
+                    "title": "spell.paladins.levitate.name",
+                    "icon_path": "paladins:textures/spell/levitate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:levitate"
+                        }
+                    ]
                 }
             ]
         },
@@ -30,6 +41,17 @@
                             "spell_identifier": "paladins:circle_of_healing"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_3_spell_2",
+                    "title": "spell.paladins.penance.name",
+                    "icon_path": "paladins:textures/spell/penance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:penance"
+                        }
+                    ]
                 }
             ]
         },
@@ -37,6 +59,17 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_1",
+                    "title": "spell.paladins.lightwell.name",
+                    "icon_path": "paladins:textures/spell/lightwell.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:lightwell"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_2",
                     "title": "spell.paladins.barrier.name",
                     "icon_path": "paladins:textures/spell/barrier.png",
                     "component_list": [
@@ -113,6 +146,28 @@
                             "spell_identifier": "skill_tree_rpgs:priest_tier_2_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.priest_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/levitate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.priest_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/levitate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_2_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -165,6 +220,28 @@
                             "spell_identifier": "skill_tree_rpgs:priest_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.priest_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/penance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.priest_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/penance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -199,7 +276,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.priest_tier_4_spell_1_modifier_1.name",
-                    "icon_path": "paladins:textures/spell/barrier.png",
+                    "icon_path": "paladins:textures/spell/lightwell.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -210,11 +287,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.priest_tier_4_spell_1_modifier_2.name",
-                    "icon_path": "paladins:textures/spell/barrier.png",
+                    "icon_path": "paladins:textures/spell/lightwell.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:priest_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.priest_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/barrier.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:priest_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.priest_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/barrier.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:priest_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

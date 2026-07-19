@@ -7,23 +7,23 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_1",
-                    "title": "spell.rogues.slice_and_dice.name",
-                    "icon_path": "rogues:textures/spell/slice_and_dice.png",
-                    "component_list": [
-                        {
-                            "type": "spell",
-                            "spell_identifier": "rogues:slice_and_dice"
-                        }
-                    ]
-                },
-                {
-                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_2",
                     "title": "spell.rogues.shock_powder.name",
                     "icon_path": "rogues:textures/spell/shock_powder.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "rogues:shock_powder"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_2",
+                    "title": "spell.rogues.slice_and_dice.name",
+                    "icon_path": "rogues:textures/spell/slice_and_dice.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:slice_and_dice"
                         }
                     ]
                 }
@@ -41,6 +41,17 @@
                             "spell_identifier": "rogues:shadow_step"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_3_spell_2",
+                    "title": "spell.rogues.bear_trap.name",
+                    "icon_path": "rogues:textures/spell/bear_trap.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:bear_trap"
+                        }
+                    ]
                 }
             ]
         },
@@ -54,6 +65,17 @@
                         {
                             "type": "spell",
                             "spell_identifier": "rogues:vanish"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_4_spell_2",
+                    "title": "spell.rogues.mutilate.name",
+                    "icon_path": "rogues:textures/spell/mutilate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:mutilate"
                         }
                     ]
                 }
@@ -124,6 +146,28 @@
                             "spell_identifier": "skill_tree_rpgs:rogue_tier_2_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/slice_and_dice.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/slice_and_dice.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_2_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -176,6 +220,28 @@
                             "spell_identifier": "skill_tree_rpgs:rogue_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/bear_trap.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/bear_trap.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -226,6 +292,28 @@
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:rogue_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/mutilate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.rogue_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/mutilate.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:rogue_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

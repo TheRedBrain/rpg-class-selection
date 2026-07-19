@@ -18,12 +18,12 @@
                 },
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_2",
-                    "title": "spell.paladins.divine_protection.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "title": "spell.paladins.blessed_strikes.name",
+                    "icon_path": "paladins:textures/spell/blessed_strikes.png",
                     "component_list": [
                         {
                             "type": "spell",
-                            "spell_identifier": "paladins:divine_protection"
+                            "spell_identifier": "paladins:blessed_strikes"
                         }
                     ]
                 }
@@ -33,6 +33,17 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_1",
+                    "title": "spell.paladins.divine_protection.name",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:divine_protection"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_2",
                     "title": "spell.paladins.judgement.name",
                     "icon_path": "paladins:textures/spell/judgement.png",
                     "component_list": [
@@ -54,6 +65,17 @@
                         {
                             "type": "spell",
                             "spell_identifier": "paladins:battle_banner"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_4_spell_2",
+                    "title": "spell.paladins.immolation.name",
+                    "icon_path": "paladins:textures/spell/immolation.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "paladins:immolation"
                         }
                     ]
                 }
@@ -106,7 +128,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.paladin_tier_2_spell_1_modifier_1.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "icon_path": "paladins:textures/spell/flash_heal.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -117,11 +139,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.paladin_tier_2_spell_1_modifier_2.name",
-                    "icon_path": "paladins:textures/spell/divine_protection.png",
+                    "icon_path": "paladins:textures/spell/flash_heal.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:paladin_tier_2_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/blessed_strikes.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/blessed_strikes.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_2_spell_2_modifier_2"
                         }
                     ]
                 }
@@ -158,7 +202,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.paladin_tier_3_spell_1_modifier_1.name",
-                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -169,11 +213,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.paladin_tier_3_spell_1_modifier_2.name",
-                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "icon_path": "paladins:textures/spell/divine_protection.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:paladin_tier_3_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/judgement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_3_spell_2_modifier_2"
                         }
                     ]
                 }
@@ -226,6 +292,28 @@
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:paladin_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "paladins:textures/spell/immolation.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.paladin_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "paladins:textures/spell/immolation.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:paladin_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

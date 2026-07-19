@@ -26,19 +26,15 @@
                             "spell_identifier": "wizards:fire_breath"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_2",
-                    "title": "spell.wizards.fire_meteor.name",
-                    "icon_path": "wizards:textures/spell/fire_meteor.png",
+                    "upgrade_identifier": "rpgclassselection:fire_tier_2_spell_2",
+                    "title": "spell.wizards.fire_slash.name",
+                    "icon_path": "wizards:textures/spell/fire_slash.png",
                     "component_list": [
                         {
                             "type": "spell",
-                            "spell_identifier": "wizards:fire_meteor"
+                            "spell_identifier": "wizards:fire_slash"
                         }
                     ]
                 }
@@ -47,13 +43,50 @@
         {
             "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_3",
+                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_1",
+                    "title": "spell.wizards.fire_meteor.name",
+                    "icon_path": "wizards:textures/spell/fire_meteor.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_meteor"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_2",
+                    "title": "spell.wizards.fire_storm.name",
+                    "icon_path": "wizards:textures/spell/fire_storm.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_storm"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_1",
                     "title": "spell.wizards.fire_wall.name",
                     "icon_path": "wizards:textures/spell/fire_wall.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "wizards:fire_wall"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_2",
+                    "title": "spell.wizards.fire_hydra.name",
+                    "icon_path": "wizards:textures/spell/fire_hydra.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:fire_hydra"
                         }
                     ]
                 }
@@ -124,6 +157,28 @@
                             "spell_identifier": "skill_tree_rpgs:fire_tier_2_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.fire_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/fire_slash.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.fire_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/fire_slash.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_2_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -176,6 +231,28 @@
                             "spell_identifier": "skill_tree_rpgs:fire_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.fire_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/fire_storm.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.fire_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/fire_storm.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -226,6 +303,28 @@
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:fire_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.fire_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/fire_hydra.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.fire_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/fire_hydra.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:fire_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

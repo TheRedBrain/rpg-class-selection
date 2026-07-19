@@ -15,6 +15,17 @@
                             "spell_identifier": "rogues:throw"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_1",
+                    "title": "spell.rogues.throw_net.name",
+                    "icon_path": "rogues:textures/spell/throw_net.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:throw_net"
+                        }
+                    ]
                 }
             ]
         },
@@ -22,6 +33,17 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_3_spell_1",
+                    "title": "spell.rogues.charge.name",
+                    "icon_path": "rogues:textures/spell/charge.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:charge"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_3_spell_2",
                     "title": "spell.rogues.shout.name",
                     "icon_path": "rogues:textures/spell/shout.png",
                     "component_list": [
@@ -37,12 +59,23 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_1",
-                    "title": "spell.rogues.charge.name",
-                    "icon_path": "rogues:textures/spell/charge.png",
+                    "title": "spell.rogues.mortal_strike.name",
+                    "icon_path": "rogues:textures/spell/mortal_strike.png",
                     "component_list": [
                         {
                             "type": "spell",
-                            "spell_identifier": "rogues:charge"
+                            "spell_identifier": "rogues:mortal_strike"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_1",
+                    "title": "spell.rogues.last_stand.name",
+                    "icon_path": "rogues:textures/spell/last_stand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "rogues:last_stand"
                         }
                     ]
                 }
@@ -95,7 +128,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.warrior_tier_2_spell_1_modifier_1.name",
-                    "icon_path": "rogues:textures/spell/shout.png",
+                    "icon_path": "rogues:textures/spell/throw.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -106,11 +139,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.warrior_tier_2_spell_1_modifier_2.name",
-                    "icon_path": "rogues:textures/spell/shout.png",
+                    "icon_path": "rogues:textures/spell/throw.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:warrior_tier_2_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/throw_net.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/throw_net.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_2_spell_2_modifier_2"
                         }
                     ]
                 }
@@ -165,6 +220,28 @@
                             "spell_identifier": "skill_tree_rpgs:warrior_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/shout.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/shout.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -199,7 +276,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.warrior_tier_4_spell_1_modifier_1.name",
-                    "icon_path": "rogues:textures/spell/whirlwind.png",
+                    "icon_path": "rogues:textures/spell/mortal_strike.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -210,11 +287,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.warrior_tier_4_spell_1_modifier_2.name",
-                    "icon_path": "rogues:textures/spell/whirlwind.png",
+                    "icon_path": "rogues:textures/spell/mortal_strike.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:warrior_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "rogues:textures/spell/last_stand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:warrior_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.warrior_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "rogues:textures/spell/last_stand.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:warrior_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

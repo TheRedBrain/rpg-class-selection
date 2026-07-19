@@ -15,6 +15,17 @@
                             "spell_identifier": "wizards:frost_nova"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_2_spell_2",
+                    "title": "spell.wizards.frost_spikes.name",
+                    "icon_path": "wizards:textures/spell/frost_spikes.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:frost_spikes"
+                        }
+                    ]
                 }
             ]
         },
@@ -30,6 +41,17 @@
                             "spell_identifier": "wizards:frost_shield"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_3_spell_2",
+                    "title": "spell.wizards.frost_lance.name",
+                    "icon_path": "wizards:textures/spell/frost_lance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:frost_lance"
+                        }
+                    ]
                 }
             ]
         },
@@ -43,6 +65,17 @@
                         {
                             "type": "spell",
                             "spell_identifier": "wizards:frost_blizzard"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_4_spell_2",
+                    "title": "spell.wizards.frost_elemental.name",
+                    "icon_path": "wizards:textures/spell/frost_elemental.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "wizards:frost_elemental"
                         }
                     ]
                 }
@@ -113,6 +146,28 @@
                             "spell_identifier": "skill_tree_rpgs:frost_tier_2_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.frost_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/frost_spikes.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.frost_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/frost_spikes.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_2_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -165,6 +220,28 @@
                             "spell_identifier": "skill_tree_rpgs:frost_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.frost_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/frost_lance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.frost_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/frost_lance.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -215,6 +292,28 @@
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:frost_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.frost_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "wizards:textures/spell/frost_elemental.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.frost_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "wizards:textures/spell/frost_elemental.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:frost_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }

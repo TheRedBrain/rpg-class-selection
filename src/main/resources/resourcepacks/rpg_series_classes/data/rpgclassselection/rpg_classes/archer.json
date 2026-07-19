@@ -15,13 +15,9 @@
                             "spell_identifier": "archers:power_shot"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "upgrade_entry_list": [
+                },
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_1",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_2",
                     "title": "spell.archers.entangling_roots.name",
                     "icon_path": "archers:textures/spell/entangling_roots.png",
                     "component_list": [
@@ -30,15 +26,30 @@
                             "spell_identifier": "archers:entangling_roots"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
                 {
-                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_2",
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_1",
                     "title": "spell.archers.barrage.name",
                     "icon_path": "archers:textures/spell/barrage.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "archers:barrage"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_2",
+                    "title": "spell.archers.spirit_wolf.name",
+                    "icon_path": "archers:textures/spell/spirit_wolf.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:spirit_wolf"
                         }
                     ]
                 }
@@ -48,6 +59,17 @@
             "upgrade_entry_list": [
                 {
                     "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_1",
+                    "title": "spell.archers.rain_of_arrows.name",
+                    "icon_path": "archers:textures/spell/rain_of_arrows.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "archers:rain_of_arrows"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_2",
                     "title": "spell.archers.magic_arrow.name",
                     "icon_path": "archers:textures/spell/magic_arrow.png",
                     "component_list": [
@@ -106,7 +128,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.archer_tier_2_spell_1_modifier_1.name",
-                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "icon_path": "archers:textures/spell/power_shot.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -117,11 +139,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.archer_tier_2_spell_1_modifier_2.name",
-                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "icon_path": "archers:textures/spell/power_shot.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:archer_tier_2_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.archer_tier_2_spell_2_modifier_1.name",
+                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_2_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_2_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.archer_tier_2_spell_2_modifier_2.name",
+                    "icon_path": "archers:textures/spell/entangling_roots.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_2_spell_2_modifier_2"
                         }
                     ]
                 }
@@ -176,6 +220,28 @@
                             "spell_identifier": "skill_tree_rpgs:archer_tier_3_spell_1_modifier_2"
                         }
                     ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.archer_tier_3_spell_2_modifier_1.name",
+                    "icon_path": "archers:textures/spell/spirit_wolf.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_3_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_3_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.archer_tier_3_spell_2_modifier_2.name",
+                    "icon_path": "archers:textures/spell/spirit_wolf.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_3_spell_2_modifier_2"
+                        }
+                    ]
                 }
             ]
         },
@@ -210,7 +276,7 @@
                 {
                     "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_1_modifier_1",
                     "title": "spell.skill_tree_rpgs.archer_tier_4_spell_1_modifier_1.name",
-                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "icon_path": "archers:textures/spell/rain_of_arrows.png",
                     "component_list": [
                         {
                             "type": "spell",
@@ -221,11 +287,33 @@
                 {
                     "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_1_modifier_2",
                     "title": "spell.skill_tree_rpgs.archer_tier_4_spell_1_modifier_2.name",
-                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "icon_path": "archers:textures/spell/rain_of_arrows.png",
                     "component_list": [
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:archer_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_2_modifier_1",
+                    "title": "spell.skill_tree_rpgs.archer_tier_4_spell_2_modifier_1.name",
+                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_4_spell_2_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:archer_tier_4_spell_2_modifier_2",
+                    "title": "spell.skill_tree_rpgs.archer_tier_4_spell_2_modifier_2.name",
+                    "icon_path": "archers:textures/spell/magic_arrow.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:archer_tier_4_spell_2_modifier_2"
                         }
                     ]
                 }
