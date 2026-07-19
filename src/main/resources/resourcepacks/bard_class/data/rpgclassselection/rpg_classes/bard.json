@@ -1,0 +1,243 @@
+{
+    "class_identifier": "rpgclassselection:bard",
+    "description": "class_selection_screen.rpgclassselection.bard.description",
+    "locked_description": "class_selection_screen.rpgclassselection.bard.locked_description",
+    "upgrade_entry_group_list": [
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_spell_1",
+                    "title": "spell.bards_rpg.magical_ballad.name",
+                    "icon_path": "bards_rpg:textures/spell/magical_ballad.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:magical_ballad"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_spell_2",
+                    "title": "spell.bards_rpg.vicious_mockery.name",
+                    "icon_path": "bards_rpg:textures/spell/vicious_mockery.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:vicious_mockery"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_spell_1",
+                    "title": "spell.bards_rpg.wardens_paean.name",
+                    "icon_path": "bards_rpg:textures/spell/wardens_paean.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:wardens_paean"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_spell_2",
+                    "title": "spell.bards_rpg.encore.name",
+                    "icon_path": "bards_rpg:textures/spell/encore.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:encore"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_4_spell_1",
+                    "title": "spell.bards_rpg.armys_paeon.name",
+                    "icon_path": "bards_rpg:textures/spell/armys_paeon.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:armys_paeon"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_4_spell_2",
+                    "title": "spell.bards_rpg.crescendo.name",
+                    "icon_path": "bards_rpg:textures/spell/crescendo.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:crescendo"
+                        }
+                    ]
+                }
+            ]
+        },
+        {},
+        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_1_passive_1",
+                    "title": "spell.bards_rpg.bard_tier_1_passive_1.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_1_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_1_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_1_passive_2",
+                    "title": "spell.bards_rpg.bard_tier_1_passive_2.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_1_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_1_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_spell_1_modifier_1",
+                    "title": "spell.bards_rpg.bard_tier_2_spell_1_modifier_1.name",
+                    "icon_path": "bards_rpg:textures/spell/barkskin.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_2_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_spell_1_modifier_2",
+                    "title": "spell.bards_rpg.bard_tier_2_spell_1_modifier_2.name",
+                    "icon_path": "bards_rpg:textures/spell/barkskin.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_2_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_passive_1",
+                    "title": "spell.bards_rpg.bard_tier_2_passive_1.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_2_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_2_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_2_passive_2",
+                    "title": "spell.bards_rpg.bard_tier_2_passive_2.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_2_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_2_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_spell_1_modifier_1",
+                    "title": "spell.bards_rpg.bard_tier_3_spell_1_modifier_1.name",
+                    "icon_path": "bards_rpg:textures/spell/vine_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_3_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_spell_1_modifier_2",
+                    "title": "spell.bards_rpg.bard_tier_3_spell_1_modifier_2.name",
+                    "icon_path": "bards_rpg:textures/spell/vine_whip.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_3_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_passive_1",
+                    "title": "spell.bards_rpg.bard_tier_3_passive_1.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_3_passive_1.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_3_passive_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_3_passive_2",
+                    "title": "spell.bards_rpg.bard_tier_3_passive_2.name",
+                    "icon_path": "bards_rpg:textures/spell/bard_tier_3_passive_2.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_3_passive_2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_4_spell_1_modifier_1",
+                    "title": "spell.bards_rpg.bard_tier_4_spell_1_modifier_1.name",
+                    "icon_path": "bards_rpg:textures/spell/mass_entanglement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_4_spell_1_modifier_1"
+                        }
+                    ]
+                },
+                {
+                    "upgrade_identifier": "rpgclassselection:bard_tier_4_spell_1_modifier_2",
+                    "title": "spell.bards_rpg.bard_tier_4_spell_1_modifier_2.name",
+                    "icon_path": "bards_rpg:textures/spell/mass_entanglement.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "bards_rpg:bard_tier_4_spell_1_modifier_2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -24,9 +24,6 @@
   "class_selection_screen.rpgclassselection.warrior.title": "Warrior",
   "class_selection_screen.rpgclassselection.warrior.description": "The Warrior uses heavy weapons and skills to dominate close combat\n- Strengths: Strong melee attacks with good mobility\n- Weaknesses: Limited ranged attacks and supportive skills\n- Equipment: Heavily armored",
 
-  "class_selection_screen.rpgclassselection.wind_wizard.title": "Wind Wizard",
-  "class_selection_screen.rpgclassselection.wind_wizard.description": "The Wind Wizard uses wind magic to perform dangerous combos on enemies.\n- Strengths: Strong CC and damage on single targets.\n- Weaknesses: Low defense and no mobility\n- Equipment: Light Armor",
-
   "class_selection_screen.rpgclassselection.berserker.title": "Berserker",
   "class_selection_screen.rpgclassselection.berserker.description": "The Berserker uses raid axes and other high damage weapons. The Berserker is all about high physical melee damage.\n- Strengths: High damage output.\n- Weaknesses: Ranged Enemies\n- Equipment: Light Armor",
 
@@ -47,6 +44,12 @@
 
   "class_selection_screen.rpgclassselection.water_wizard.title": "Water Wizard",
   "class_selection_screen.rpgclassselection.water_wizard.description": "The Water Wizard uses water magic to damage foes and protect allies.\n- Strengths: Balanced healing and damage.\n- Weaknesses: Low defense and mobility\n- Equipment: Light Armor",
+
+  "class_selection_screen.rpgclassselection.wind_wizard.title": "Wind Wizard",
+  "class_selection_screen.rpgclassselection.wind_wizard.description": "The Wind Wizard uses wind magic to perform dangerous combos on enemies.\n- Strengths: Strong CC and damage on single targets.\n- Weaknesses: Low defense and no mobility\n- Equipment: Light Armor",
+
+  "class_selection_screen.rpgclassselection.bard.title": "Bard",
+  "class_selection_screen.rpgclassselection.bard.description": "The Bard uses different instruments to play powerful music. The Bard improves stats and abilities of himself and party members and makes his enemies weaker.\n- Strengths: Mobility and Stat Enhancements.\n- Weaknesses: Low Armor & Damage\n- Equipment: Light Armor",
 
   "class_selection_screen.rpgclassselection.druid.title": "Druid",
   "class_selection_screen.rpgclassselection.druid.description": "The Druid is bending nature magic to lock down and damage targets over time.\n- Strengths: Magical damage over time and rooting.\n- Weaknesses: Mediocre damage\n- Equipment: Lightly armored",
