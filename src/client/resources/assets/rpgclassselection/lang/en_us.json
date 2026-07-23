@@ -14,9 +14,17 @@
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
   "resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name": "Various enchantments which provide the weapon skill modifiers from Skill Tree (RPG Series)",
-  "resourcepack.rpgclassselection.more_rpg_series_classes.name": "RPG Class Selection X More RPG Series",
-  "resourcepack.rpgclassselection.rpg_series_classes.name": "RPG Class Selection X RPG Series",
+  "resourcepack.rpgclassselection.archers_class.name": "RPG Class Selection X Archers (RPG Series)",
+  "resourcepack.rpgclassselection.archers_expansion_classes.name": "RPG Class Selection X Archers Expansion (More RPG Classes)",
+  "resourcepack.rpgclassselection.bard_class.name": "RPG Class Selection X Bard (RPG Series Plus)",
+  "resourcepack.rpgclassselection.berserker_class.name": "RPG Class Selection X Berserker (More RPG Classes)",
   "resourcepack.rpgclassselection.compat_pack_resources.name": "Compatibility Pack Resources",
+  "resourcepack.rpgclassselection.druids_class.name": "RPG Class Selection X Druids (RPG Series Plus)",
+  "resourcepack.rpgclassselection.elemental_wizards_classes.name": "RPG Class Selection X Elemental Wizards (More RPG Classes)",
+  "resourcepack.rpgclassselection.forcemaster_class.name": "RPG Class Selection X Forcemaster (More RPG Classes)",
+  "resourcepack.rpgclassselection.paladins_and_priests_classes.name": "RPG Class Selection X Paladins & Priests (RPG Series)",
+  "resourcepack.rpgclassselection.rogues_and_warriors_classes.name": "RPG Class Selection X Rogues & Warriors (RPG Series)",
+  "resourcepack.rpgclassselection.wizards_classes.name": "RPG Class Selection X Wizards (RPG Series)",
 
   "rpgclassselection.server": "Server Side Settings",
 

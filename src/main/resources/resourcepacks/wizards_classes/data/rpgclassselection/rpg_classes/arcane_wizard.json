@@ -132,6 +132,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_1_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_1_modifier_1"
                         }
                     ]
@@ -141,6 +145,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_2_spell_1_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_blast.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_1_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_1_modifier_2"
@@ -154,6 +162,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_2_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_2_modifier_1"
                         }
                     ]
@@ -163,6 +175,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_2_spell_2_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_explosion.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_2_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_2_spell_2_modifier_2"
@@ -206,6 +222,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_1_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_1_modifier_1"
                         }
                     ]
@@ -215,6 +235,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_3_spell_1_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_beam.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_1_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_1_modifier_2"
@@ -228,6 +252,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_2_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_2_modifier_1"
                         }
                     ]
@@ -237,6 +265,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_3_spell_2_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_barrage.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_2_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_3_spell_2_modifier_2"
@@ -280,6 +312,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_1_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_1_modifier_1"
                         }
                     ]
@@ -289,6 +325,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_4_spell_1_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_blink.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_1_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_1_modifier_2"
@@ -302,6 +342,10 @@
                     "component_list": [
                         {
                             "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_2_root"
+                        },
+                        {
+                            "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_2_modifier_1"
                         }
                     ]
@@ -311,6 +355,10 @@
                     "title": "spell.skill_tree_rpgs.arcane_tier_4_spell_2_modifier_2.name",
                     "icon_path": "wizards:textures/spell/arcane_evocation.png",
                     "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_2_root"
+                        },
                         {
                             "type": "spell",
                             "spell_identifier": "skill_tree_rpgs:arcane_tier_4_spell_2_modifier_2"

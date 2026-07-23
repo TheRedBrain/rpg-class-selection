@@ -56,9 +56,76 @@ public class RPGClassSelection implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static ServerConfig SERVER_CONFIG;
 
+	public static final boolean isArchersLoaded = FabricLoader.getInstance().isModLoaded("archers");
+	public static final boolean isArchersExpansionLoaded = FabricLoader.getInstance().isModLoaded("archers_expansion");
+	public static final boolean isBardsLoaded = FabricLoader.getInstance().isModLoaded("bards_rpg");
+	public static final boolean isBerserkerLoaded = FabricLoader.getInstance().isModLoaded("berserker_rpg");
+	public static final boolean isDruidsLoaded = FabricLoader.getInstance().isModLoaded("druids");
+	public static final boolean isElementalWizardsLoaded = FabricLoader.getInstance().isModLoaded("elemental_wizards_rpg");
+	public static final boolean isForcemasterLoaded = FabricLoader.getInstance().isModLoaded("forcemaster_rpg");
+	public static final boolean isRoguesLoaded = FabricLoader.getInstance().isModLoaded("rogues");
+	public static final boolean isPaladinsLoaded = FabricLoader.getInstance().isModLoaded("paladins");
+	public static final boolean isWizardsLoaded = FabricLoader.getInstance().isModLoaded("wizards");
+	public static final boolean isSkillTreeRPGSeriesLoaded = FabricLoader.getInstance().isModLoaded("skill_tree_rpgs");
 	public static final boolean isSpellEngineExtensionLoaded = FabricLoader.getInstance().isModLoaded("spellengineextension");
 
 	public static ComponentType<ClassStateComponent> CLASS_STATE_COMPONENT_TYPE;
+
+	@Override
+	public void onInitialize() {
+		LOGGER.info("Initializing class selection!");
+		SERVER_CONFIG = ConfigApiJava.registerAndLoadConfig(ServerConfig::new);
+
+		BlockRegistry.init();
+		CustomDynamicRegistries.init();
+		DataComponentRegistry.init();
+		EntityRegistry.init();
+		ScreenHandlerTypesRegistry.registerAll();
+		ServerEventRegistry.initializeServerEvents();
+		ServerPacketRegistry.init();
+		loadBuiltInResourcePacks();
+	}
+
+	private static void loadBuiltInResourcePacks() {
+
+		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
+		if (modContainer.isPresent()) {
+			if (isArchersLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("archers_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isArchersExpansionLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("archers_expansion_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_expansion_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isBardsLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("bard_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.bard_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isBerserkerLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("berserker_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.berserker_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			if (isDruidsLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("druids_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.druids_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isElementalWizardsLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("elemental_wizards_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.elemental_wizards_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isForcemasterLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("forcemaster_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.forcemaster_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isPaladinsLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("paladins_and_priests_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.paladins_and_priests_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isRoguesLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("rogues_and_warriors_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rogues_and_warriors_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isSpellEngineExtensionLoaded && isSkillTreeRPGSeriesLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("weapon_skill_upgrade_enchantments"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+			if (isWizardsLoaded) {
+				ResourceManagerHelper.registerBuiltinResourcePack(identifier("wizards_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.wizards_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+			}
+		}
+	}
 
 	public static AttributeModifierSlot getClassItemAttributeModifierSlot() {
 		AttributeModifierSlot attributeModifierSlot = AttributeModifierSlot.ANY;
@@ -280,32 +347,6 @@ public class RPGClassSelection implements ModInitializer {
 					}
 				}
 			});
-		}
-	}
-
-	@Override
-	public void onInitialize() {
-		LOGGER.info("Initializing class selection!");
-		SERVER_CONFIG = ConfigApiJava.registerAndLoadConfig(ServerConfig::new);
-
-		BlockRegistry.init();
-		CustomDynamicRegistries.init();
-		DataComponentRegistry.init();
-		EntityRegistry.init();
-		ScreenHandlerTypesRegistry.registerAll();
-		ServerEventRegistry.initializeServerEvents();
-		ServerPacketRegistry.init();
-
-		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
-		if (modContainer.isPresent()) {
-			if (isSpellEngineExtensionLoaded) {
-				ResourceManagerHelper.registerBuiltinResourcePack(identifier("weapon_skill_upgrade_enchantments"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name"), ResourcePackActivationType.DEFAULT_ENABLED);
-			}
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("druid_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.druid_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("bard_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.bard_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("more_rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.more_rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("rpg_series_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rpg_series_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
-			ResourceManagerHelper.registerBuiltinResourcePack(identifier("compat_pack_resources"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.compat_pack_resources.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 		}
 	}
 
