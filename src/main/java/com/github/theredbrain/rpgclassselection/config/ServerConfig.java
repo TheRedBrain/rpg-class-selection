@@ -4,6 +4,7 @@ import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.config.ConfigSection;
+import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedBoolean;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedEnum;
 
 public class ServerConfig extends Config {
@@ -14,6 +15,8 @@ public class ServerConfig extends Config {
 
 	public ValidatedEnum<ClassSelectionScreenHandler.ClassSelectionScreenType> class_selection_screen_type = new ValidatedEnum<>(ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES);
 	public ValidatedEnum<ClassSelectionScreenHandler.EmptyUpgradeMode> empty_upgrade_mode = new ValidatedEnum<>(ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS);
+
+	public ValidatedBoolean show_invalid_upgrade_entries = new ValidatedBoolean(false);
 
 	public HotkeySettings hotkeySettings = new HotkeySettings();
 

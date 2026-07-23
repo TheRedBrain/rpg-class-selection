@@ -205,17 +205,6 @@ public class RPGClassSelection implements ModInitializer {
 							currentUpgradeIdentifierString = activeClassState.activeUpgradeIdentifierList().get(groupIndex);
 						}
 
-						boolean groupEntryListIsEmpty = upgradeEntryGroup.upgrade_entry_list().isEmpty();
-						if (
-								((!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
-										(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
-										((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
-												&& isClassUnlocked)
-						) {
-							displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.DEFAULT);
-							upgradeUnlockStatesList.add(true);
-						}
-
 						for (RPGClass.UpgradeEntryGroup.UpgradeEntry upgradeEntry : upgradeEntryGroup.upgrade_entry_list()) {
 
 							// check if all upgrade entry components are valid
@@ -240,8 +229,10 @@ public class RPGClassSelection implements ModInitializer {
 							}
 
 							if (!upgradeEntryIsValid) {
-								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.INVALID_UPGRADE);
-								upgradeUnlockStatesList.add(false);
+								if (RPGClassSelection.SERVER_CONFIG.show_invalid_upgrade_entries.get()) {
+									displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.INVALID_UPGRADE);
+									upgradeUnlockStatesList.add(false);
+								}
 								continue;
 							}
 
@@ -266,6 +257,17 @@ public class RPGClassSelection implements ModInitializer {
 								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.LOCKED_UPGRADE);
 								upgradeUnlockStatesList.add(false);
 							}
+						}
+
+						boolean groupEntryListIsEmpty = displayedUpgradeEntryList.isEmpty();
+						if (
+								((!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
+										(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
+										((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
+												&& isClassUnlocked)
+						) {
+							displayedUpgradeEntryList.addFirst(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.DEFAULT);
+							upgradeUnlockStatesList.addFirst(true);
 						}
 
 						displayedUpgradeEntryGroupList.add(

@@ -321,6 +321,9 @@ public abstract class AbstractClassSelectionScreen extends HandledScreen<ClassSe
 
 		for (UpgradeEntryComponent upgradeEntryComponent : upgradeEntry.component_list()) {
 
+			if (!list.isEmpty()) {
+				list.add(Text.empty());
+			}
 			if (Objects.equals(upgradeEntryComponent.type(), UpgradeEntryComponent.Type.SPELL.asString())) {
 				Optional<RegistryEntry.Reference<Spell>> optionalSpellReference = this.handler.getWorld().getRegistryManager().get(SpellRegistry.KEY).getEntry(Identifier.of(upgradeEntryComponent.spell_identifier()));
 
