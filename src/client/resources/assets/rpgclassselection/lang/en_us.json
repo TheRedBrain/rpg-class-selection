@@ -13,6 +13,8 @@
 
   "hud.message.class_selection_hot_key_was_disabled": "This action was disabled by the server.",
 
+  "key.rpgclassselection.open_class_selection_screen": "Open Class Selection",
+
   "resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name": "Various enchantments which provide the weapon skill modifiers from Skill Tree (RPG Series)",
   "resourcepack.rpgclassselection.archers_class.name": "RPG Class Selection X Archers (RPG Series)",
   "resourcepack.rpgclassselection.archers_expansion_classes.name": "RPG Class Selection X Archers Expansion (More RPG Classes)",

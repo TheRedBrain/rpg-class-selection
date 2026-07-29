@@ -12,7 +12,6 @@ import java.util.List;
 public record DisplayedRPGClass(
 		String class_identifier,
 		String description,
-//		String locked_description,
 		List<DisplayedUpgradeEntryGroup> displayed_upgrade_entry_group_list
 ) {
 
@@ -21,7 +20,6 @@ public record DisplayedRPGClass(
 	public static final Codec<DisplayedRPGClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
 			Codec.STRING.optionalFieldOf("class_identifier", "").forGetter(x -> x.class_identifier),
 			Codec.STRING.optionalFieldOf("description", "").forGetter(x -> x.description),
-//			Codec.STRING.optionalFieldOf("locked_description", "").forGetter(x -> x.locked_description),
 			DisplayedUpgradeEntryGroup.CODEC.listOf().optionalFieldOf("displayed_upgrade_entry_group_list", List.of()).forGetter(x -> x.displayed_upgrade_entry_group_list)
 	).apply(instance, DisplayedRPGClass::new));
 
@@ -44,7 +42,6 @@ public record DisplayedRPGClass(
 		public void encode(ByteBuf byteBuf, DisplayedRPGClass classUnlockStateData) {
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.class_identifier());
 			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.description());
-//			PacketCodecs.STRING.encode(byteBuf, classUnlockStateData.locked_description());
 			int upgradeEntryGroupListSize = classUnlockStateData.displayed_upgrade_entry_group_list().size();
 			PacketCodecs.INTEGER.encode(byteBuf, upgradeEntryGroupListSize);
 			for (int i = 0; i < upgradeEntryGroupListSize; i++) {
@@ -56,12 +53,10 @@ public record DisplayedRPGClass(
 	public DisplayedRPGClass(
 			String class_identifier,
 			String description,
-//			String locked_description,
 			List<DisplayedUpgradeEntryGroup> displayed_upgrade_entry_group_list
 	) {
 		this.class_identifier = class_identifier != null ? class_identifier : "";
 		this.description = description != null ? description : "";
-//		this.locked_description = locked_description != null ? locked_description : "";
 		this.displayed_upgrade_entry_group_list = displayed_upgrade_entry_group_list != null ? displayed_upgrade_entry_group_list : List.of();
 	}
 
@@ -105,7 +100,7 @@ public record DisplayedRPGClass(
 				String icon_path,
 				List<UpgradeEntryComponent> component_list
 		) {
-			public static final DisplayedUpgradeEntry DEFAULT = new DisplayedUpgradeEntry("", "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
+			public static final DisplayedUpgradeEntry EMPTY_UPGRADE = new DisplayedUpgradeEntry("", "class_selection_screen.empty_upgrade.description", "", new ArrayList<>());
 			public static final DisplayedUpgradeEntry LOCKED_UPGRADE = new DisplayedUpgradeEntry("", "class_selection_screen.locked_upgrade.description", "", new ArrayList<>());
 			public static final DisplayedUpgradeEntry INVALID_UPGRADE = new DisplayedUpgradeEntry("", "class_selection_screen.invalid_upgrade.description", "", new ArrayList<>());
 

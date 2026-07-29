@@ -286,7 +286,7 @@ public class RPGClassSelection implements ModInitializer {
 										((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
 												&& isClassUnlocked)
 						) {
-							displayedUpgradeEntryList.addFirst(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.DEFAULT);
+							displayedUpgradeEntryList.addFirst(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.EMPTY_UPGRADE);
 							upgradeUnlockStatesList.addFirst(true);
 						}
 
