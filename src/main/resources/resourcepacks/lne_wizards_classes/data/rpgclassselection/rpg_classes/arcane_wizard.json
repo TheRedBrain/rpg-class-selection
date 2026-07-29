@@ -81,7 +81,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:arcane_tier_5_spell_1",
+                    "title": "spell.lne_wizards.arcane_starfall.name",
+                    "icon_path": "lne_wizards:textures/spell/arcane_starfall.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_wizards:arcane_starfall"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

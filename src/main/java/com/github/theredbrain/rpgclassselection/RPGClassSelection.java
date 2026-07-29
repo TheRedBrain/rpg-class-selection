@@ -57,6 +57,7 @@ public class RPGClassSelection implements ModInitializer {
 	public static ServerConfig SERVER_CONFIG;
 
 	public static final boolean isArchersLoaded = FabricLoader.getInstance().isModLoaded("archers");
+	public static final boolean isLneArchersLoaded = FabricLoader.getInstance().isModLoaded("lne_archers");
 	public static final boolean isArchersExpansionLoaded = FabricLoader.getInstance().isModLoaded("archers_expansion");
 	public static final boolean isBardsLoaded = FabricLoader.getInstance().isModLoaded("bards_rpg");
 	public static final boolean isBerserkerLoaded = FabricLoader.getInstance().isModLoaded("berserker_rpg");
@@ -64,8 +65,11 @@ public class RPGClassSelection implements ModInitializer {
 	public static final boolean isElementalWizardsLoaded = FabricLoader.getInstance().isModLoaded("elemental_wizards_rpg");
 	public static final boolean isForcemasterLoaded = FabricLoader.getInstance().isModLoaded("forcemaster_rpg");
 	public static final boolean isRoguesLoaded = FabricLoader.getInstance().isModLoaded("rogues");
+	public static final boolean isLneRoguesLoaded = FabricLoader.getInstance().isModLoaded("lne_rogues");
 	public static final boolean isPaladinsLoaded = FabricLoader.getInstance().isModLoaded("paladins");
+	public static final boolean isLnePaladinsLoaded = FabricLoader.getInstance().isModLoaded("lne_paladins");
 	public static final boolean isWizardsLoaded = FabricLoader.getInstance().isModLoaded("wizards");
+	public static final boolean isLneWizardsLoaded = FabricLoader.getInstance().isModLoaded("lne_wizards");
 	public static final boolean isSkillTreeRPGSeriesLoaded = FabricLoader.getInstance().isModLoaded("skill_tree_rpgs");
 	public static final boolean isSpellEngineExtensionLoaded = FabricLoader.getInstance().isModLoaded("spellengineextension");
 
@@ -91,7 +95,11 @@ public class RPGClassSelection implements ModInitializer {
 		Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(MOD_ID);
 		if (modContainer.isPresent()) {
 			if (isArchersLoaded) {
-				ResourceManagerHelper.registerBuiltinResourcePack(identifier("archers_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				if (isLneArchersLoaded) {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("lne_archers_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				} else {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("archers_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				}
 			}
 			if (isArchersExpansionLoaded) {
 				ResourceManagerHelper.registerBuiltinResourcePack(identifier("archers_expansion_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.archers_expansion_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
@@ -113,16 +121,28 @@ public class RPGClassSelection implements ModInitializer {
 				ResourceManagerHelper.registerBuiltinResourcePack(identifier("forcemaster_class"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.forcemaster_class.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			}
 			if (isPaladinsLoaded) {
-				ResourceManagerHelper.registerBuiltinResourcePack(identifier("paladins_and_priests_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.paladins_and_priests_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				if (isLnePaladinsLoaded) {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("lne_paladins_and_priests_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.paladins_and_priests_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				} else {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("paladins_and_priests_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.paladins_and_priests_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				}
 			}
 			if (isRoguesLoaded) {
-				ResourceManagerHelper.registerBuiltinResourcePack(identifier("rogues_and_warriors_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rogues_and_warriors_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				if (isLneRoguesLoaded) {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("lne_rogues_and_warriors_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rogues_and_warriors_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				} else {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("rogues_and_warriors_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.rogues_and_warriors_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				}
 			}
 			if (isSpellEngineExtensionLoaded && isSkillTreeRPGSeriesLoaded) {
 				ResourceManagerHelper.registerBuiltinResourcePack(identifier("weapon_skill_upgrade_enchantments"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.weapon_skill_upgrade_enchantments.name"), ResourcePackActivationType.DEFAULT_ENABLED);
 			}
 			if (isWizardsLoaded) {
-				ResourceManagerHelper.registerBuiltinResourcePack(identifier("wizards_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.wizards_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				if (isLneWizardsLoaded) {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("lne_wizards_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.wizards_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				} else {
+					ResourceManagerHelper.registerBuiltinResourcePack(identifier("wizards_classes"), modContainer.get(), Text.translatable("resourcepack.rpgclassselection.wizards_classes.name"), ResourcePackActivationType.DEFAULT_ENABLED);
+				}
 			}
 		}
 	}

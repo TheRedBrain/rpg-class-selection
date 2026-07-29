@@ -92,7 +92,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:fire_tier_5_spell_1",
+                    "title": "spell.lne_wizards.fire_flamerush.name",
+                    "icon_path": "lne_wizards:textures/spell/fire_flamerush.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_wizards:fire_flamerush"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

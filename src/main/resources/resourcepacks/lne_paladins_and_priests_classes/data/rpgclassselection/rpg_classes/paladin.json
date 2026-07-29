@@ -81,7 +81,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:paladin_tier_5_spell_1",
+                    "title": "spell.lne_paladins.holy_weapon.name",
+                    "icon_path": "lne_paladins:textures/spell/holy_weapon.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_paladins:holy_weapon"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

@@ -81,7 +81,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:rogue_tier_5_spell_1",
+                    "title": "spell.lne_rogues.dancing_dagger.name",
+                    "icon_path": "lne_rogues:textures/spell/dancing_dagger.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_rogues:dancing_dagger"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [

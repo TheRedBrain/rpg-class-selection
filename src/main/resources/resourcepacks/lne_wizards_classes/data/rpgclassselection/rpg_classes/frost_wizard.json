@@ -81,7 +81,21 @@
                 }
             ]
         },
-        {},
+        {
+            "upgrade_entry_list": [
+                {
+                    "upgrade_identifier": "rpgclassselection:frost_tier_5_spell_1",
+                    "title": "spell.lne_wizards.frost_ray.name",
+                    "icon_path": "lne_wizards:textures/spell/frost_ray.png",
+                    "component_list": [
+                        {
+                            "type": "spell",
+                            "spell_identifier": "lne_wizards:frost_ray"
+                        }
+                    ]
+                }
+            ]
+        },
         {},
         {
             "upgrade_entry_list": [
