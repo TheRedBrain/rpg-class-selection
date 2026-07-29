@@ -4,6 +4,26 @@
 
 - invalid upgrade entries are now displayed as "Invalid Upgrade"
   - upgrades are invalid if one of their components contains an invalid spell/attribute identifier
+- added server config option to hide/show invalid upgrade_entries
+- added a new built-in data pack that adds a number of enchantments. They grant the spell modifiers for the new weapon skills and are meant to be a replacement for the weapon skills tab. This data pack requires Spell Engine Extension.
+- added built-in data packs for the RPG Series classes + their "Loot & Explore" add-on mods by Fichte. These data packs will automatically replace the default data packs when the corresponding add-on mods are loaded.
+- added built-in data packs that add integration for various class mods.
+  - "Druids (RPG Series Plus)" mod by Rulft44
+  - "Bards (More RPG Series)" mod by Fichte
+
+## Changes
+
+- split the built-in data packs, each content mod now has a dedicated compatibility pack which is automatically disabled if the mod is not installed
+- fire mage class is no longer locked behind being in the nether by default
+- updated all classes to their latest versions
+
+## Fixes
+
+- fixed a crash that sometimes occurred when displaying the class selection screen without having a class selected
+
+## Technical
+
+- refactored the class upgrade ids in the built-in data packs to be more in line with the new layout used in the Skill Tree mod
 
 # 1.3.0
 
