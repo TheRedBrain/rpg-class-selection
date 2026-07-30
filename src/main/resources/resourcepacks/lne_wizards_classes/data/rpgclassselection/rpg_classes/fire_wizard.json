@@ -1,16 +1,5 @@
 {
     "class_identifier": "rpgclassselection:fire_wizard",
-    "unlock_predicate": [
-        {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-                "location": {
-                    "dimension": "minecraft:the_nether"
-                }
-            }
-        }
-    ],
     "description": "class_selection_screen.rpgclassselection.fire_wizard.description",
     "locked_description": "class_selection_screen.rpgclassselection.fire_wizard.locked_description",
     "upgrade_entry_group_list": [
