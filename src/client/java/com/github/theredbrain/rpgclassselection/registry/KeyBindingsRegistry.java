@@ -41,7 +41,7 @@ public class KeyBindingsRegistry {
 
 	public static void openClassSelectionScreen(MinecraftClient client) {
 		if (client.player != null) {
-			ServerConfig serverConfig = RPGClassSelection.SERVER_CONFIG;
+			ServerConfig serverConfig = RPGClassSelectionConfigs.SERVER_CONFIG;
 			if (serverConfig.hotkeySettings.enable_class_selection_hotkey) {
 				ClientPlayNetworking.send(new OpenClassSelectionScreenPacket("", false, serverConfig.hotkeySettings.allow_changing_class, serverConfig.hotkeySettings.allow_changing_upgrades));
 			} else {

@@ -2,7 +2,6 @@ package com.github.theredbrain.rpgclassselection;
 
 import com.github.theredbrain.rpgclassselection.compat.RPGInventoryCompat;
 import com.github.theredbrain.rpgclassselection.component.type.ClassStateComponent;
-import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.data.DisplayedRPGClass;
 import com.github.theredbrain.rpgclassselection.data.RPGClass;
 import com.github.theredbrain.rpgclassselection.data.UpgradeEntryComponent;
@@ -10,13 +9,13 @@ import com.github.theredbrain.rpgclassselection.registry.BlockRegistry;
 import com.github.theredbrain.rpgclassselection.registry.CustomDynamicRegistries;
 import com.github.theredbrain.rpgclassselection.registry.DataComponentRegistry;
 import com.github.theredbrain.rpgclassselection.registry.EntityRegistry;
+import com.github.theredbrain.rpgclassselection.registry.RPGClassSelectionConfigs;
 import com.github.theredbrain.rpgclassselection.registry.ScreenHandlerTypesRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ServerEventRegistry;
 import com.github.theredbrain.rpgclassselection.registry.ServerPacketRegistry;
 import com.github.theredbrain.rpgclassselection.screen.ClassSelectionScreenHandler;
 import com.github.theredbrain.rpgclassselection.screen.RPGSeriesClassSelectionScreenHandler;
 import com.github.theredbrain.rpgclassselection.screen.ThreeUpgradesClassSelectionScreenHandler;
-import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
@@ -54,7 +53,6 @@ import java.util.Optional;
 public class RPGClassSelection implements ModInitializer {
 	public static final String MOD_ID = "rpgclassselection";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static ServerConfig SERVER_CONFIG;
 
 	public static final boolean isArchersLoaded = FabricLoader.getInstance().isModLoaded("archers");
 	public static final boolean isLneArchersLoaded = FabricLoader.getInstance().isModLoaded("lne_archers");
@@ -78,12 +76,12 @@ public class RPGClassSelection implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing class selection!");
-		SERVER_CONFIG = ConfigApiJava.registerAndLoadConfig(ServerConfig::new);
 
 		BlockRegistry.init();
 		CustomDynamicRegistries.init();
 		DataComponentRegistry.init();
 		EntityRegistry.init();
+		RPGClassSelectionConfigs.bootstrap();
 		ScreenHandlerTypesRegistry.registerAll();
 		ServerEventRegistry.initializeServerEvents();
 		ServerPacketRegistry.init();
@@ -194,7 +192,7 @@ public class RPGClassSelection implements ModInitializer {
 			}
 
 			int initialClassIndex = 0;
-			ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelection.SERVER_CONFIG.empty_upgrade_mode.get();
+			ClassSelectionScreenHandler.EmptyUpgradeMode emptyUpgradeMode = RPGClassSelectionConfigs.SERVER_CONFIG.empty_upgrade_mode.get();
 
 			Optional<LootContextPredicate> optionalEntityPredicate;
 
@@ -249,7 +247,7 @@ public class RPGClassSelection implements ModInitializer {
 							}
 
 							if (!upgradeEntryIsValid) {
-								if (RPGClassSelection.SERVER_CONFIG.show_invalid_upgrade_entries.get()) {
+								if (RPGClassSelectionConfigs.SERVER_CONFIG.show_invalid_upgrade_entries.get()) {
 									displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.INVALID_UPGRADE);
 									upgradeUnlockStatesList.add(false);
 								}
@@ -348,7 +346,7 @@ public class RPGClassSelection implements ModInitializer {
 				@Nullable
 				@Override
 				public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-					if (RPGClassSelection.SERVER_CONFIG.class_selection_screen_type.get() == ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES) {
+					if (RPGClassSelectionConfigs.SERVER_CONFIG.class_selection_screen_type.get() == ClassSelectionScreenHandler.ClassSelectionScreenType.RPG_SERIES) {
 						return new RPGSeriesClassSelectionScreenHandler(
 								syncId,
 								playerInventory,

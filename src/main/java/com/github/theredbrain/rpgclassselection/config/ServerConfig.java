@@ -18,6 +18,8 @@ public class ServerConfig extends Config {
 
 	public ValidatedBoolean show_invalid_upgrade_entries = new ValidatedBoolean(false);
 
+	public ValidatedBoolean disable_skill_tree_rpg_series = new ValidatedBoolean(true);
+
 	public HotkeySettings hotkeySettings = new HotkeySettings();
 
 	public static class HotkeySettings extends ConfigSection {
