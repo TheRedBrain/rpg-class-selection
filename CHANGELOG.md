@@ -17,6 +17,7 @@
 - split the built-in data packs, each content mod now has a dedicated compatibility pack which is automatically disabled if the mod is not installed
 - fire mage class is no longer locked behind being in the nether by default
 - updated all classes to their latest versions
+- locked upgrades are no longer shown when changing upgrades is disabled, instead "Empty Upgrade" is displayed when no upgrade is selected 
 
 ## Fixes
 

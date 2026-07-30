@@ -271,7 +271,7 @@ public class RPGClassSelection implements ModInitializer {
 										upgradeEntry.component_list()
 								));
 								upgradeUnlockStatesList.add(isUpgradeUnlocked);
-							} else {
+							} else if (allow_changing_upgrades) {
 								displayedUpgradeEntryList.add(DisplayedRPGClass.DisplayedUpgradeEntryGroup.DisplayedUpgradeEntry.LOCKED_UPGRADE);
 								upgradeUnlockStatesList.add(false);
 							}
@@ -281,6 +281,7 @@ public class RPGClassSelection implements ModInitializer {
 						if (
 								((!groupEntryListIsEmpty && allow_changing_upgrades && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.NON_EMPTY_GROUPS) ||
 										(groupEntryListIsEmpty && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.EMPTY_GROUPS) ||
+										(groupEntryListIsEmpty && !allow_changing_upgrades && !upgradeEntryGroup.upgrade_entry_list().isEmpty()) ||
 										((allow_changing_upgrades || groupEntryListIsEmpty) && emptyUpgradeMode == ClassSelectionScreenHandler.EmptyUpgradeMode.ALWAYS)
 												&& isClassUnlocked)
 						) {
