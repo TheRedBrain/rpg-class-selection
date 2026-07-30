@@ -10,6 +10,7 @@
 - added built-in data packs that add integration for various class mods.
   - "Druids (RPG Series Plus)" mod by Rulft44
   - "Bards (More RPG Series)" mod by Fichte
+- added custom key binding category
 
 ## Changes
 

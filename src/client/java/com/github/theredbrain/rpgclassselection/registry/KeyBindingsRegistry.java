@@ -3,6 +3,7 @@ package com.github.theredbrain.rpgclassselection.registry;
 import com.github.theredbrain.rpgclassselection.RPGClassSelection;
 import com.github.theredbrain.rpgclassselection.config.ServerConfig;
 import com.github.theredbrain.rpgclassselection.network.packet.OpenClassSelectionScreenPacket;
+import com.github.theredbrain.rpginventory.RPGInventory;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -19,13 +20,14 @@ public class KeyBindingsRegistry {
 
 	public static KeyBinding openClassSelectionScreen;
 	public static boolean openClassSelectionScreenBoolean;
+	public static String RPG_CLASS_SELECTION;
 
 	public static void registerKeyBindings() {
 		KeyBindingsRegistry.openClassSelectionScreen = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				"key.rpgclassselection.open_class_selection_screen",
 				InputUtil.Type.KEYSYM,
 				GLFW.GLFW_KEY_K,
-				KeyBinding.GAMEPLAY_CATEGORY
+				RPG_CLASS_SELECTION
 		));
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			if (KeyBindingsRegistry.openClassSelectionScreen.wasPressed()) {
@@ -49,4 +51,9 @@ public class KeyBindingsRegistry {
 			}
 		}
 	}
+
+	static {
+		RPG_CLASS_SELECTION = RPGClassSelection.identifier("key_binding_category").toString();
+	}
+
 }
